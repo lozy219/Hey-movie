@@ -27,4 +27,13 @@ CREATE TABLE direct (
 
 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
 	FOREIGN KEY (director_id) REFERENCES director(director_id)
-)
+);
+
+CREATE TABLE act (
+	movie_id INT,
+	actor_id INT,
+	role VARCHAR(30) NOT NULL,
+
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
+	FOREIGN KEY (actor_id) REFERENCES actor(actor_id)
+);
