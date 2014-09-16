@@ -37,3 +37,14 @@ CREATE TABLE act (
 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
 	FOREIGN KEY (actor_id) REFERENCES actor(actor_id)
 );
+
+CREATE TABLE customer (
+	customer_id INT AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	contact VARCHAR(8),
+	register_date INT,
+	DOB INT,
+	profile_pic VARCHAR(200),
+
+	PRIMARY KEY(customer_id),
+);
