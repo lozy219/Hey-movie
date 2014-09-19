@@ -29,6 +29,16 @@ CREATE TABLE direct (
 	FOREIGN KEY (director_id) REFERENCES director(director_id)
 );
 
+CREATE TABLE actor (
+	actor_id INT AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	nationality VARCHAR(30),
+	gender CHAR(1),
+	profile_pic VARCHAR(200),
+
+	PRIMARY KEY (actor_id)
+);
+
 CREATE TABLE act (
 	movie_id INT,
 	actor_id INT,
@@ -59,10 +69,10 @@ CREATE TABLE theater (
 	PRIMARY KEY (theater_id)
 );
 
-CREATE TABLE show (
+CREATE TABLE shows (
 	show_id INT AUTO_INCREMENT,
 	movie_id INT,
-	theater_id INT
+	theater_id INT,
 	start_time TIMESTAMP,
 	end_time TIMESTAMP,
 	subtitle VARCHAR(30),
@@ -82,6 +92,6 @@ CREATE TABLE ticket (
 	seat_no VARCHAR(5),
 
 	PRIMARY KEY (ticket_id),
-	FOREIGN KEY (show_id) REFERENCES show(show_id),
+	FOREIGN KEY (show_id) REFERENCES shows(show_id),
 	FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
