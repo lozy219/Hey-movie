@@ -3,4 +3,4 @@ Hey-movie
 
 A CS2102 Project
 
-![Alt text](http://oi60.tinypic.com/2vtpj4n.jpg "ER diagram")
+![Alt text](http://oi57.tinypic.com/52fc77.jpg "ER diagram")
