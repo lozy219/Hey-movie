@@ -60,8 +60,8 @@ CREATE TABLE customer (
 ); 
 
 CREATE TABLE comment (
-	customer_id INT AUTO_INCREMENT,
-	movie_id INT AUTO_INCREMENT,
+	customer_id INT,
+	movie_id INT,
 	comment_date INT,
 	content VARCHAR(300),
 
