@@ -8,7 +8,7 @@ CREATE TABLE movie (
 	year CHAR(4),
 	title VARCHAR(100) NOT NULL,
 
-	PRIMARY KEY(movie_id)
+	PRIMARY KEY (movie_id)
 );
 
 CREATE TABLE director (
@@ -18,7 +18,7 @@ CREATE TABLE director (
 	gender CHAR(1),
 	profile_pic VARCHAR(200),
 
-	PRIMARY KEY(director_id)
+	PRIMARY KEY (director_id)
 );
 
 CREATE TABLE direct (
@@ -46,5 +46,42 @@ CREATE TABLE customer (
 	DOB INT,
 	profile_pic VARCHAR(200),
 
-	PRIMARY KEY(customer_id),
+	PRIMARY KEY (customer_id)
+); 
+
+CREATE TABLE theater (
+	theater_id INT AUTO_INCREMENT,
+	name VARCHAR(50),
+	location VARCHAR(200),
+	postal_code CHAR(6),
+	contact CHAR(8),
+
+	PRIMARY KEY (theater_id)
+);
+
+CREATE TABLE show (
+	show_id INT AUTO_INCREMENT,
+	movie_id INT,
+	theater_id INT
+	start_time TIMESTAMP,
+	end_time TIMESTAMP,
+	subtitle VARCHAR(30),
+	hall_no INT,
+
+	PRIMARY KEY (show_id),
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
+	FOREIGN KEY (theater_id) REFERENCES theater(theater_id)
+);
+
+CREATE TABLE ticket (
+	ticket_id INT AUTO_INCREMENT,
+	show_id INT,
+	customer_id INT,
+	booking_time TIMESTAMP,
+	price DOUBLE,
+	seat_no VARCHAR(5),
+
+	PRIMARY KEY (ticket_id),
+	FOREIGN KEY (show_id) REFERENCES show(show_id),
+	FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
