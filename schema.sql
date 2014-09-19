@@ -59,6 +59,15 @@ CREATE TABLE customer (
 	PRIMARY KEY (customer_id)
 ); 
 
+CREATE TABLE comment (
+	customer_id INT AUTO_INCREMENT,
+	movie_id INT AUTO_INCREMENT,
+	comment_date INT,
+	content VARCHAR(300),
+
+	FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id)
+);
 CREATE TABLE theater (
 	theater_id INT AUTO_INCREMENT,
 	name VARCHAR(50),
