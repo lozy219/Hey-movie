@@ -2,9 +2,11 @@ Hey-movie
 =========
 **An Online Movie Ticket Booking System**
 
-CS2102 Project 1 
+CS2102 Group 74 Project 1 
+[Lin Fanshi](https://github.com/fanshicomic)  
+[Lei Mingyu](https://github.com/lozy219)  
+[Sun Yuxuan](https://github.com/VIN-S)  
 
-===
 
 ####1. Project Overview
 
