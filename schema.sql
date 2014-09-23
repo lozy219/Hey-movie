@@ -83,11 +83,15 @@ CREATE TABLE theater (
 
 CREATE TABLE show (
 	show_id INT AUTO_INCREMENT,
+	movie_id INT,
+	thearter_id INT,
 	start_time TIMESTAMP,
 	end_time TIMESTAMP,
 	subtitle CHAR(30),
 
-	PRIMARY KEY(show_id);
+	PRIMARY KEY(show_id),
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
+	FOREIGN KEY (theater_id) REFERENCES theater(theater_id)
 );
 
 CREATE TABLE ticket (
@@ -107,4 +111,4 @@ CREATE TABLE cinema_operator(
 	country CHAR(30),
 	
 	PRIMARY KEY (operator_name)
-)
+);
