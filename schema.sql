@@ -36,6 +36,7 @@ CREATE TABLE act (
 	actor_id INT,
 	role VARCHAR(30) NOT NULL,
 
+	PRIMARY KEY(movie_id, actor_id),
 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
 	FOREIGN KEY (actor_id) REFERENCES actor(actor_id)
 );
@@ -57,6 +58,7 @@ CREATE TABLE comment (
 	comment_date DATE,
 	content VARCHAR(300),
 
+	PRIMARY KEY(customer_id, movie_id),
 	FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id)
 );
