@@ -21,14 +21,6 @@ CREATE TABLE director (
 	PRIMARY KEY (director_id)
 );
 
-CREATE TABLE direct (
-	movie_id INT,
-	director_id INT,
-
-	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
-	FOREIGN KEY (director_id) REFERENCES director(director_id)
-);
-
 CREATE TABLE actor (
 	actor_id INT AUTO_INCREMENT,
 	name VARCHAR(30) NOT NULL,
@@ -75,10 +67,10 @@ CREATE TABLE theater (
 	location VARCHAR(200),
 	postal_code CHAR(6),
 	contact CHAR(8),
-	operator_name VARCHAR(50),
+	operator_id VARCHAR(50),
 
 	PRIMARY KEY (theater_id),
-	FOREIGN KEY (operator_name) REFERENCES cinema_operator(operator_name)
+	FOREIGN KEY (operator_id) REFERENCES cinema_operator(operator_id)
 );
 
 CREATE TABLE show (
@@ -107,7 +99,7 @@ CREATE TABLE ticket (
 );
 
 CREATE TABLE cinema_operator(
-	operator_name VARCHAR(50),
+	operator_id VARCHAR(50),
 	country CHAR(30),
 	
 	PRIMARY KEY (operator_name)
