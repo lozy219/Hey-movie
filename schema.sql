@@ -52,8 +52,8 @@ CREATE TABLE customer (
 	customer_id INT AUTO_INCREMENT,
 	name VARCHAR(30) NOT NULL,
 	contact VARCHAR(8),
-	register_date INT,
-	DOB INT,
+	register_date DATE,
+	DOB DATE,
 	profile_pic VARCHAR(200),
 
 	PRIMARY KEY (customer_id)
@@ -62,7 +62,7 @@ CREATE TABLE customer (
 CREATE TABLE comment (
 	customer_id INT,
 	movie_id INT,
-	comment_date INT,
+	comment_date DATE,
 	content VARCHAR(300),
 
 	FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
@@ -75,16 +75,19 @@ CREATE TABLE theater (
 	location VARCHAR(200),
 	postal_code CHAR(6),
 	contact CHAR(8),
+	operator_name VARCHAR(50),
 
-	PRIMARY KEY (theater_id)
+	PRIMARY KEY (theater_id),
+	FOREIGN KEY (operator_name) REFERENCES cinema_operator(operator_name)
 );
 
-CREATE TABLE shows (
+CREATE TABLE show (
 	show_id INT AUTO_INCREMENT,
-	movie_id INT,
+	start_time TIMESTAMP,
+	end_time TIMESTAMP,
+	subtitle CHAR(30),
 
-	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
-	FOREIGN KEY (theater_id) REFERENCES theater(theater_id)
+	PRIMARY KEY(show_id);
 );
 
 CREATE TABLE ticket (
@@ -93,15 +96,15 @@ CREATE TABLE ticket (
 	booking_time TIMESTAMP,
 	price DOUBLE,
 	seat_no VARCHAR(5),
-	show_id INT AUTO_INCREMENT,
-	theater_id INT,
-	start_time TIMESTAMP,
-	end_time TIMESTAMP,
-	subtitle VARCHAR(30),
 	hall_no INT,
 
 	PRIMARY KEY (ticket_id),
-	FOREIGN KEY (theater_id) REFERENCES theater(theater_id)	
-	FOREIGN KEY (show_id) REFERENCES shows(show_id),
 	FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
+
+CREATE TABLE cinema_operator(
+	operator_name VARCHAR(50),
+	country CHAR(30),
+	
+	PRIMARY KEY (operator_name)
+)
