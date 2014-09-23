@@ -68,6 +68,7 @@ CREATE TABLE comment (
 	FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id)
 );
+
 CREATE TABLE theater (
 	theater_id INT AUTO_INCREMENT,
 	name VARCHAR(50),
@@ -78,7 +79,12 @@ CREATE TABLE theater (
 	PRIMARY KEY (theater_id)
 );
 
-CREATE TABLE shows (
+CREATE TABLE ticket (
+	ticket_id INT AUTO_INCREMENT,
+	customer_id INT,
+	booking_time TIMESTAMP,
+	price DOUBLE,
+	seat_no VARCHAR(5),
 	show_id INT AUTO_INCREMENT,
 	movie_id INT,
 	theater_id INT,
@@ -87,20 +93,9 @@ CREATE TABLE shows (
 	subtitle VARCHAR(30),
 	hall_no INT,
 
-	PRIMARY KEY (show_id),
-	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
-	FOREIGN KEY (theater_id) REFERENCES theater(theater_id)
-);
-
-CREATE TABLE ticket (
-	ticket_id INT AUTO_INCREMENT,
-	show_id INT,
-	customer_id INT,
-	booking_time TIMESTAMP,
-	price DOUBLE,
-	seat_no VARCHAR(5),
-
 	PRIMARY KEY (ticket_id),
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
+	FOREIGN KEY (theater_id) REFERENCES theater(theater_id)	
 	FOREIGN KEY (show_id) REFERENCES shows(show_id),
 	FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
