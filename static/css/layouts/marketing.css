@@ -58,7 +58,7 @@ label {
     font-size: 100%;
 }
 
-.pure-form input[type] {
+.pure-form input[type="email"], input[type="password"], input[type="text"] {
     border: 2px solid #ddd;
     box-shadow: none;
     font-size: 100%;
@@ -181,6 +181,17 @@ a.pure-button-primary {
     /* These styles are required for the "scroll-over" effect */
     position: absolute;
     top: 87%;
+    width: 100%;
+    min-height: 12%;
+    z-index: 2;
+    background: white;
+
+}
+
+.content-wrapper-form {
+    /* These styles are required for the "scroll-over" effect */
+    position: absolute;
+    top: 20%;
     width: 100%;
     min-height: 12%;
     z-index: 2;

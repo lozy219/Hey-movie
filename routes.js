@@ -10,4 +10,5 @@ var user = require('./controllers/user');
 module.exports = function routes(app) {
 	app.get('/', index);
 	app.get('/login', user.login);
+	app.get('/signup', user.signup);
 };

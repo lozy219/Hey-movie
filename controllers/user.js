@@ -24,3 +24,7 @@ co(function*() {
 exports.login = function* (){
 	this.body = yield render('login');
 };
+
+exports.signup = function* (){
+	this.body = yield render('signup');
+};
