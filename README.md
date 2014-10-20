@@ -22,9 +22,9 @@ For administrators, they will have a different interface after logging in. Throu
 
 As mentioned above, the system will be connected to a database and displayed as a website. Hence, the techniques and softwares will involve the following:
 
-Techniques                     | Tools      | 
------------------------------- | ---------- | 
-HTML,CSS, PHP, SQL, JavaScript | MySQL, Git |
+Techniques           | Tools           | 
+-------------------- | --------------- | 
+HTML,CSS,SQL,Node.js | MySQL, Git, koa |
 
 ######2.2 Relational Schema
 
