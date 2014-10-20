@@ -182,7 +182,7 @@ a.pure-button-primary {
 }
 
 /*
- * -- SIGNUP STYLES --
+ * -- SIGNUP AND LOGIN STYLES --
  *
  */
 .signup-header {
@@ -195,6 +195,10 @@ a.pure-button-primary {
     font-size: 18px;
 }
 
+.login-create-account {
+    text-align: center;
+    font-size: 18px;
+}
 /*
  * -- CONTENT STYLES --
  * This represents the content area (everything below the blue section)

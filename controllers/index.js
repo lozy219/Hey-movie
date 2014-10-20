@@ -8,7 +8,7 @@ var views = require('co-views');
 var mysql = require('co-mysql');
 
 var result;
-var render = views(__dirname + '/../views', { ext: 'ejs' });
+var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 co(function*() {
 	var pool = mysql.createPool({
