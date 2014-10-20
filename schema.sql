@@ -49,6 +49,7 @@ DROP TABLE IF EXISTS customer;
 CREATE TABLE customer (
 	customer_id INT AUTO_INCREMENT,
 	name VARCHAR(30) NOT NULL,
+	password VARCHAR(500) NOT NULL,
 	contact VARCHAR(8),
 	email VARCHAR(50),
 	register_date DATE,

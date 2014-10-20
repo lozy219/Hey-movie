@@ -6,19 +6,10 @@ var page = fs.readFileSync(path.join(__dirname, '../views/index.ejs'), 'utf8');
 var co = require('co');
 var views = require('co-views');
 var mysql = require('co-mysql');
+var customer = require('../modles/customer.js');
 
 var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
-
-co(function*() {
-	var pool = mysql.createPool({
-		host     : 'localhost',
-		user     : 'root',
-		password : 'password',
-		database : 'hey_movie'
-	});
-	pool.end();
-})();
 
 // render
 exports.show_login = function* (){
@@ -30,5 +21,6 @@ exports.show_signup = function* (){
 };
 
 exports.signup = function* (){
+	yield customer.insert(this.request.body);
 	this.body = this.request.body;
 };

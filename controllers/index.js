@@ -10,22 +10,11 @@ var mysql = require('co-mysql');
 var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
 
-co(function*() {
-	var pool = mysql.createPool({
-		host     : 'localhost',
-		user     : 'root',
-		password : 'password',
-		database : 'hey_movie'
-	});
-	result = yield pool.query('SELECT count(*) AS count FROM movie');
-	pool.end();
-})();
-
 // render
 module.exports = function* home(next) {
-	var ans = {
-		table : 'movie',
-		count : result[0][0].count
-	};
-	this.body = yield render('index', {ans : ans});
+	// var ans = {
+	// 	table : 'movie',
+	// 	count : result[0][0].count
+	// };
+	this.body = yield render('index'/*, {ans : ans}*/);
 };
