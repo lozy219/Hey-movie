@@ -87,7 +87,7 @@ a.pure-button-primary {
 
 /*
  * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
+ * I want to customize how my . looks at the top of the page
  */
 
 .home-menu {
@@ -104,7 +104,7 @@ a.pure-button-primary {
     /* I need a higher z-index here because of the scroll-over effect. */
     z-index: 4;
     font-size: 24px;
-    background-color: rgba(200,200,200,0.9);
+    background-color: rgba(190,190,190,0.9);
 }
 
 .home-menu .pure-menu-heading {
@@ -179,6 +179,20 @@ a.pure-button-primary {
 
 .film-bottom{
     margin-bottom: -100%;
+}
+
+/*
+ * -- SIGNUP STYLES --
+ *
+ */
+.signup-header {
+    text-align: center;
+    font-size: 50px;
+}
+
+.signup-have-account {
+    text-align: center;
+    font-size: 18px;
 }
 
 /*
