@@ -79,7 +79,7 @@ label {
 
 a.pure-button-primary {
     background: white;
-    color: #1f8dd6;
+    color: #000;
     border-radius: 5px;
     font-size: 120%;
 }
@@ -98,7 +98,7 @@ a.pure-button-primary {
 .home-menu.pure-menu-open {
     background: #2d3e50;
 }
-.pure-menu.pure-menu-open.pure-menu-fixed {
+.pure-menu.pure-menu-open.pure-menu-fixed 
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
     /* I need a higher z-index here because of the scroll-over effect. */
