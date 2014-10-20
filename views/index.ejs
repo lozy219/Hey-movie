@@ -37,8 +37,50 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
         <p>
             <a href="http://purecss.io" class="pure-button pure-button-primary">Get Started</a>
         </p>
-    </div>    
-  </div>
+    </div>   
+
+ 
+
+<!-- 滚动 下 -->
+
+<div id="butong_net_right_bottom" style="overflow:hidden;width:1500px;">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr><td id="butong_net_right1_bottom" valign="top" align="center">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr align="center"> 
+    
+<td><p><img src="img/film.png"/></p></td>
+<td><p><img src="img/film.png"/></p></td>
+    
+</tr>
+</table>
+</td>
+<td id="butong_net_right2_bottom" valign="top"></td>
+</tr>
+</table>
+</div>
+
+<script>
+var speed=30//速度数值越大速度越慢
+butong_net_right2_bottom.innerHTML=butong_net_right1_bottom.innerHTML
+function Marquee4_bottom(){
+if(butong_net_right_bottom.scrollLeft<=0)
+butong_net_right_bottom.scrollLeft+=butong_net_right2_bottom.offsetWidth
+else{
+butong_net_right_bottom.scrollLeft--
+}
+}
+var MyMar4_bottom=setInterval(Marquee4_bottom,speed)
+butong_net_right_bottom.onmouseover=function() {clearInterval(MyMar4_bottom)}
+butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee4_bottom,speed)}
+</script>
+
+
+</div>
+
+
+
+
 
   <div class="content-wrapper">
     <div class="content">
@@ -120,9 +162,9 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
     </div>
 
 
-  <!-- 
+
   <p>
   <!-- There are <%= ans.count %> rows in <%= ans.table %> -->
   </p>
-   -->
+   
 <%= include footer.ejs %>
