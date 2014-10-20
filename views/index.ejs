@@ -1,7 +1,7 @@
 <%= include header.ejs %>
   <div class="splash-container">
     <!-- 滚动 上 -->
-    <div id="butong_net_right" style="overflow:hidden;width:1500px;">
+    <div id="butong_net_right" style="overflow:hidden;width:100%;">
 <table cellpadding="0" cellspacing="0" border="0">
 <tr><td id="butong_net_right1" valign="top" align="center">
 <table cellpadding="0" cellspacing="0" border="0">
@@ -26,8 +26,10 @@ butong_net_right.scrollLeft--
 }
 }
 var MyMar4=setInterval(Marquee4,speed)
-butong_net_right.onmouseover=function() {clearInterval(MyMar4)}
+(onmouseover = "this.start()")
 butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
+
+
 </script>
     <div class="splash">        
         <h1 class="splash-head">Hey Movie!</h1>
@@ -43,7 +45,7 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
 
 <!-- 滚动 下 -->
 
-<div id="butong_net_right_bottom" style="overflow:hidden;width:1500px;margin-top:400px;" >
+<div id="butong_net_right_bottom" style="overflow:hidden;width:100%;margin-top:400px;" >
 <table cellpadding="0" cellspacing="0" border="0">
 <tr><td id="butong_net_right1_bottom" valign="top" align="center">
 <table cellpadding="0" cellspacing="0" border="0">
@@ -71,7 +73,7 @@ butong_net_right_bottom.scrollLeft--
 }
 }
 var MyMar4_bottom=setInterval(Marquee4_bottom,speed)
-butong_net_right_bottom.onmouseover=function() {clearInterval(MyMar4_bottom)}
+(onmouseover = "this.start()")
 butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee4_bottom,speed)}
 </script>
 
