@@ -104,7 +104,7 @@ a.pure-button-primary {
     /* I need a higher z-index here because of the scroll-over effect. */
     z-index: 4;
     font-size: 24px;
-    background-color: rgba(200,200,200,0.5);
+    background-color: rgba(200,200,200,0.9);
 }
 
 .home-menu .pure-menu-heading {
@@ -153,7 +153,7 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     position: absolute;
-    top: 30px; left: 0; bottom: 0; right: 0;
+    top: 100px; left: 0; bottom: 125px; right: 0;
     text-align: center;
     text-transform: uppercase;
 }
