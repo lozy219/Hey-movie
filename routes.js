@@ -9,6 +9,8 @@ var user = require('./controllers/user');
 
 module.exports = function routes(app) {
 	app.get('/', index);
-	app.get('/login', user.login);
-	app.get('/signup', user.signup);
+	app.get('/login', user.show_login);
+	app.get('/signup', user.show_signup);
+
+	app.post('/user/signup', user.signup);
 };

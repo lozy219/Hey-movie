@@ -6,8 +6,13 @@ var path = require('path');
 var http = require('http');
 var koa = require('koa');
 var serve = require('koa-static');
+var bodyParser = require('koa-body-parser');
+
+
 
 var app = koa();
+app.use(bodyParser());
+
 /**
  * ignore favicon
  */

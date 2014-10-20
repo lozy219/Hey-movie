@@ -2,13 +2,13 @@
 <div class="content-wrapper-form">
     <div class="content">
         <p class="signup-header">Join Hey Movie!</p>
-        <form class="pure-form pure-form-single">
+        <form action="/user/signup" method="post" class="pure-form pure-form-single">
             <fieldset>
                     <!-- <legend>A compact inline form</legend> -->
 
-                    <input id="name" type="text" placeholder="Your Name">
-                    <input type="password" placeholder="Password">
-                    <input type="email" placeholder="Email">
+                    <input id="name" name="name" type="text" placeholder="Your Name">
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="email" name="email" placeholder="Email">
 
                     <button type="submit" class="pure-button pure-button-primary">Sign up</button>
             </fieldset>

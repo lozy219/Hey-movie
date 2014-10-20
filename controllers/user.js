@@ -21,10 +21,14 @@ co(function*() {
 })();
 
 // render
-exports.login = function* (){
+exports.show_login = function* (){
 	this.body = yield render('login');
 };
 
-exports.signup = function* (){
+exports.show_signup = function* (){
 	this.body = yield render('signup');
+};
+
+exports.signup = function* (){
+	this.body = this.request.body;
 };
