@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS movie ;
 CREATE TABLE movie (
 	movie_id INT AUTO_INCREMENT,
 	IMDB_link VARCHAR(200),
@@ -11,6 +12,7 @@ CREATE TABLE movie (
 	PRIMARY KEY (movie_id)
 );
 
+DROP TABLE IF EXISTS director;
 CREATE TABLE director (
 	director_id INT AUTO_INCREMENT,
 	name VARCHAR(30) NOT NULL,
@@ -21,6 +23,7 @@ CREATE TABLE director (
 	PRIMARY KEY (director_id)
 );
 
+DROP TABLE IF EXISTS actor;
 CREATE TABLE actor (
 	actor_id INT AUTO_INCREMENT,
 	name VARCHAR(30) NOT NULL,
@@ -31,16 +34,18 @@ CREATE TABLE actor (
 	PRIMARY KEY (actor_id)
 );
 
+DROP TABLE IF EXISTS act;
 CREATE TABLE act (
 	movie_id INT,
 	actor_id INT,
 	role VARCHAR(30) NOT NULL,
 
 	PRIMARY KEY(movie_id, actor_id),
-	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
-	FOREIGN KEY (actor_id) REFERENCES actor(actor_id)
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id) ON DELETE CASCADE,
+	FOREIGN KEY (actor_id) REFERENCES actor(actor_id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS customer;
 CREATE TABLE customer (
 	customer_id INT AUTO_INCREMENT,
 	name VARCHAR(30) NOT NULL,
@@ -52,6 +57,7 @@ CREATE TABLE customer (
 	PRIMARY KEY (customer_id)
 ); 
 
+DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
 	customer_id INT,
 	movie_id INT,
@@ -59,10 +65,19 @@ CREATE TABLE comment (
 	content VARCHAR(300),
 
 	PRIMARY KEY(customer_id, movie_id),
-	FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-	FOREIGN KEY (movie_id) REFERENCES movie(movie_id)
+	FOREIGN KEY (customer_id) REFERENCES customer(customer_id) ON DELETE CASCADE,
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS cinema_operator;
+CREATE TABLE cinema_operator(
+	operator_id VARCHAR(50),
+	country CHAR(30),
+	
+	PRIMARY KEY (operator_id)
+);
+
+DROP TABLE IF EXISTS theater;
 CREATE TABLE theater (
 	theater_id INT AUTO_INCREMENT,
 	name VARCHAR(50),
@@ -72,10 +87,11 @@ CREATE TABLE theater (
 	operator_id VARCHAR(50),
 
 	PRIMARY KEY (theater_id),
-	FOREIGN KEY (operator_id) REFERENCES cinema_operator(operator_id)
+	FOREIGN KEY (operator_id) REFERENCES cinema_operator(operator_id) ON DELETE CASCADE
 );
 
-CREATE TABLE show (
+DROP TABLE IF EXISTS shows;
+CREATE TABLE shows (
 	show_id INT AUTO_INCREMENT,
 	movie_id INT,
 	thearter_id INT,
@@ -84,10 +100,11 @@ CREATE TABLE show (
 	subtitle CHAR(30),
 
 	PRIMARY KEY(show_id),
-	FOREIGN KEY (movie_id) REFERENCES movie(movie_id),
-	FOREIGN KEY (theater_id) REFERENCES theater(theater_id)
+	FOREIGN KEY (movie_id) REFERENCES movie(movie_id) ON DELETE CASCADE,
+	FOREIGN KEY (theater_id) REFERENCES theater(theater_id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS ticket;
 CREATE TABLE ticket (
 	ticket_id INT AUTO_INCREMENT,
 	customer_id INT,
@@ -97,12 +114,6 @@ CREATE TABLE ticket (
 	hall_no INT,
 
 	PRIMARY KEY (ticket_id),
-	FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+	FOREIGN KEY (customer_id) REFERENCES customer(customer_id) ON DELETE CASCADE
 );
 
-CREATE TABLE cinema_operator(
-	operator_id VARCHAR(50),
-	country CHAR(30),
-	
-	PRIMARY KEY (operator_name)
-);
