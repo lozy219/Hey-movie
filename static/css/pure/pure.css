@@ -91,7 +91,9 @@ button,
 input,
 select,
 textarea {
-    font-family: sans-serif;
+    font-family: "le-havre-rounded",sans-serif;
+    font-style: normal;
+    font-weight: 300;
 }
 
 /**
