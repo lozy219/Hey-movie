@@ -5,6 +5,7 @@ var routes = require('./routes');
 var path = require('path');
 var http = require('http');
 var koa = require('koa');
+var serve = require('koa-static');
 
 var app = koa();
 /**
@@ -22,6 +23,11 @@ app.use(middlewares.rt());
  */
 app.use(middlewares.router(app));
 routes(app);
+
+/**
+ * static
+ */
+app.use(serve(__dirname + '/static'));
 
 app = module.exports = http.createServer(app.callback());
 
