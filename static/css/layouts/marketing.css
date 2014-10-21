@@ -201,7 +201,7 @@ a.pure-button-primary {
     text-align: center;
     margin: auto;
     color: red;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     box-shadow: none;
     font-size: 100%;
 }
