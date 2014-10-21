@@ -21,6 +21,11 @@ exports.show_signup = function* (){
 };
 
 exports.signup = function* (){
-	yield customer.insert(this.request.body);
-	this.body = this.request.body;
+	var result = yield customer.insert(this.request.body);
+	if (result == false){
+		console.log('success');
+		
+	} else {
+		this.body = this.request.body;
+	}
 };
