@@ -40,7 +40,7 @@ exports.login = function* (){
 	if (password == null) {
 		console.log('No such user'); 
 	} else if (password === this.request.body.password) {
-		console.log('Success');
+		console.log('Login Successfully');
 	} else {
 		console.log('Password is incorrect');
 	}
