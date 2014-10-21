@@ -13,7 +13,13 @@ exports.insert = function* (customer) {
 	}
 };
 
-exports.get_customer_password = function* (customer_email){
+exports.get_password_by_email = function* (customer) {
+	var customer = yield db.get_customer_by_email(customer.email);
 
-	return yield db.return_customer_password(customer_email);
+	if(customer.length == 1) {
+		 return customer[0].password;
+		}
+	else {
+		 return null;
+		}
 };

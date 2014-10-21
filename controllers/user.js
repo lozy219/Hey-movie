@@ -36,13 +36,12 @@ exports.check_username = function* (){
 };
 
 exports.login = function* (){
-	var login_customer = this.request.body;
-	var password_existence = yield customer.get_customer_password(login_customer.email);
-	if (password_existence == null) {
-		console.log('false 1'); 
-	} else if (password_existence === login_customer.password) {
-		console.log('success');
+	var password = yield customer.get_password_by_email(this.request.body);
+	if (password == null) {
+		console.log('No such user'); 
+	} else if (password === this.request.body.password) {
+		console.log('Success');
 	} else {
-		console.log('false 2');
+		console.log('Password is incorrect');
 	}
 };
