@@ -26,3 +26,11 @@ exports.get_customer_by_email = function* (email) {
 	var query = 'SELECT * FROM customer WHERE email="' + email + '"';
 	return (yield pool.query(query))[0];
 }
+
+exports.return_customer_password = function* (customer_email){
+	var query_customers = 'SELECT * FROM customer WHERE email="' + customer_email + '"';
+	var customer_returned = yield pool.query(query_customers);
+	var password = null;
+	if(customer_returned[0].length == 1) return customer_returned[0].password;
+	else return password;
+};

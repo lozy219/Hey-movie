@@ -34,3 +34,15 @@ exports.check_username = function* (){
 	var result = yield db.get_customer_by_username(this.request.body.username);
 	this.body = result;
 };
+
+exports.login = function* (){
+	var login_customer = this.request.body;
+	var password_existence = yield customer.get_customer_password(login_customer.email);
+	if (password_existence == null) {
+		console.log('false');
+	} else if (password_existence === login_customer.password) {
+		console.log('success');
+	} else {
+		console.log('false');
+	}
+};

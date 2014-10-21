@@ -12,3 +12,8 @@ exports.insert = function* (customer) {
 		return false;
 	}
 };
+
+exports.get_customer_password = function* (customer_email){
+
+	return yield db.return_customer_password(customer_email);
+};
