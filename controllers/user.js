@@ -33,6 +33,6 @@ exports.signup = function* (){
 exports.check_username = function* (){
 	var result = yield db.get_customer_by_username(this.request.body.username);
 	this.body = result;
-}
+};
 
 
