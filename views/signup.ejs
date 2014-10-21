@@ -1,14 +1,28 @@
 <%= include header.ejs %>
+<script>
+    $(document).ready(function(){
+        alert("ready");
+        $("#username").keyup(function (e) {
+            var username = $(this).val(); //get the string typed by user
+            $.post('/ajax/check_username', {'username':username}, function(data) {
+                if (data[0].length !== 0) {
+                    $("#error").html("username exists!");
+                } else {
+                    $("#error").html("&nbsp;");
+                }
+            });
+        });
+    });
+</script>
 <div class="content-wrapper-form">
     <div class="content">
         <p class="signup-header">Join Hey Movie!</p>
-        <div class="signup-error-box"> Invalid username or email!</div> 
-        <p></p>
+        <div id="error" class="signup-error-box">&nbsp;</div> 
         <form action="/user/signup" method="post" class="pure-form pure-form-single">
             <fieldset>
                     <!-- <legend>A compact inline form</legend> -->
 
-                    <input id="name" name="name" type="text" placeholder="Your Name">
+                    <input id="username" name="name" type="text" placeholder="Your Name">
                     <input type="password" name="password" placeholder="Password">
                     <input type="email" name="email" placeholder="Email">
 

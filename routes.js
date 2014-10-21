@@ -13,4 +13,6 @@ module.exports = function routes(app) {
 	app.get('/signup', user.show_signup);
 
 	app.post('/user/signup', user.signup);
+
+	app.post('/ajax/check_username', user.check_username);
 };
