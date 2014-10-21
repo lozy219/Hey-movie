@@ -31,6 +31,13 @@ exports.return_customer_password = function* (customer_email){
 	var query_customers = 'SELECT * FROM customer WHERE email="' + customer_email + '"';
 	var customer_returned = yield pool.query(query_customers);
 	var password = null;
-	if(customer_returned[0].length == 1) return customer_returned[0].password;
-	else return password;
+
+	if(customer_returned[0].length == 1) {
+		password=customer_returned[0][0];
+		console.log(password);
+		 return customer_returned[0].password;
+		}
+	else {
+		 return password;
+		}
 };

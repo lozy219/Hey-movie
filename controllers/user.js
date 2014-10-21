@@ -39,10 +39,10 @@ exports.login = function* (){
 	var login_customer = this.request.body;
 	var password_existence = yield customer.get_customer_password(login_customer.email);
 	if (password_existence == null) {
-		console.log('false');
+		console.log('false 1'); 
 	} else if (password_existence === login_customer.password) {
 		console.log('success');
 	} else {
-		console.log('false');
+		console.log('false 2');
 	}
 };
