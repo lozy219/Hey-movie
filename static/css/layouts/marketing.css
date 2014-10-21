@@ -198,10 +198,12 @@ a.pure-button-primary {
 .signup-error-box {
     width: 20%;
     height: 10%;
-    background: red;
     text-align: center;
     margin: auto;
-    color: white;
+    color: red;
+    border: 2px solid red;
+    box-shadow: none;
+    font-size: 100%;
 }
 
 .login-create-account {
