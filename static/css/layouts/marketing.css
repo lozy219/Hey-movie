@@ -195,6 +195,15 @@ a.pure-button-primary {
     font-size: 18px;
 }
 
+.signup-error-box {
+    width: 20%;
+    height: 10%;
+    background: red;
+    text-align: center;
+    margin: auto;
+    color: white;
+}
+
 .login-create-account {
     text-align: center;
     font-size: 18px;

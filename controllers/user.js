@@ -24,7 +24,6 @@ exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
 		console.log('success');
-		
 	} else {
 		this.body = this.request.body;
 	}
