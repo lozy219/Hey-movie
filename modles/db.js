@@ -21,18 +21,10 @@ exports.add_customer = function* (customer) {
 
 exports.get_customer_by_username = function* (username) {
 	var query = 'SELECT * FROM customer WHERE name="' + username + '"';
-	return yield pool.query(query);
+	return (yield pool.query(query))[0];
 }
 
 exports.get_customer_by_email = function* (email) {
 	var query = 'SELECT * FROM customer WHERE email="' + email + '"';
-	return yield pool.query(query);
+	return (yield pool.query(query))[0];
 }
-
-
-
-
-
-
-
-

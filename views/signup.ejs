@@ -4,7 +4,7 @@
         $("#username").keyup(function (e) {
             var username = $(this).val(); //get the string typed by user
             $.post('/ajax/check_username', {'username':username}, function(data) {
-                if (data[0].length !== 0) {
+                if (data.length !== 0) {
                     $("#error").html("username exists!");
                 } else {
                     $("#error").html("&nbsp;");
