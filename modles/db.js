@@ -21,14 +21,14 @@ exports.add_customer = function* (customer) {
 
 // check both username and email existence
 exports.customer_existence = function* (customer) {
-	var query_username = 'SELECT EXISTS(SELECT 1 FROM users WHERE name="'+customer.name+'")';
+	console.log("test");
+	var query_username = 'SELECT count(*) FROM customer WHERE name="'+customer.name+'"';
 	console.log(yield pool.query(query_username));
-	var query_username_exists = yield pool.query(query_username);
-	var username_number = query_username_exists.length;
+	var username_number = yield pool.query(query_username);
 
-	var query_email = 'SELECT EXISTS(SELECT 1 FROM users WHERE email="'+customer.email+'")';
+	var query_email = 'SELECT count(*) FROM customer WHERE email="'+customer.email+'"';
 	console.log(yield pool.query(query_email));
-	var query_email_exists = yield pool.query(query_email);
-	var email_number = query_email_exists.length;
+	var email_number = yield pool.query(query_email);
+
 	return (username_number == 0 && email_number == 0);
 }

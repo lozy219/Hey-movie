@@ -23,7 +23,7 @@ exports.show_signup = function* (){
 exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
-		console.log('success');
+		console.log('signup failed');
 	} else {
 		this.body = this.request.body;
 	}
