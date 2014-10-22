@@ -14,11 +14,11 @@ var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 // render
 exports.show_login = function* (){
-	this.body = yield render('login');
+	this.body = yield render('login', {user : this.session.customer});
 };
 
 exports.show_signup = function* (){
-	this.body = yield render('signup');
+	this.body = yield render('signup', {user : this.session.customer});
 };
 
 exports.signup = function* (){

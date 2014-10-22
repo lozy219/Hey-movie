@@ -3,6 +3,7 @@
 var db = require('./db.js');
 
 exports.insert = function* (customer) {
+	console.log(customer);
 	var name = yield db.get_customer_by_username(customer.name);
 	var email = yield db.get_customer_by_email(customer.email);
 
