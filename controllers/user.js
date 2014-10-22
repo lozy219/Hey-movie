@@ -17,6 +17,10 @@ exports.show_login = function* (){
 	this.body = yield render('login');
 };
 
+exports.show_logout = function* (){
+	this.body = yield render('logout');
+};
+
 exports.show_signup = function* (){
 	this.body = yield render('signup');
 };
