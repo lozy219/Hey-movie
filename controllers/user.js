@@ -26,7 +26,9 @@ exports.signup = function* (){
 	if (result == false){
 		console.log('signup failed');
 	} else {
-		this.body = this.request.body;
+		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
+		this.response.redirect('/');
+		// this.body = this.request.body;
 	}
 };
 
