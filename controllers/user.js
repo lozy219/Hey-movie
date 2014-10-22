@@ -17,11 +17,6 @@ exports.show_login = function* (){
 	this.body = yield render('login');
 };
 
-exports.show_logout = function* (){
-	this.session = null;
-	this.body = yield render('logout');
-};
-
 exports.show_signup = function* (){
 	this.body = yield render('signup');
 };
@@ -51,4 +46,9 @@ exports.login = function* (){
 	} else {
 		console.log('Password is incorrect');
 	}
+};
+
+exports.logout = function* (){
+	this.session = null;
+	this.response.redirect('/');
 };
