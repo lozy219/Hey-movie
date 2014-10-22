@@ -1,12 +1,13 @@
 'use strict';
 
-var mysql = require('co-mysql');
+var mysql  = require('co-mysql');
+var config = require('../config.js');
 
 var pool = mysql.createPool({
-	host     : 'localhost',
-	user     : 'root',
-	password : 'password',
-	database : 'hey_movie'
+	host     : config.db_host,
+	user     : config.db_user,
+	password : config.db_password,
+	database : config.database
 });
 
 exports.add_customer = function* (customer) {

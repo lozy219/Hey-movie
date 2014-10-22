@@ -16,8 +16,8 @@
     </table>
 </div>
 <script>
-var speed=30//速度数值越大速度越慢
-butong_net_right2.innerHTML=butong_net_right1.innerHTML
+var speed=30;
+butong_net_right2.innerHTML=butong_net_right1.innerHTML;
 function Marquee4(){
     if(butong_net_right.scrollLeft<=0)
         butong_net_right.scrollLeft+=butong_net_right2.offsetWidth
@@ -25,9 +25,9 @@ function Marquee4(){
         butong_net_right.scrollLeft--
     }
 }
-var MyMar4=setInterval(Marquee4,speed)
+var MyMar4=setInterval(Marquee4,speed);
 (onmouseover = "this.start()")
-butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
+butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)};
 
 
 </script>
@@ -36,8 +36,10 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
         console.log(user);
         if (user === undefined) { 
             %>Movie!<% 
+        } else if (user.is_admin){
+            %><%= user.name + '!!!' %><%
         } else {
-            %><%= user[0].name + '!' %><%
+            %><%= user.name + '!' %><%
         } %></h1>
     <p class="splash-subhead">
         More than your imagination
@@ -69,8 +71,8 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
 </div>
 
 <script>
-var speed=30//速度数值越大速度越慢
-butong_net_right2_bottom.innerHTML=butong_net_right1_bottom.innerHTML
+var speed=30;
+butong_net_right2_bottom.innerHTML=butong_net_right1_bottom.innerHTML;
 function Marquee4_bottom(){
     if(butong_net_right_bottom.scrollLeft<=0)
         butong_net_right_bottom.scrollLeft+=butong_net_right2_bottom.offsetWidth

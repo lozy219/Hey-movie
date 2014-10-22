@@ -1,13 +1,14 @@
 'use strict';
 
-var path = require('path');
-var fs = require('fs');
-var page = fs.readFileSync(path.join(__dirname, '../views/index.ejs'), 'utf8');
-var co = require('co');
-var views = require('co-views');
-var mysql = require('co-mysql');
+var path     = require('path');
+var fs       = require('fs');
+var page     = fs.readFileSync(path.join(__dirname, '../views/index.ejs'), 'utf8');
+var co       = require('co');
+var views    = require('co-views');
+var mysql    = require('co-mysql');
 var customer = require('../modles/customer.js');
-var db = require('../modles/db.js');
+var db       = require('../modles/db.js');
+var config   = require('../config.js');
 
 var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
@@ -28,7 +29,6 @@ exports.signup = function* (){
 	} else {
 		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
 		this.response.redirect('/');
-		// this.body = this.request.body;
 	}
 };
 
@@ -43,7 +43,16 @@ exports.login = function* (){
 		console.log('No such user'); 
 	} else if (password === this.request.body.password) {
 		console.log('Login Successfully');
-		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
+		var current_customer = yield db.get_customer_by_email(this.request.body.email);
+		if (current_customer !== undefined) {
+			current_customer = current_customer[0];
+			if (config.admin_id.indexOf(current_customer.customer_id) !== -1) {
+				current_customer.is_admin = true;
+			} else {
+				current_customer.is_admin = false;
+			}
+		}
+		this.session.customer = current_customer;
 		this.response.redirect('/');
 	} else {
 		console.log('Password is incorrect');
