@@ -18,6 +18,7 @@ exports.show_login = function* (){
 };
 
 exports.show_logout = function* (){
+	this.session = null;
 	this.body = yield render('logout');
 };
 
