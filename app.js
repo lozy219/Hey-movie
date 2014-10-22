@@ -7,25 +7,26 @@ var http = require('http');
 var koa = require('koa');
 var serve = require('koa-static');
 var bodyParser = require('koa-body-parser');
+var session = require('koa-session');
 
 
 
 var app = koa();
+
+// use session
+app.keys = ['test sess'];
+app.use(session());
+
+// retrieve info from form request
 app.use(bodyParser());
 
-/**
- * ignore favicon
- */
+// ignore favicon
 app.use(middlewares.favicon());
 
-/**
- * response time header
- */
+// response time header
 app.use(middlewares.rt());
 
-/**
- * router
- */
+// router
 app.use(middlewares.router(app));
 routes(app);
 

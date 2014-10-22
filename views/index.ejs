@@ -32,7 +32,13 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
 
 </script>
 <div class="splash">        
-    <h1 class="splash-head">Hey Movie!</h1>
+    <h1 class="splash-head">Hey <% 
+        console.log(user);
+        if (user === undefined) { 
+            %>Movie!<% 
+        } else {
+            %><%= user[0].name + '!' %><%
+        } %></h1>
     <p class="splash-subhead">
         More than your imagination
     </p>

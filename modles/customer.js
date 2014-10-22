@@ -13,13 +13,22 @@ exports.insert = function* (customer) {
 	}
 };
 
-exports.get_password_by_email = function* (customer) {
-	var customer = yield db.get_customer_by_email(customer.email);
+exports.get_password_by_email = function* (email) {
+	var customer = yield db.get_customer_by_email(email);
 
-	if(customer.length == 1) {
-		 return customer[0].password;
-		}
-	else {
-		 return null;
-		}
+	if (customer.length == 1) {
+		return customer[0].password;
+	} else {
+		return null;
+	}
 };
+
+exports.get_customer_id_by_email = function* (email) {
+	var customer = yield db.get_customer_by_email(email);
+
+	if (customer.length == 1) {
+		return customer[0].customer_id;
+	} else {
+		return null;
+	}
+}
