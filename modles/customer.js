@@ -31,4 +31,4 @@ exports.get_customer_id_by_email = function* (email) {
 	} else {
 		return null;
 	}
-}
+};
