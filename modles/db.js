@@ -14,7 +14,7 @@ exports.add_customer = function* (customer) {
 				customer.name + '","' + 
 				customer.email + '","' + 
 				customer.password + '");';
-	return 1;
+	return yield pool.query(query);
 };
 
 exports.get_customer_by_username = function* (username) {
