@@ -16,8 +16,8 @@
     </table>
 </div>
 <script>
-var speed=30;
-butong_net_right2.innerHTML=butong_net_right1.innerHTML;
+var speed=30
+butong_net_right2.innerHTML=butong_net_right1.innerHTML
 function Marquee4(){
     if(butong_net_right.scrollLeft<=0)
         butong_net_right.scrollLeft+=butong_net_right2.offsetWidth
@@ -25,15 +25,13 @@ function Marquee4(){
         butong_net_right.scrollLeft--
     }
 }
-var MyMar4=setInterval(Marquee4,speed);
-(onmouseover = "this.start()")
+var MyMar4=setInterval(Marquee4,speed)(onmouseover = "this.start()")
 butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)};
 
 
 </script>
 <div class="splash">        
     <h1 class="splash-head">Hey <% 
-        console.log(user);
         if (user === undefined) { 
             %>Movie!<% 
         } else if (user.is_admin){
@@ -45,7 +43,17 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)};
         More than your imagination
     </p>
     <p>
-        <a href="/login" class="pure-button pure-button-primary">Get Started</a>
+        <%
+        if (user !== undefined) { 
+            %>
+            <form action="/login" method="POST" class="pure-form pure-form-single">
+                <input type="text" name="search" placeholder="Search for movie">
+                <button type="submit" style="display:none" class="pure-button pure-button-primary">search</button>
+            </form>
+            <%
+        } else {
+            %><a href="/login" class="pure-button pure-button-primary">Log in</a><%
+        } %>
     </p>
 </div>   
 
@@ -71,8 +79,8 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)};
 </div>
 
 <script>
-var speed=30;
-butong_net_right2_bottom.innerHTML=butong_net_right1_bottom.innerHTML;
+var speed=30
+butong_net_right2_bottom.innerHTML=butong_net_right1_bottom.innerHTML
 function Marquee4_bottom(){
     if(butong_net_right_bottom.scrollLeft<=0)
         butong_net_right_bottom.scrollLeft+=butong_net_right2_bottom.offsetWidth
@@ -80,8 +88,7 @@ function Marquee4_bottom(){
         butong_net_right_bottom.scrollLeft--
     }
 }
-var MyMar4_bottom=setInterval(Marquee4_bottom,speed)
-(onmouseover = "this.start()")
+var MyMar4_bottom=setInterval(Marquee4_bottom,speed)(onmouseover = "this.start()")
 butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee4_bottom,speed)}
 </script>
 
