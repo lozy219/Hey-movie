@@ -216,7 +216,6 @@ a.pure-button-primary {
     font-size: 18px;
 }
 
-
 /*
  * -- CONTENT STYLES --
  * This represents the content area (everything below the blue section)
@@ -315,6 +314,8 @@ a.pure-button-primary {
 
     .splash-head {
         font-size: 250%;
+        background-color: rgba(0, 0, 0, 0.55);
+        border: none;
     }
 
 
