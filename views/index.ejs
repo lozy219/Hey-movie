@@ -28,10 +28,44 @@ function Marquee4(){
 var MyMar4=setInterval(Marquee4,speed)
 (onmouseover = "this.start()")
 butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
-
-
 </script>
-<div class="splash">        
+
+
+ <!-- 滚动 上 -->
+    <div id="butong_net_right_movie" style="overflow:hidden;width:100%">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr><td id="butong_net_right1_movie" valign="top" align="center">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr align="center">
+                        <div class="movie_list_display">
+                            <td><img src="img/movie_list.png"  height="80%" /></td>
+                            <td><img src="img/movie_list.png"  height="80%" /></td>
+                        </div>
+                    </tr>
+                </table>
+            </td>
+            <td id="butong_net_right2_movie" valign="top"></td>
+        </tr>
+    </table>
+</div>
+<script>
+var speed=30//速度数值越大速度越慢
+butong_net_right2_movie.innerHTML=butong_net_right1_movie.innerHTML
+function Marquee4(){
+    if(butong_net_right_movie.scrollLeft<=0)
+        butong_net_right_movie.scrollLeft+=butong_net_right2_movie.offsetWidth
+    else{
+        butong_net_right_movie.scrollLeft--
+    }
+}
+var MyMar4=setInterval(Marquee4,speed)
+(onmouseover = "this.start()")
+butong_net_right_movie.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
+</script>
+
+
+
+<div class="splash">  
     <h1 class="splash-head">Hey <% 
         console.log(user);
         if (user === undefined) { 
@@ -51,7 +85,7 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
 
 <!-- 滚动 下 -->
 
-<div id="butong_net_right_bottom" style="position: relative; overflow: hidden; width: 100%; top: 64%;" >
+<div id="butong_net_right_bottom" style="position: relative; overflow: hidden; width: 100%; top: 0%;" >
     <table cellpadding="0" cellspacing="0" border="0">
         <tr><td id="butong_net_right1_bottom" valign="top" align="center">
             <table cellpadding="0" cellspacing="0" border="0">
@@ -82,6 +116,7 @@ var MyMar4_bottom=setInterval(Marquee4_bottom,speed)
 (onmouseover = "this.start()")
 butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee4_bottom,speed)}
 </script>
+
 
 </div>
 <div class="content-wrapper">
