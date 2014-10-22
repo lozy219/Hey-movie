@@ -182,7 +182,7 @@ a.pure-button-primary {
 }
 
 /*
- * -- SIGNUP AND LOGIN STYLES --
+ * -- SIGNUP, LOGIN AND LOGOUT STYLES --
  *
  */
 .form-header {
@@ -207,6 +207,11 @@ a.pure-button-primary {
 }
 
 .login-create-account {
+    text-align: center;
+    font-size: 18px;
+}
+
+.logout-create-account {
     text-align: center;
     font-size: 18px;
 }
