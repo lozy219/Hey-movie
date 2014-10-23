@@ -1,0 +1,27 @@
+<%= include header.ejs %>
+<div class="content-wrapper-form">
+    <div class="content">
+        <p class="form-header">Thank you for visiting Hey Movie!</p>
+        <p style="text-align: center; font-size: 20px; color: #000000"> You can sign in again/with another account: </p>
+        <form action="/user/login" method="POST" class="pure-form pure-form-single">
+            <fieldset>
+                <!-- <legend>A compact inline form</legend> -->
+
+                <input type="email"  name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+
+                <label for="remember" class="pure-checkbox">
+                    <input id="remember" type="checkbox" value=""> Remember me
+                </label>
+                
+                <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+            </fieldset>
+        </form>
+        <div class="logout-create-account">
+            <ul>
+                Do not an account? <a href="/index" style="text-decoration:none;">Sign up</a>
+            </ul>
+        </div>
+    </div>
+</div>
+<%= include footer.ejs %>
