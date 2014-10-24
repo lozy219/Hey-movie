@@ -128,7 +128,7 @@ var MyMar4_bottom=setInterval(Marquee4_bottom,speed)(onmouseover = "this.start()
 butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee4_bottom,speed)}
 </script>
 
-
+<% if (user !== undefined) { %>
 <div class="icon-section">
 <span><img src="img/icon/icon-admin.png"></span>
 <span><img src="img/icon/icon-movie.png"></span>
@@ -137,6 +137,7 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
 <span><img src="img/icon/icon-profile.png"></span>
 <span><img src="img/icon/icon-contact.png"></span>
 </div>
+<% } %>
 
 </div>
 <div class="content-wrapper">
