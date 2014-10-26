@@ -1,3 +1,4 @@
+/*
 'use strict';
 
 var db = require('./db.js');
@@ -12,3 +13,4 @@ exports.insert = function* (movie) {
 		return false;
 	}
 };
+*/
