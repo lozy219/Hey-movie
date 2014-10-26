@@ -40,14 +40,14 @@ exports.add_movie = function* (movie) {
 				movie.year + '","' +
 				movie.title + '");';
 	return yield pool.query(query);
-}
+};
 
 exports.get_movie_by_title = function* (title) {
 	var query = 'SELECT * FROM movie WHERE title="' + title + '"';
 	return (yield pool.query(query))[0];
-}
+};
 
 exports.et_movie_by_IMDB_link = function* (link) {
 	var query = 'SELECT * FROM movie WHERE IMDB_link="' + IMDB_link + '"';
 	return (yield pool.query(query))[0];
-}
+};
