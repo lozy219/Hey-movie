@@ -6,6 +6,7 @@
 
 var index = require('./controllers/index');
 var user = require('./controllers/user');
+var movie = require('./controllers/movie');
 
 module.exports = function routes(app) {
 	app.get('/', index);
@@ -17,7 +18,7 @@ module.exports = function routes(app) {
 	app.post('/user/signup', user.signup);
 	app.post('/user/login', user.login);
 	app.post('/user/profile', user.profile);
-	app.post('/user/movie_search',user.movie_search);
+	app.post('/movie/movie_search',movie.movie_search);
 	
 
 	app.post('/ajax/check_username', user.check_username);
