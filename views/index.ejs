@@ -1,37 +1,5 @@
 <%= include header.ejs %>
-<div class="splash-container">
-    <!-- 滚动 上 -->
-    <div id="butong_net_right" style="overflow:hidden;width:100%;">
-        <table cellpadding="0" cellspacing="0" border="0">
-            <tr><td id="butong_net_right1" valign="top" align="center">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tr align="center">
-                        <td><p><img src="img/film.png"/></p></td>
-                        <td><p><img src="img/film.png"/></p></td>
-                    </tr>
-                </table>
-            </td>
-            <td id="butong_net_right2" valign="top"></td>
-        </tr>
-    </table>
-</div>
-<script>
-var speed=30
-butong_net_right2.innerHTML=butong_net_right1.innerHTML
-function Marquee4(){
-    if(butong_net_right.scrollLeft<=0)
-        butong_net_right.scrollLeft+=butong_net_right2.offsetWidth
-    else{
-        butong_net_right.scrollLeft--
-    }
-}
-
-var MyMar4=setInterval(Marquee4,speed)(onmouseover = "this.start()")
-butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)};
-</script>
-
-
- <!-- 滚动 中 -->
+<%= include index-scroll-top.ejs %>
     <div id="butong_net_right_movie" style="overflow:hidden;width:100%">
         <table cellpadding="0" cellspacing="0" border="0">
             <tr><td id="butong_net_right1_movie" valign="top" align="center">
@@ -49,22 +17,7 @@ butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)};
         </tr>
     </table>
 </div>
-<script>
-var speed=30//速度数值越大速度越慢
-butong_net_right2_movie.innerHTML=butong_net_right1_movie.innerHTML
-function Marquee4(){
-    if(butong_net_right_movie.scrollLeft<=0)
-        butong_net_right_movie.scrollLeft+=butong_net_right2_movie.offsetWidth
-    else{
-        butong_net_right_movie.scrollLeft--
-    }
-}
-var MyMar4=setInterval(Marquee4,speed)
-(onmouseover = "this.start()")
-butong_net_right_movie.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
-</script>
-
-
+<%= include index-scroll-bottom.ejs %>
 
 <div class="splash">  
     <h1 class="splash-head">Hey <% 
@@ -130,7 +83,9 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
 
 <% if (user !== undefined) {  %>
 <div class="icon-section">
-<span><a href="/"><img src="img/icon/icon-admin.png"></a></span>
+<% if (user.is_admin) { %>
+    <span><a href="/"><img src="img/icon/icon-admin.png"></a></span>
+<% } %>
 <span><a href="/"><img src="img/icon/icon-movie.png"></a></span>
 <span><a href="/"><img src="img/icon/icon-ranking.png"></a></span>
 <span><a href="/"><img src="img/icon/icon-trailer.png"></a></span>
@@ -139,8 +94,10 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
 </div>
 <% } %> 
 
-
-</div>
+<% if (typeof movie_search_result !== 'undefined') { %>
+    <h>hey</h>
+    <h style="color:blue"> <%= movie_search_result[0].title %></h>
+<% } %>
 
 <% if (movie_search_result === null) { %>
     <div class="content-wrapper">
