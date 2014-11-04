@@ -23,26 +23,28 @@
         		} %></li>
 
         		<li><h>Contact: </h><% 
-               	if (user.contact === undefined) { 
+               	if (user.contact === null) { 
             		%><% 
         		} else {
            			%><%= user.contact %><%
         		} %></li>
 
         		<li><h>Register_date: </h><% 
-               	if (user.register_date === undefined) { 
+               	if (user.register_date === null) { 
             		%><% 
         		} else {
            			%><%= user.register_date %><%
         		} %></li>
 
         		<li><h>Date of Birth: </h><% 
-               	if (user.DOB === undefined) { 
+               	if (user.DOB === null) { 
             		%><% 
         		} else {
            			%><%= user.DOB %><%
         		} %></li>
-        	</div>
+        	</div><br></br>
+
+        	<button type="submit" class="pure-button pure-button-primary">Edit Profile</button>
                 
             </fieldset>
         </form>
