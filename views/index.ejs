@@ -98,7 +98,36 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
     <h>hey</h>
     <h style="color:blue"> <%= movie_search_result[0].title %></h>
 <% } %>
+
+<% if (movie_search_result === null) { %>
+    <div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Sorry! No Such Movie Result!</h2>
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    You Can Try to Search by Other Keywords!
+                </h3>
+                <p>
+                    You may enter the wrong words.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    Some Recommended Movie Here:
+                </h3>
+                <p>
+                    Coming soon...
+                </p><br></br><br></br><br></br><br></br><br></br>
+            </div>
+        </div>
+    </div>
 </div>
+    
+<% } else if(movie_search_result !== undefined){ %> 
 <div class="content-wrapper">
     <div class="content">
         <h2 class="content-head is-center">Opening This Week</h2>
@@ -176,6 +205,7 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
             </p>
         </div>
     </div>
-</div>
+</div><% } %>
+
 
 <%= include footer.ejs %>
