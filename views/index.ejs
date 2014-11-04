@@ -139,6 +139,10 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
 </div>
 <% } %> 
 
+<% if (typeof movie_search_result !== 'undefined') { %>
+    <h>hey</h>
+    <h style="color:blue"> <%= movie_search_result[0].title %></h>
+<% } else { %> <h>no!</h><% } %>
 </div>
 <div class="content-wrapper">
     <div class="content">
@@ -218,6 +222,5 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
         </div>
     </div>
 </div>
-
 
 <%= include footer.ejs %>

@@ -15,7 +15,8 @@ var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 exports.homepage_movie_search = function* (){
 //	console.log(this.request.body);
-	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body.title_keyword);
-//	console.log(movie_result);
+	var search_result = yield movie.get_movie_by_title_keyword(this.request.body.title_keyword);
+//	console.log(search_result);
+	this.session.movie_searched = search_result;
 	this.response.redirect('/');
 };
