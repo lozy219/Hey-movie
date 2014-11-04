@@ -17,6 +17,7 @@ module.exports = function routes(app) {
 	app.post('/user/signup', user.signup);
 	app.post('/user/login', user.login);
 	app.post('/user/profile', user.profile);
+	app.post('/user/movie_search',user.movie_search);
 	
 
 	app.post('/ajax/check_username', user.check_username);

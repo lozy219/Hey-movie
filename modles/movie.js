@@ -1,8 +1,21 @@
-/*
+
 'use strict';
 
 var db = require('./db.js');
 
+exports.get_movie_by_title_keyword = function* (title_keyword) {
+	console.log("1111"+title_keyword);
+	var movie = yield db.get_movie_by_title_keyword(title_keyword);
+
+	if (movie.length == 1) {
+		return movie;
+	} else {
+		return null;
+	}
+};
+
+
+/*
 exports.insert = function* (movie) {
 	var title = yield db.get_movie_by_title(movie.title);
 	var link = yield db.get_movie_by_IMDB_link(movie.IMDB_link);
@@ -12,5 +25,4 @@ exports.insert = function* (movie) {
 	} else {
 		return false;
 	}
-};
-*/
+};*/

@@ -51,3 +51,9 @@ exports.get_movie_by_IMDB_link = function* (link) {
 	var query = 'SELECT * FROM movie WHERE IMDB_link="' + IMDB_link + '"';
 	return (yield pool.query(query))[0];
 };
+
+exports.get_movie_by_title_keyword = function* (title_keyword) {
+	var query = 'SELECT * FROM movie WHERE title like  "%' + title_keyword.search + '%"';
+	console.log((yield pool.query(query))[0]);
+	return (yield pool.query(query))[0];
+};
