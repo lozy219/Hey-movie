@@ -5,7 +5,7 @@
  */
 
 var index = require('./controllers/index');
-var user = require('./controllers/user');
+var user  = require('./controllers/user');
 var movie = require('./controllers/movie');
 
 module.exports = function routes(app) {
