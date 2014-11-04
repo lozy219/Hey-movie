@@ -22,6 +22,10 @@ exports.show_signup = function* (){
 	this.body = yield render('signup', {user : this.session.customer});
 };
 
+exports.show_profile = function* (){
+	this.body = yield render('profile', {user : this.session.customer});
+};
+
 exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
@@ -59,7 +63,12 @@ exports.login = function* (){
 	}
 };
 
+exports.profile = function* (){
+	this.response.redirect('/');
+};
+
 exports.logout = function* (){
 	this.session = null;
 	this.response.redirect('/');
 };
+
