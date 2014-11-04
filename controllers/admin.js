@@ -18,3 +18,7 @@ var render = views(__dirname + '/../views', {ext: 'ejs' });
 exports.show = function* (){
 	this.body = yield render('admin/admin', {user : this.session.customer});
 };
+
+exports.show_director = function* (){
+	this.body = yield render('admin/admin-director', {user : this.session.customer});
+};
