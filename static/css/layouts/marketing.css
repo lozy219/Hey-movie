@@ -356,6 +356,13 @@ a.pure-button-primary {
 /*
  * -- PROFILE STYLES --
  */
+.profile-form-header{
+    margin-top: -1%;
+    text-align: center;
+    font-size: 50px;
+  
+}
+
 .profile-display li{
     text-align: left;
     font-size: 20px;
