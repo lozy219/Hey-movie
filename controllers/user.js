@@ -22,7 +22,9 @@ exports.show_login = function* (){
 };
 
 exports.show_signup = function* (){
-	this.body = yield render('signup', {user : this.session.customer});
+	// this.body = yield render('signup', {user : this.session.customer});
+	this.session.index_mode = "show_signup";
+	this.response.redirect('/');
 };
 
 exports.show_profile = function* (){

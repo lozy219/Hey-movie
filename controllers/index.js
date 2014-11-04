@@ -33,6 +33,11 @@ module.exports = function* home(next) {
 			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-login.ejs'});
 			break;
 
+		case "show_signup":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-signup.ejs'});
+			break;
+
 		default:
 			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-empty.ejs'});
 	}
