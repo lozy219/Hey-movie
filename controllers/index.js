@@ -17,5 +17,5 @@ module.exports = function* home(next) {
 	// 	count : result[0][0].count
 	// };
 	console.log(this.session.customer);
-	this.body = yield render('index', {user : this.session.customer[0], movie_search_result : this.session.movie_searched});
+	this.body = yield render('index', {user : this.session.customer, movie_search_result : this.session.movie_searched});
 };
