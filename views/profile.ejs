@@ -1,3 +1,44 @@
 <%= include header.ejs %>
+<div class="content-wrapper-form">
+    <div class="content">
+        <p class="form-header">Hey <%= user.name + '!!!' %></p>
+        <form action="/user/login" method="POST" class="pure-form pure-form-single">
+            <fieldset>
+                <!-- <legend>A compact inline form</legend> -->
 
+            <div class=''>
+            	<li><h>User Name: </h><% 
+               	if (user.name === undefined) { 
+            		%><% 
+        		} else {
+           			%><%= user.name %><%
+        		} %></li>
+
+        		<li><h>Contact: </h><% 
+               	if (user.contact === undefined) { 
+            		%><% 
+        		} else {
+           			%><%= user.contact %><%
+        		} %></li>
+
+        		<li><h>Register_date: </h><% 
+               	if (user.register_date === undefined) { 
+            		%><% 
+        		} else {
+           			%><%= user.register_date %><%
+        		} %></li>
+
+        		<li><h>Date of Birth: </h><% 
+               	if (user.DOB === undefined) { 
+            		%><% 
+        		} else {
+           			%><%= user.DOB %><%
+        		} %></li>
+
+                
+            </fieldset>
+        </form>
+
+    </div>
+</div>
 <%= include footer.ejs %>
