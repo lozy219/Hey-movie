@@ -10,7 +10,7 @@ exports.get_movie_by_title_keyword = function* (title_keyword) {
 	if (movie.length != 0) {
 		return movie;
 	} else {
-		return null;
+		return "No Result";
 	}
 };
 

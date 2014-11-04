@@ -18,6 +18,6 @@ exports.homepage_movie_search = function* (){
 	var search_result = yield movie.get_movie_by_title_keyword(this.request.body.title_keyword);
 //	console.log(search_result);
 	this.session.movie_searched = search_result;
-	console.log(search_result);
+//	console.log(search_result);
 	this.response.redirect('/');
 };
