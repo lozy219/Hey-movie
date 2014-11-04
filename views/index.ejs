@@ -94,7 +94,7 @@ butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee
 </div>
 <% } %> 
 
-<% if (typeof movie_search_result !== 'undefined') { %>
+<% if ((movie_search_result !== null) && (typeof movie_search_result !== 'undefined')) { %>
     <h>hey</h>
     <h style="color:blue"> <%= movie_search_result[0].title %></h>
 <% } %>
