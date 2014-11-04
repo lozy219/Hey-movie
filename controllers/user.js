@@ -16,7 +16,9 @@ var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 // render
 exports.show_login = function* (){
-	this.body = yield render('login', {user : this.session.customer});
+	// this.body = yield render('login', {user : this.session.customer});
+	this.session.index_mode = "show_login";
+	this.response.redirect('/');
 };
 
 exports.show_signup = function* (){

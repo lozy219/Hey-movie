@@ -17,16 +17,25 @@ module.exports = function* home(next) {
 	// 	count : result[0][0].count
 	// };
 
-	if (this.session.index_mode === "search_movie") {
-		this.session.index_mode = undefined;
+	switch (this.session.index_mode) {
+		case "search_movie":
+			this.session.index_mode = undefined;
 
-		if (this.session.movie_searched === "No Result") {
-			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-no-result.ejs'});
-		} else if (this.session.movie_searched != null) {
-			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-result.ejs'});
-		}
-	} else {
-		this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-empty.ejs'});
+			if (this.session.movie_searched === "No Result") {
+				this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-no-result.ejs'});
+			} else if (this.session.movie_searched != null) {
+				this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-result.ejs'});
+			}
+			break;
+
+		case "show_login":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-login.ejs'});
+			break;
+
+		default:
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-empty.ejs'});
 	}
+
 	this.session.movie_searched=null;
 };
