@@ -16,7 +16,17 @@ module.exports = function* home(next) {
 	// 	table : 'movie',
 	// 	count : result[0][0].count
 	// };
-//	console.log("session"+this.session.movie_searched);
-	this.body = yield render('index/index', {user : this.session.customer, movie_search_result : this.session.movie_searched});
+
+	if (this.session.index_mode === "search_movie") {
+		this.session.index_mode = undefined;
+
+		if (this.session.movie_searched === "No Result") {
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-no-result.ejs'});
+		} else if (this.session.movie_searched != null) {
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-result.ejs'});
+		}
+	} else {
+		this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-empty.ejs'});
+	}
 	this.session.movie_searched=null;
 };
