@@ -14,7 +14,8 @@ var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 exports.homepage_movie_search = function* (){
-	console.log(this.request.body);
-	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body);
+//	console.log(this.request.body);
+	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body.title_keyword);
+//	console.log(movie_result);
 	this.response.redirect('/');
 };

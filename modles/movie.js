@@ -7,7 +7,7 @@ exports.get_movie_by_title_keyword = function* (title_keyword) {
 	console.log("1111"+title_keyword);
 	var movie = yield db.get_movie_by_title_keyword(title_keyword);
 
-	if (movie.length == 1) {
+	if (movie.length != 0) {
 		return movie;
 	} else {
 		return null;
