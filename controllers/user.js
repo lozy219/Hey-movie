@@ -2,7 +2,7 @@
 
 var path     = require('path');
 var fs       = require('fs');
-var page     = fs.readFileSync(path.join(__dirname, '../views/index.ejs'), 'utf8');
+var page     = fs.readFileSync(path.join(__dirname, '../views/index/index.ejs'), 'utf8');
 var co       = require('co');
 var views    = require('co-views');
 var mysql    = require('co-mysql');

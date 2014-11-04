@@ -2,7 +2,7 @@
 
 var path = require('path');
 var fs = require('fs');
-var page = fs.readFileSync(path.join(__dirname, '../views/index.ejs'), 'utf8');
+var page = fs.readFileSync(path.join(__dirname, '../views/index/index.ejs'), 'utf8');
 var co = require('co');
 var views = require('co-views');
 var mysql = require('co-mysql');
@@ -17,5 +17,5 @@ module.exports = function* home(next) {
 	// 	count : result[0][0].count
 	// };
 	console.log(this.session.movie_searched);
-	this.body = yield render('index', {user : this.session.customer, movie_search_result : this.session.movie_searched});
+	this.body = yield render('index/index', {user : this.session.customer, movie_search_result : this.session.movie_searched});
 };
