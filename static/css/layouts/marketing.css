@@ -352,3 +352,12 @@ a.pure-button-primary {
         font-size: 300%;
     }
 }
+
+/*
+ * -- PROFILE STYLES --
+ */
+.profile-display li{
+    text-align: left;
+    font-size: 20px;
+    margin-left: 30%;
+}
