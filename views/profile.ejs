@@ -6,7 +6,15 @@
             <fieldset>
                 <!-- <legend>A compact inline form</legend> -->
 
+
             <div class='profile-display'>
+            	<% 
+               	if (user.profile_pic === null) { 
+            		%><img src="img/profile_pic/default.png" width=30% height=30%><%
+        		} else {
+           			%><%
+        		} %><br></br>
+
             	<li><h>User Name: </h><% 
                	if (user.name === undefined) { 
             		%><% 
