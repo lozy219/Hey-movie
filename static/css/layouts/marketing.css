@@ -368,3 +368,8 @@ a.pure-button-primary {
     font-size: 20px;
     margin-left: 30%;
 }
+
+.admin-body {
+    height: 100vh;
+    background-color: black;
+}
