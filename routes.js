@@ -27,6 +27,7 @@ module.exports = function routes(app) {
 	// admin
 	app.get('/admin', admin.show);
 	app.get('/admin/director', admin.show_director);
+	app.get('/admin/movie', admin.show_movie);
 
 	app.post('/movie/homepage_movie_search',movie.homepage_movie_search);
 	

@@ -44,7 +44,7 @@ module.exports = function* home(next) {
 			break;
 
 		default:
-			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-empty.ejs'});
+			this.body = yield render('index/index', {user : this.session.customer, render_html : '../empty.ejs'});
 	}
 
 	this.session.movie_searched=null;

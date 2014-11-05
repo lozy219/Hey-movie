@@ -24,6 +24,12 @@ exports.get_movie_by_showing_status = function* (){
 	}
 };
 
+exports.get_all_movie = function* (){
+	var movie = yield db.get_all_movie();
+
+	return movie;
+}
+
 
 /*
 exports.insert = function* (movie) {

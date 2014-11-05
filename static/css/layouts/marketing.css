@@ -374,4 +374,8 @@ a.pure-button-primary {
     background-color: black;
 }
 
+.div-inline{
+    float:left; 
+    margin-left:7.5%;
+} 
 

@@ -42,6 +42,11 @@ exports.add_movie = function* (movie) {
 	return yield pool.query(query);
 };
 
+exports.get_all_movie = function* () {
+	var query = 'SELECT * FROM movie';
+	return (yield pool.query(query))[0];
+}
+
 exports.get_movie_by_title = function* (title) {
 	var query = 'SELECT * FROM movie WHERE title="' + title + '"';
 	return (yield pool.query(query))[0];
@@ -54,9 +59,6 @@ exports.get_movie_by_IMDB_link = function* (link) {
 
 exports.get_movie_by_title_keyword = function* (title_keyword) {
 	var query = 'SELECT * FROM movie WHERE title like  "%' + title_keyword + '%"';
-
-//	console.log(title_keyword);
-
 	return (yield pool.query(query))[0];
 };
 
