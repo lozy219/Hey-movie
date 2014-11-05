@@ -77,4 +77,11 @@ exports.get_all_director = function* () {
 	return (yield pool.query(query))[0];
 }
 
+// actor
+
+exports.get_all_actor = function* () {
+	var query = 'SELECT * FROM actor';
+	return (yield pool.query(query))[0];
+}
+
 
