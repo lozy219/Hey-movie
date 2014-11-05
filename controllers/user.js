@@ -41,6 +41,11 @@ exports.signup = function* (){
 		console.log('signup failed');
 	} else {
 		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
+		if (config.admin_id.indexOf(current_customer.customer_id) !== -1) {
+			current_customer.is_admin = true;
+		} else {
+			current_customer.is_admin = false;
+		}
 		this.response.redirect('/');
 	}
 };

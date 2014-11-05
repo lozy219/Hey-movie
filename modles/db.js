@@ -30,7 +30,7 @@ exports.get_customer_by_email = function* (email) {
 };
 
 // movie
-/*
+
 exports.add_movie = function* (movie) {
 	var query = 'INSERT INTO movie (IMDB_link, IMDB_rating, language, length, genre, year, title) VALUES ("' +
 				movie.IMDB_link + '","' + 
@@ -43,6 +43,11 @@ exports.add_movie = function* (movie) {
 	return yield pool.query(query);
 };
 
+exports.get_all_movie = function* () {
+	var query = 'SELECT * FROM movie';
+	return (yield pool.query(query))[0];
+}
+
 exports.get_movie_by_title = function* (title) {
 	var query = 'SELECT * FROM movie WHERE title="' + title + '"';
 	return (yield pool.query(query))[0];
@@ -52,14 +57,10 @@ exports.get_movie_by_IMDB_link = function* (link) {
 	var query = 'SELECT * FROM movie WHERE IMDB_link="' + IMDB_link + '"';
 	return (yield pool.query(query))[0];
 };
-<<<<<<< HEAD
-*/
+
 
 exports.get_movie_by_title_keyword = function* (title_keyword) {
 	var query = 'SELECT * FROM movie WHERE title like  "%' + title_keyword + '%"';
-
-//	console.log(title_keyword);
-
 	return (yield pool.query(query))[0];
 };
 
@@ -68,3 +69,19 @@ exports.get_movie_by_showing_status = function* (){
 	console.log((yield pool.query(query))[0]);
 	return (yield pool.query(query))[0];
 };
+
+// director
+
+exports.get_all_director = function* () {
+	var query = 'SELECT * FROM director';
+	return (yield pool.query(query))[0];
+}
+
+// actor
+
+exports.get_all_actor = function* () {
+	var query = 'SELECT * FROM actor';
+	return (yield pool.query(query))[0];
+}
+
+

@@ -1,0 +1,15 @@
+<script>
+$(function () {
+         $("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
+         return false; 
+});
+</script>
+
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Director Management</h2>
+        <% console.log(all_director); %>
+        <%= all_director %>
+      <!-- TODO: update table for director -->
+    </div>
+</div>
