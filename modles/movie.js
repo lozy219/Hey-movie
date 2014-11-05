@@ -14,7 +14,15 @@ exports.get_movie_by_title_keyword = function* (title_keyword) {
 	}
 };
 
+exports.get_movie_by_showing_status = function* (){
+	var movie = yield db.get_movie_by_showing_status();
 
+	if (movie.length != 0) {
+		return movie;
+	} else {
+		return "No Result";
+	}
+};
 
 
 /*
