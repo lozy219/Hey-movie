@@ -31,6 +31,10 @@ exports.show_profile = function* (){
 	this.body = yield render('profile', {user : this.session.customer});
 };
 
+exports.show_profile_edit = function* (){
+	this.body = yield render('profile_edit', {user : this.session.customer});
+};
+
 exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
@@ -71,6 +75,10 @@ exports.login = function* (){
 exports.profile = function* (){
 	this.response.redirect('/');
 };
+
+exports.profile_edit = function* (){
+	this.response.redirect('/');
+}
 
 exports.logout = function* (){
 	this.session = null;

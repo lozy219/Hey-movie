@@ -17,12 +17,13 @@ module.exports = function routes(app) {
 	app.get('/signup', user.show_signup);
 	app.get('/logout', user.logout);
 	app.get('/profile', user.show_profile);
-
+	app.get('/profile/edit', user.show_profile_edit);
 	app.get('/movie', movie.show_movie);
 
 	app.post('/user/signup', user.signup);
 	app.post('/user/login', user.login);
 	app.post('/user/profile', user.profile);
+	app.post('/user/profile/edit', user.profile_edit)
 
 	// admin
 	app.get('/admin', admin.show);
