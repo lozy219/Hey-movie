@@ -7,20 +7,20 @@ $(function () {
 </script>    
 <div class="content-wrapper">
     <div class="content">
-        <h2 class="content-head is-center">Movie Lists Found</h2>
+        <h2 class="content-head is-center">Movies Found</h2>
         <div class="pure-g">
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
             <!--  <% console.log(movie_result); %> -->
                 <% for(i=0;i<movie_result.length;i++){ %>
                 <h3 class="content-subhead">
                     <i class="fa fa-rocket"></i>
-                    <h style="color: black">Movie Title: </h>
+                    <h style="color: black"><%= i+1 %>.</h>
                     <%= movie_result[i].title  %><h style="color: red">&nbsp&nbsp&nbsp<%=movie_result[i].IMDB_rating %><h>
                 </h3>
                 <li>Genre: <%=movie_result[i].genre%></li>
                 <li>Year: <%=movie_result[i].year%></li>
                 <li>Language: <%=movie_result[i].language%></li>
-                <li>Length: <%=movie_result[i].length%></li>
+                <li>Length: <%=movie_result[i].length%>mins</li>
                 <li><a href="<%=movie_result[i].IMDB_link%>">IMDB: <%=movie_result[i].IMDB_link%></a></li>
                 <% } %>
             </div>
