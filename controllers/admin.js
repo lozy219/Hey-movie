@@ -22,13 +22,21 @@ exports.show = function* (){
 			this.body = yield render('admin/admin', {user : this.session.customer, all_movie : this.session.admin_all_movie, render_html : 'admin-movie.ejs'});
 			break;
 
+		case "show_director":
+			this.session.admin_mode = undefined;
+			this.body = yield render('admin/admin', {user : this.session.customer, all_director : this.session.admin_all_director, render_html : 'admin-director.ejs'});
+			break;
+
 		default:
 			this.body = yield render('admin/admin', {user : this.session.customer, render_html : '../empty.ejs'});
 	}
 };
 
 exports.show_director = function* (){
-	this.body = yield render('admin/admin-director', {user : this.session.customer});
+	var all_director = yield director.get_all_director();
+	this.session.admin_all_director = all_director;
+	this.session.admin_mode = "show_director";
+	this.response.redirect('/admin');
 };
 
 exports.show_movie = function* (){
