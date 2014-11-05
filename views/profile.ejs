@@ -1,0 +1,52 @@
+<%= include header.ejs %>
+<div class="content-wrapper-form">
+    <div class="content">
+        <p class="profile-form-header">Hey <%= user.name + '!!!' %></p>
+        <form action="/user/login" method="POST" class="pure-form pure-form-single">
+            <fieldset>
+
+            <div class='profile-display'>
+            	<% 
+               	if (user.profile_pic === null) { 
+            		%><img src="img/profile_pic/default.png" width=30% height=30%><%
+        		} else {
+           			%><%
+        		} %><br></br>
+
+            	<li><h>User Name: </h><% 
+               	if (user.name === null) { 
+            		%><% 
+        		} else {
+           			%><%= user.name %><%
+        		} %></li>
+
+        		<li><h>Contact: </h><% 
+               	if (user.contact === null) { 
+            		%><% 
+        		} else {
+           			%><%= user.contact %><%
+        		} %></li>
+
+        		<li><h>Register_date: </h><% 
+               	if (user.register_date === null) { 
+            		%><% 
+        		} else {
+           			%><%= user.register_date %><%
+        		} %></li>
+
+        		<li><h>Date of Birth: </h><% 
+               	if (user.DOB === null) { 
+            		%><% 
+        		} else {
+           			%><%= user.DOB %><%
+        		} %></li>
+        	</div><br></br>
+
+        	<button type="submit" class="pure-button pure-button-primary">Edit Profile</button>
+                
+            </fieldset>
+        </form>
+
+    </div>
+</div>
+<%= include footer.ejs %>

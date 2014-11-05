@@ -2,11 +2,12 @@
 
 var path     = require('path');
 var fs       = require('fs');
-var page     = fs.readFileSync(path.join(__dirname, '../views/index.ejs'), 'utf8');
+var page     = fs.readFileSync(path.join(__dirname, '../views/index/index.ejs'), 'utf8');
 var co       = require('co');
 var views    = require('co-views');
 var mysql    = require('co-mysql');
 var customer = require('../modles/customer.js');
+var movie 	 = require('../modles/movie.js');
 var db       = require('../modles/db.js');
 var config   = require('../config.js');
 
@@ -15,11 +16,19 @@ var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 // render
 exports.show_login = function* (){
-	this.body = yield render('login', {user : this.session.customer});
+	// this.body = yield render('login', {user : this.session.customer});
+	this.session.index_mode = "show_login";
+	this.response.redirect('/');
 };
 
 exports.show_signup = function* (){
-	this.body = yield render('signup', {user : this.session.customer});
+	// this.body = yield render('signup', {user : this.session.customer});
+	this.session.index_mode = "show_signup";
+	this.response.redirect('/');
+};
+
+exports.show_profile = function* (){
+	this.body = yield render('profile', {user : this.session.customer});
 };
 
 exports.signup = function* (){
@@ -59,7 +68,16 @@ exports.login = function* (){
 	}
 };
 
+exports.profile = function* (){
+	this.response.redirect('/');
+};
+
 exports.logout = function* (){
 	this.session = null;
 	this.response.redirect('/');
+};
+
+exports.movie_search = function* (){
+	console.log(this.request.body);
+	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body);
 };

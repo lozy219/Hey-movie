@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
   <script src="/js/jquery-2.1.1.min.js"></script>
+  <% if ((user === undefined) || (!user.is_admin)) { %>
+    <meta http-equiv="refresh" content="3; url=/" />
+  <% } %>
   <meta charset="utf-8">
   <title>Hey-Movie</title>
   <link rel="stylesheet" href="/css/pure/pure.css" />
   <link rel="stylesheet" href="/css/layouts/marketing.css" />
 </head>
-<body>
+<body class="admin-body">
   <div class="header">
     <div class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
       <ul>

@@ -1,4 +1,12 @@
-<%= include header.ejs %>
+<script>
+//Automatically scroll to bottom
+$(function () {
+         $("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
+         return false; 
+});
+</script>
+
+<div class="content-wrapper">
 <div class="content-wrapper-form">
     <div class="content">
         <p class="form-header">Hey Movie!</p>
@@ -21,6 +29,7 @@
                 Do not an account? <a href="/signup" style="text-decoration:none;">Sign up</a>
             </ul>
         </div>
-    </div>
+    </div><br></br><br></br><br></br><br></br><br>
+    <!-- hack here! need change -->
 </div>
-<%= include footer.ejs %>
+</div>

@@ -1,6 +1,8 @@
-<%= include header.ejs %>
+
 <script>
     $(document).ready(function(){
+        $("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
+         return false; 
         $("#username").keyup(function (e) {
             var username = $(this).val(); //get the string typed by user
             $.post('/ajax/check_username', {'username':username}, function(data) {
@@ -13,6 +15,8 @@
         });
     });
 </script>
+
+<div class="content-wrapper">
 <div class="content-wrapper-form">
     <div class="content">
         <p class="form-header">Join Hey Movie!</p>
@@ -34,7 +38,7 @@
                 <a href="/login" style="text-decoration:none;">Sign in</a>
             </ul>
         </div> 
-    </div>
+    </div><br></br><br></br><br></br><br></br><br>
+    <!-- hack here! need change -->
 </div>
-
-<%= include footer.ejs %>
+</div>

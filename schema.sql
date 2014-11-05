@@ -4,10 +4,12 @@ CREATE TABLE movie (
 	IMDB_link VARCHAR(200),
 	IMDB_rating DOUBLE,
 	language VARCHAR(30),
-	length INT, # in seconds
+	length INT, # in mins
 	genre VARCHAR(100),
 	year CHAR(4),
 	title VARCHAR(100) NOT NULL,
+	showing_status VARCHAR(20), # only can be "on show", "trailer" or "off show" or null
+	poster_link VARCHAR(200), 
 
 	PRIMARY KEY (movie_id)
 );

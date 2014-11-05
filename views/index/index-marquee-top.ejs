@@ -1,0 +1,31 @@
+<div class="splash-container">
+    <!-- 滚动 上 -->
+    <div id="butong_net_right" style="overflow:hidden;width:100%;">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr><td id="butong_net_right1" valign="top" align="center">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr align="center">
+                        <td><p><img src="img/film.png"/></p></td>
+                        <td><p><img src="img/film.png"/></p></td>
+                    </tr>
+                </table>
+            </td>
+            <td id="butong_net_right2" valign="top"></td>
+        </tr>
+    </table>
+</div>
+<script>
+var speed=30
+butong_net_right2.innerHTML=butong_net_right1.innerHTML
+function Marquee4(){
+    if(butong_net_right.scrollLeft<=0)
+        butong_net_right.scrollLeft+=butong_net_right2.offsetWidth
+    else{
+        butong_net_right.scrollLeft--
+    }
+}
+
+var MyMar4=setInterval(Marquee4,speed)(onmouseover = "this.start()")
+butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)};
+</script>
+

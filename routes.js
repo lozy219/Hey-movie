@@ -5,17 +5,30 @@
  */
 
 var index = require('./controllers/index');
-var user = require('./controllers/user');
+var user  = require('./controllers/user');
+var movie = require('./controllers/movie');
+var admin = require('./controllers/admin');
 
 module.exports = function routes(app) {
 	app.get('/', index);
+
+	// user
 	app.get('/login', user.show_login);
 	app.get('/signup', user.show_signup);
 	app.get('/logout', user.logout);
+	app.get('/profile', user.show_profile);
+
+	app.get('/movie', movie.show_movie);
 
 	app.post('/user/signup', user.signup);
 	app.post('/user/login', user.login);
-	
+	app.post('/user/profile', user.profile);
 
+	// admin
+	app.get('/admin', admin.show);
+	app.get('/admin/director', admin.show_director);
+
+	app.post('/movie/homepage_movie_search',movie.homepage_movie_search);
+	
 	app.post('/ajax/check_username', user.check_username);
 };

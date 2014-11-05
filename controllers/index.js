@@ -2,7 +2,7 @@
 
 var path = require('path');
 var fs = require('fs');
-var page = fs.readFileSync(path.join(__dirname, '../views/index.ejs'), 'utf8');
+var page = fs.readFileSync(path.join(__dirname, '../views/index/index.ejs'), 'utf8');
 var co = require('co');
 var views = require('co-views');
 var mysql = require('co-mysql');
@@ -16,6 +16,36 @@ module.exports = function* home(next) {
 	// 	table : 'movie',
 	// 	count : result[0][0].count
 	// };
-	this.body = yield render('index', {user : this.session.customer});
-	// this.body = yield render('index'/*, {ans : ans}*/);
+
+	switch (this.session.index_mode) {
+		case "search_movie":
+			this.session.index_mode = undefined;
+
+			if (this.session.movie_searched === "No Result") {
+				this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-no-result.ejs'});
+			} else if (this.session.movie_searched != null) {
+				this.body = yield render('index/index', {user : this.session.customer, movie_result: this.session.movie_searched, render_html : 'index-search-result.ejs'});
+			}
+			break;
+
+		case "show_movie":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {onshow_movie: this.session.movie_on_show, user : this.session.customer, render_html : 'index-movie.ejs'});
+			break;
+
+		case "show_login":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-login.ejs'});
+			break;
+
+		case "show_signup":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-signup.ejs'});
+			break;
+
+		default:
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-empty.ejs'});
+	}
+
+	this.session.movie_searched=null;
 };
