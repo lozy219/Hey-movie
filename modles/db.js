@@ -30,6 +30,7 @@ exports.get_customer_by_email = function* (email) {
 };
 
 // movie
+/*
 exports.add_movie = function* (movie) {
 	var query = 'INSERT INTO movie (IMDB_link, IMDB_rating, language, length, genre, year, title) VALUES ("' +
 				movie.IMDB_link + '","' + 
@@ -51,3 +52,4 @@ exports.get_movie_by_IMDB_link = function* (link) {
 	var query = 'SELECT * FROM movie WHERE IMDB_link="' + IMDB_link + '"';
 	return (yield pool.query(query))[0];
 };
+*/
