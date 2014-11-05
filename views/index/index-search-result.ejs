@@ -21,7 +21,7 @@ $(function () {
                 <li>Year: <%=movie_result[i].year%></li>
                 <li>Language: <%=movie_result[i].language%></li>
                 <li>Length: <%=movie_result[i].length%>mins</li>
-                <li><a href="<%=movie_result[i].IMDB_link%>">IMDB: <%=movie_result[i].IMDB_link%></a></li>
+                <li>IMDB: <a href="<%=movie_result[i].IMDB_link%>"><%=movie_result[i].IMDB_link%></a></li><br></br>
                 <% } %>
             </div>
         </div>
