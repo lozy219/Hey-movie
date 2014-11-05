@@ -28,6 +28,11 @@ module.exports = function* home(next) {
 			}
 			break;
 
+		case "show_movie":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-movie.ejs'});
+			break;
+
 		case "show_login":
 			this.session.index_mode = undefined;
 			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-login.ejs'});

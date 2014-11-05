@@ -13,6 +13,11 @@ var config   = require('../config.js');
 var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
 
+exports.show_movie = function* (){
+	this.session.index_mode = "show_movie";
+	this.response.redirect('/');
+};
+
 exports.homepage_movie_search = function* (){
 	var search_result = yield movie.get_movie_by_title_keyword(this.request.body.title_keyword);
 	this.session.movie_searched = search_result;
