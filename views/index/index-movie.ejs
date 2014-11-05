@@ -20,20 +20,21 @@ $(function () {
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
             <!--  <% console.log(onshow_movie); %> -->
                 <% for(i=0;i<onshow_movie.length;i++){ %>
-                    <div class="div-inline">
-                    <img src="<%= onshow_movie[i].poster_link %>" width=120 height=167>&nbsp&nbsp&nbsp
-                    <h3 class="content-subhead">
-                        <i class="fa fa-rocket"></i>
-                        <h style="color: black"><%= i+1 %>.</h>
-                        <%= onshow_movie[i].title  %><h style="color: red">&nbsp&nbsp&nbsp<%=onshow_movie[i].IMDB_rating %><h>
-                    </h3>
-                    <li>Genre: <%=onshow_movie[i].genre%></li>
-                    <li>Year: <%=onshow_movie[i].year%></li>
-                    <li>Language: <%=onshow_movie[i].language%></li>
-                    <li>Length: <%=onshow_movie[i].length%>mins</li>
-                    <li>IMDB_link: <a href="<%=onshow_movie[i].IMDB_link%>"><img src="img/icon/IMDB_icon.png" width = 40 height = 40 style="margin-bottom: -6%"></a></li></div>
-                <% } %> 
+                <div class="div-inline">
+                <img src="<%= onshow_movie[i].poster_link %>" width=120 height=167 style="margin-left: 5%">
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    <h style="color: black; margin-left: -6%"><%= i+1 %>.</h>
+                    <%= onshow_movie[i].title  %><h style="color: red">&nbsp&nbsp&nbsp<%=onshow_movie[i].IMDB_rating %><h>
+                </h3>
+                <li>Genre: <%=onshow_movie[i].genre%></li>
+                <li>Year: <%=onshow_movie[i].year%></li>
+                <li>Language: <%=onshow_movie[i].language%></li>
+                <li>Length: <%=onshow_movie[i].length%>mins</li>
+                <li>IMDB_link: <a href="<%=onshow_movie[i].IMDB_link%>"><img src="img/icon/IMDB_icon.png" width = 40 height = 40 style="margin-bottom: -6%"></a></li>
+                <button type="submit" class="pure-button pure-button-primary" style="width: 100; margin: 3% 0 0 8%; text-align:center; font-size: 10px">Book Now!</button>
             </div>
+                <% } %>
         </div>
     </div>
 </div>
