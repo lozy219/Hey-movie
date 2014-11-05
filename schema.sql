@@ -4,7 +4,7 @@ CREATE TABLE movie (
 	IMDB_link VARCHAR(200),
 	IMDB_rating DOUBLE,
 	language VARCHAR(30),
-	length INT, # in seconds
+	length INT, # in mins
 	genre VARCHAR(100),
 	year CHAR(4),
 	title VARCHAR(100) NOT NULL,
