@@ -1,0 +1,211 @@
+<%= include header.ejs %>
+<%= include index-scroll-top.ejs %>
+    <div id="butong_net_right_movie" style="overflow:hidden;width:100%">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr><td id="butong_net_right1_movie" valign="top" align="center">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr align="center">
+                        <td><img src="img/index_movie/movie_list_1.png"  height="96%" vspace="1%"/></td>
+                        <td><img src="img/index_movie/movie_list_2.png"  height="96%" vspace="1%"/></td>
+                        <td><img src="img/index_movie/movie_list_3.png"  height="96%" vspace="1%"/></td>
+                        <td><img src="img/index_movie/movie_list_4.png"  height="96%" vspace="1%"/></td>
+                        <td><img src="img/index_movie/movie_list_5.png"  height="96%" vspace="1%"/></td>
+                    </tr>
+                </table>
+            </td>
+            <td id="butong_net_right2_movie" valign="top"></td>
+        </tr>
+    </table>
+</div>
+<%= include index-scroll-bottom.ejs %>
+
+<div class="splash">  
+    <h1 class="splash-head">Hey <% 
+        if (user === undefined) { 
+            %>Movie!<% 
+        } else if (user.is_admin){
+            %><%= user.name + '!!!' %><%
+        } else {
+            %><%= user.name + '!' %><%
+        } %></h1>
+    <p class="splash-subhead">
+        More than your imagination
+    </p>
+    <p>
+        <%
+        if (user !== undefined) { 
+            %>
+            <form action="/movie/homepage_movie_search" method="POST" class="pure-form pure-form-single">
+                <input type="text" name="title_keyword" placeholder="Search for movie">
+                <button type="submit" style="display:none" class="pure-button pure-button-primary">search</button>
+            </form>
+            <%
+        } else {
+            %><a href="/login" class="pure-button pure-button-primary">Log in</a><%
+        } %>
+    </p>
+</div>   
+
+
+
+<!-- 滚动 下 -->
+
+<div id="butong_net_right_bottom" style="position: relative; overflow: hidden; width: 100%; top: 1%;" >
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr><td id="butong_net_right1_bottom" valign="top" align="center">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr align="center"> 
+                    <div class = "roll-down">
+                        <td><p><img src="img/film.png"/></p></td>
+                        <td><p><img src="img/film.png"/></p></td>
+                    </div>
+                </tr>
+            </table>
+        </td>
+        <td id="butong_net_right2_bottom" valign="top"></td>
+    </tr>
+</table>
+</div>
+
+<script>
+var speed=30
+butong_net_right2_bottom.innerHTML=butong_net_right1_bottom.innerHTML
+function Marquee4_bottom(){
+    if(butong_net_right_bottom.scrollLeft<=0)
+        butong_net_right_bottom.scrollLeft+=butong_net_right2_bottom.offsetWidth
+    else{
+        butong_net_right_bottom.scrollLeft--
+    }
+}
+var MyMar4_bottom=setInterval(Marquee4_bottom,speed)(onmouseover = "this.start()")
+butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee4_bottom,speed)}
+</script>
+
+<% if (user !== undefined) {  %>
+<div class="icon-section">
+<% if (user.is_admin) { %>
+    <span><a href="/"><img src="img/icon/icon-admin.png"></a></span>
+<% } %>
+<span><a href="/"><img src="img/icon/icon-movie.png"></a></span>
+<span><a href="/"><img src="img/icon/icon-ranking.png"></a></span>
+<span><a href="/"><img src="img/icon/icon-trailer.png"></a></span>
+<span><a href="/profile"><img src="img/icon/icon-profile.png"></a></span>
+<span><a href="/"><img src="img/icon/icon-contact.png"></a></span>
+</div>
+<% } %> 
+
+<% if (typeof movie_search_result !== 'undefined') { %>
+    <h>hey</h>
+    <h style="color:blue"> <%= movie_search_result[0].title %></h>
+<% } %>
+
+<% if (movie_search_result === null) { %>
+    <div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Sorry! No Such Movie Result!</h2>
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    You Can Try to Search by Other Keywords!
+                </h3>
+                <p>
+                    You may enter the wrong words.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    Some Recommended Movie Here:
+                </h3>
+                <p>
+                    Coming soon...
+                </p><br></br><br></br><br></br><br></br><br></br>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<% } else if(movie_search_result !== undefined){ %> 
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Movie Lists Found</h2>
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Get Started Quickly
+                </h3>
+                <p>
+                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    Responsive Layouts
+                </h3>
+                <p>
+                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-th-large"></i>
+                    Modular
+                </h3>
+                <p>
+                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-check-square-o"></i>
+                    Plays Nice
+                </h3>
+                <p>
+                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor.
+            </p>
+        </div>
+    </div>
+
+    <div class="content">
+      <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+      <div class="pure-g">
+        <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+            <h4>Contact Us</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.
+            </p>
+
+            <h4>More Information</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+    </div>
+</div><% } %>
+
+
+<%= include footer.ejs %>

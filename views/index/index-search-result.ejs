@@ -7,44 +7,22 @@ $(function () {
 </script>    
 <div class="content-wrapper">
     <div class="content">
-        <h2 class="content-head is-center">Opening This Week</h2>
+        <h2 class="content-head is-center">Movie Lists Found</h2>
         <div class="pure-g">
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-
+                <% console.log(movie_result); %>
+                <% for(i=0;i<movie_result.length;i++){ %>
                 <h3 class="content-subhead">
                     <i class="fa fa-rocket"></i>
-                    Get Started Quickly
+                    <h style="color: black">Movie Title: </h>
+                    <%= movie_result[i].title  %><h style="color: red">  <%=movie_result[i].IMDB_rating %><h>
                 </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-mobile"></i>
-                    Responsive Layouts
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-th-large"></i>
-                    Modular
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
-                <h3 class="content-subhead">
-                    <i class="fa fa-check-square-o"></i>
-                    Plays Nice
-                </h3>
-                <p>
-                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
-                </p>
+                <li>Genre: <%=movie_result[i].genre%></li>
+                <li>Year: <%=movie_result[i].year%></li>
+                <li>Language: <%=movie_result[i].language%></li>
+                <li>Length: <%=movie_result[i].length%></li>
+                <li>IMDB: <%=movie_result[i].IMDB_link%></li>
+                <% } %>
             </div>
         </div>
     </div>

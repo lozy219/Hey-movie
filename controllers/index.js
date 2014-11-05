@@ -24,7 +24,7 @@ module.exports = function* home(next) {
 			if (this.session.movie_searched === "No Result") {
 				this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-no-result.ejs'});
 			} else if (this.session.movie_searched != null) {
-				this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-search-result.ejs'});
+				this.body = yield render('index/index', {user : this.session.customer, movie_result: this.session.movie_searched, render_html : 'index-search-result.ejs'});
 			}
 			break;
 
