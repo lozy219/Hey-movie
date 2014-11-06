@@ -61,8 +61,16 @@ $(function () {
         </form>
     </div>
 
-    <div id="tab2" class="mtab_content" style="display: none;">
-
+    <div id="tab2" class="mtab_content" style="display: none; margin-left: 43%">
+    	<% for(i=0;i<all_director.length;i++){ %>
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    <h style="color: black; "><%= i+1 %>.</h>
+                    <%= all_director[i].name  %>
+                </h3>
+                <li>Gender: <%=all_director[i].gender%></li>
+                <li>Nationality: <%=all_director[i].nationality%></li>      
+                <% } %>
     </div>
 
     <div id="tab3" class="mtab_content" style="display: none;">

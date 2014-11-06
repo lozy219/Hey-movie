@@ -26,6 +26,7 @@ exports.show = function* (){
 
 		case "show_director":
 			this.session.admin_mode = undefined;
+			console.log("1111");
 			this.body = yield render('admin/admin', {user : this.session.customer, all_director : this.session.admin_all_director, render_html : 'admin-director.ejs'});
 			break;
 
