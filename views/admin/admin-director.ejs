@@ -11,28 +11,64 @@ $(function () {
         <form action="/admin/manage_director">
         	<div id='cssmenu'>
 				<ul>
-  					 <li class='active'><a href='#'><span>Add Director</span></a></li>
-  					 <li class='last'><a href='#'><span>Delete Director</span></a></li>
+  					 <li class='active'><a href='#tab1' rel="tab1"><span>Add Director</span></a></li>
+  					 <li class='last'><a href='#tab2' rel="tab2"><span>Delete Director</span></a></li>
 				</ul>
 			</div>
    		</form>
-   		<script>
-   		( function( $ ) {
-			$( document ).ready(function() {
-			$('#cssmenu').prepend('<div id="bg-one"></div><div id="bg-two"></div><div id="bg-three"></div><div id="bg-four"></div>');
-			}			);
-		} )( jQuery );
-   		</script>
-   		<form class="pure-form pure-form-single" style="margin-top: 5%;">
-   			<fieldset>
-                    <!-- <legend>A compact inline form</legend> -->
+    		<script>
+    		$(document).ready(function(){
+    //  When user clicks on tab, this code will be executed
+    $("#cssmenu li").click(function() {
+        //  First remove class "active" from currently active tab
+        $("#cssmenu li").removeClass('active');
+ 
+        //  Now add class "active" to the selected/clicked tab
+       $(this).addClass("active");
+ 
+        //  Hide all tab content
+        $(".mtab_content").hide();
+ 
+        //  Here we get the href value of the selected tab
+        var selected_tab = $(this).find("a").attr("href");
+ 
+        //  Show the selected tab content
+        $(selected_tab).fadeIn();
+ 
+        //  At the end, we add return false so that the click on the link is not executed
+        return false;
+    });
+ 	 $("#simulate").click(function(){
+    $('a[rel="tab2"]').trigger("click");
+ 	 });
+	});
+
+  //  		( function( $ ) {
+		// 	$( document ).ready(function() {
+		// 	$('#cssmenu').prepend('<div id="bg-one"></div><div id="bg-two"></div><div id="bg-three"></div><div id="bg-four"></div>');
+		// 	}			);
+		// } )( jQuery );
+  //  		</script>
+  <div id="tab1" class="mtab_content">
+
+
+   		<form class="pure-form pure-form-single" style="margin-top: 5%; margin-left: 0.5%;">
+ 
 
                     <input name="name" type="text" placeholder="Director Name">
                     <input type="email" name="text" placeholder="Gender">
-                    <input type="password" name="text" placeholder="Nationality">
+                    <input type="password" name="text" placeholder="Nationality"><br></br>
 
-                    <button type="submit" class="pure-button pure-button-primary">Add</button>
-            </fieldset>
+                    <button type="submit" class="pure-button pure-button-primary">Add Director</button>
+            
+        </form>
+    </div>
+
+    <div id="tab2" class="mtab_content" style="display: none;">
+    	<form class="pure-form pure-form-single" style="margin-top: 5%; margin-left: 0.5%;">
+    				<input name="name" type="text" placeholder="Director Name" style="margin-bottom: 26%">
+
+                    <button type="submit" class="pure-button pure-button-primary">Delete Director</button></div>
         </form>
      <!--   <% console.log(all_director); %> -->
      <!--    <%= all_director %> -->
