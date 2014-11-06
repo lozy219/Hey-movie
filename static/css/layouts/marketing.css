@@ -388,8 +388,7 @@ a.pure-button-primary {
 #cssmenu ul,
 #cssmenu ul li,
 #cssmenu ul li a {
-  margin: 0 0 0 4%;
-  padding: 0 2.5% 0 2.5%;
+  padding: 0 7% 0 7%;
   border: 0;
   list-style: none;
   line-height: 1;
@@ -400,17 +399,14 @@ a.pure-button-primary {
 }
 
 #cssmenu ul{
-    margin-left: 16%;
     border-bottom: 1px solid;
     border-color: #ccc;
     text-align: center;
 }
 
 #cssmenu {
-  width: 60%;
   height: 59px;
   padding-bottom: 4px;
-  margin-left: 18%;
   text-align: center;
 
 }
@@ -420,7 +416,6 @@ a.pure-button-primary {
 #cssmenu.align-right ul li {
   float: right;
   margin-right: 0;
-  margin-left: 4px;
 }
 #cssmenu.align-right ul li:first-child,
 #cssmenu.align-right ul li:first-child > a {
@@ -468,7 +463,6 @@ a.pure-button-primary {
 }
 #cssmenu ul li {
   float: left;
-  margin-right: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   z-index: 5;
@@ -484,10 +478,11 @@ a.pure-button-primary {
   font-size: 15px;
   text-align: center;
   text-decoration: none;
+  width: 100%;
 }
-#cssmenu ul li:first-child,
-#cssmenu ul li:first-child > a {
-  border-bottom-left-radius: 3px;
+#cssmenu ul li:nth-child(n),
+#cssmenu ul li:nth-child(n) > a {
+  border-radius: 5px;
 }
 #cssmenu ul li:hover,
 #cssmenu ul li.active {
@@ -506,3 +501,6 @@ a.pure-button-primary {
   font-weight: 500;
 }
 
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}

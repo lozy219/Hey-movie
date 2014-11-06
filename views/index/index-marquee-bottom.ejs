@@ -1,19 +1,19 @@
 <!-- 滚动 下 -->
 
 <div id="butong_net_right_bottom" style="position: relative; overflow: hidden; width: 100%; top: 1%;" >
-    <table cellpadding="0" cellspacing="0" border="0">
-        <tr><td id="butong_net_right1_bottom" valign="top" align="center">
-            <table cellpadding="0" cellspacing="0" border="0">
-                <tr align="center"> 
-                    <div class = "roll-down">
-                        <td><p><img src="img/film.png"/></p></td>
-                        <td><p><img src="img/film.png"/></p></td>
-                    </div>
-                </tr>
-            </table>
-        </td>
-        <td id="butong_net_right2_bottom" valign="top"></td>
-    </tr>
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tr><td id="butong_net_right1_bottom" valign="top" align="center">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr align="center"> 
+					<div class = "roll-down">
+						<td><p><img src="img/film.png"/></p></td>
+						<td><p><img src="img/film.png"/></p></td>
+					</div>
+				</tr>
+			</table>
+		</td>
+		<td id="butong_net_right2_bottom" valign="top"></td>
+	</tr>
 </table>
 </div>
 
@@ -22,11 +22,11 @@
 var speed=30
 butong_net_right2_bottom.innerHTML=butong_net_right1_bottom.innerHTML
 function Marquee4_bottom(){
-    if(butong_net_right_bottom.scrollLeft<=0)
-        butong_net_right_bottom.scrollLeft+=butong_net_right2_bottom.offsetWidth
-    else{
-        butong_net_right_bottom.scrollLeft--
-    }
+	if(butong_net_right_bottom.scrollLeft<=0)
+		butong_net_right_bottom.scrollLeft+=butong_net_right2_bottom.offsetWidth
+	else{
+		butong_net_right_bottom.scrollLeft--
+	}
 }
 var MyMar4_bottom=setInterval(Marquee4_bottom,speed)(onmouseover = "this.start()")
 butong_net_right_bottom.onmouseout=function() {MyMar4_bottom=setInterval(Marquee4_bottom,speed)}

@@ -1,44 +1,44 @@
 
 <script>
-    $(document).ready(function(){
-        $("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
-        return false; 
-        $("#username").keyup(function (e) {
-            var username = $(this).val(); //get the string typed by user
-            $.post('/ajax/check_username', {'username':username}, function(data) {
-                if (data.length !== 0) {
-                    $("#error").html("username exists!");
-                } else {
-                    $("#error").html("&nbsp;");
-                }
-            });
-        });
-    });
+	$(document).ready(function(){
+		$("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
+		return false; 
+		$("#username").keyup(function (e) {
+			var username = $(this).val(); //get the string typed by user
+			$.post('/ajax/check_username', {'username':username}, function(data) {
+				if (data.length !== 0) {
+					$("#error").html("username exists!");
+				} else {
+					$("#error").html("&nbsp;");
+				}
+			});
+		});
+	});
 </script>
 
 <div class="content-wrapper">
-    <div class="content-wrapper-form">
-        <div class="content">
-            <p class="form-header">Join Hey Movie!</p>
-            <div id="error" class="signup-error-box">&nbsp;</div> 
-            <form action="/user/signup" method="post" class="pure-form pure-form-single">
-                <fieldset>
-                    <!-- <legend>A compact inline form</legend> -->
+	<div class="content-wrapper-form">
+		<div class="content">
+			<p class="form-header">Join Hey Movie!</p>
+			<div id="error" class="signup-error-box">&nbsp;</div> 
+			<form action="/user/signup" method="post" class="pure-form pure-form-single">
+				<fieldset>
+					<!-- <legend>A compact inline form</legend> -->
 
-                    <input id="username" name="name" type="text" placeholder="Your Name">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Password">
+					<input id="username" name="name" type="text" placeholder="Your Name">
+					<input type="email" name="email" placeholder="Email">
+					<input type="password" name="password" placeholder="Password">
 
-                    <button type="submit" class="pure-button pure-button-primary">Sign up</button>
-                </fieldset>
-            </form>
-            <div class="signup-have-account">
-                <ul>
-                    Already have an account? 
-                    <a href="/login" style="text-decoration:none;">Sign in</a>
-                </ul>
-            </div> 
-        </div><br></br><br></br><br></br><br></br><br>
-        <!-- hack here! need change -->
-    </div>
+					<button type="submit" class="pure-button pure-button-primary">Sign up</button>
+				</fieldset>
+			</form>
+			<div class="signup-have-account">
+				<ul>
+					Already have an account? 
+					<a href="/login" style="text-decoration:none;">Sign in</a>
+				</ul>
+			</div> 
+		</div><br></br><br></br><br></br><br></br><br>
+		<!-- hack here! need change -->
+	</div>
 </div>
