@@ -93,7 +93,7 @@ exports.add_director = function* (director) {
 
 exports.delete_director = function* (name) {
 	var query = 'DELETE FROM director WHERE name="' + name + '"';
-		console.log("db delete: "+(yield pool.query(query))[0].name);
+		console.log("db delete: "+(yield pool.query(query)));
 	return yield pool.query(query);
 };
 
