@@ -74,9 +74,22 @@ exports.get_movie_by_showing_status = function* (){
 
 exports.get_all_director = function* () {
 	var query = 'SELECT * FROM director';
-	console.log((yield pool.query(query))[0]);
 	return (yield pool.query(query))[0];
 }
+
+exports.get_director_by_name = function* (name) {
+	var query = 'SELECT * FROM director WHERE name="' + name + '"';
+	return (yield pool.query(query))[0];
+};
+
+exports.add_director = function* (director) {
+	var query = 'INSERT INTO director (name, nationality, gender, profile_pic) VALUES ("' +
+				director.director_name + '","' + 
+				director.director_nationality + '","' + 
+				director.director_gender + '","' +
+				null + '");';
+	return yield pool.query(query);
+};
 
 // actor
 

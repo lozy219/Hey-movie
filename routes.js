@@ -29,9 +29,11 @@ module.exports = function routes(app) {
 	app.get('/admin', admin.show);
 	app.get('/admin/movie', admin.show_movie);
 	app.get('/admin/director', admin.show_director);
+	app.get('/admin/add_director', admin.add_director);
 	app.get('/admin/actor', admin.show_actor);
 
 	app.post('/movie/homepage_movie_search',movie.homepage_movie_search);
+	app.post('/admin/add_director', admin.add_director);
 	
 	app.post('/ajax/check_username', user.check_username);
 };

@@ -53,6 +53,18 @@ exports.show_director = function* (){
 	this.response.redirect('/admin');
 };
 
+
+exports.add_director = function* (){
+	console.log("00000");
+	var result = yield director.insert(this.request.body);
+	console.log("result"+result);
+	if (result == false){
+		console.log('add failed');
+	} else {
+		console.log('add successfully');
+	}
+};
+
 exports.show_actor = function* (){
 	var all_actor = yield actor.get_all_actor();
 	this.session.admin_all_actor = all_actor;
