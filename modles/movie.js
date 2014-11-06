@@ -30,15 +30,10 @@ exports.get_all_movie = function* (){
 	return movie;
 }
 
+exports.insert = function* (director) {
+	return yield db.add_director(director);
+};
 
-/*
-exports.insert = function* (movie) {
-	var title = yield db.get_movie_by_title(movie.title);
-	var link = yield db.get_movie_by_IMDB_link(movie.IMDB_link);
-
-	if (title.length == 0 && link.length == 0){
-		return yield db.add_movie(movie);
-	} else {
-		return false;
-	}
-};*/
+exports.delete = function* (id) {
+	var result = yield db.delete_director_by_id(id);
+};

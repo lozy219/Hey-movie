@@ -46,7 +46,28 @@ exports.show_movie = function* (){
 	this.response.redirect('/admin');
 };
 
-//Director
+exports.add_movie = function* (){
+	var result = yield movie.insert(this.request.body);
+	if (result == false){
+		console.log('add failed');
+	} else {
+		console.log('add successfully');
+	}
+	this.response.redirect('/admin');
+};
+
+exports.delete_movie = function* (){
+	var result = yield director.delete(this.request.querystring);
+	if (result == false){
+		console.log('delete failed');
+	} else {
+		console.log('delete successfully');
+	}
+	this.response.redirect('/admin');
+};
+
+
+//Director-unused
 
 exports.show_director = function* (){
 	var all_director = yield director.get_all_director();
@@ -66,7 +87,7 @@ exports.add_director = function* (){
 	this.response.redirect('/admin');
 };
 
-exports.delete_director = function* delete_director(){
+exports.delete_director = function* (){
 	var result = yield director.delete(this.request.querystring);
 	if (result == false){
 		console.log('delete failed');
