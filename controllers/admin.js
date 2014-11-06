@@ -40,9 +40,9 @@ exports.show = function* (){
 };
 
 exports.show_movie = function* (){
-	var all_movie = yield movie.get_all_movie();
+	var all_movie                = yield movie.get_all_movie();
 	this.session.admin_all_movie = all_movie;
-	this.session.admin_mode = "show_movie";
+	this.session.admin_mode      = "show_movie";
 	this.response.redirect('/admin');
 };
 
@@ -70,9 +70,9 @@ exports.delete_movie = function* (){
 //Director-unused
 
 exports.show_director = function* (){
-	var all_director = yield director.get_all_director();
+	var all_director                = yield director.get_all_director();
 	this.session.admin_all_director = all_director;
-	this.session.admin_mode = "show_director";
+	this.session.admin_mode         = "show_director";
 	this.response.redirect('/admin');
 };
 
@@ -100,8 +100,8 @@ exports.delete_director = function* (){
 //Actor
 
 exports.show_actor = function* (){
-	var all_actor = yield actor.get_all_actor();
+	var all_actor                = yield actor.get_all_actor();
 	this.session.admin_all_actor = all_actor;
-	this.session.admin_mode = "show_actor";
+	this.session.admin_mode      = "show_actor";
 	this.response.redirect('/admin');
 };
