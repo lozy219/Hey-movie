@@ -17,14 +17,6 @@ exports.insert = function* (director) {
 	}
 };
 
-exports.delete = function* (director) {
-	var director = yield db.get_director_by_name(director.delete_name);
-	console.log("director: "+director[0]);
-	if (director.length != 0){
-		console.log("ddddd");
-		return yield db.delete_director(director.delete_name);
-	} else {
-		console.log("kkkkk");
-		return false;
-	}
+exports.delete = function* (id) {
+	var result = yield db.delete_director_by_id(id);
 };

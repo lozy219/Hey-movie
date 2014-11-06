@@ -1,4 +1,4 @@
-<div id="tab2" class="mtab_content" style="display: none; margin-left: 20%; margin-bottom: 5%">
+<div id="tab1" class="mtab_content" style="margin-left: 20%; margin-bottom: 5%">
 	<br />
 	<table class="pure-table">
 		<thead>
@@ -13,7 +13,7 @@
 
 		<tbody>
 
-		<% for (i = 0; i < all_director.length; i ++) {
+		<%for (i = 0; i < all_director.length; i ++) {
 			if (i % 2 === 0) { %>
 				<tr class="pure-table-odd">
 					<td><%= all_director[i].name  %></td>
@@ -22,7 +22,7 @@
 					<td>0</td>
 					<td>
 						<a class="pure-button" href="#">Update</a>
-						<a class="pure-button button-error" href="#">Delete</a>
+						<a class="pure-button button-error" href="/admin/director/delete_director?<%=all_director[i].director_id%>">Delete</a>
 					</td>
 				</tr>
 			<% } else { %>
@@ -33,7 +33,7 @@
 					<td>0</td>
 					<td>
 						<a class="pure-button" href="#">Update</a>
-						<a class="pure-button button-error" href="#">Delete</a>
+						<a class="pure-button button-error" href="/admin/director/delete_director?<%=all_director[i].director_id%>">Delete</a>
 					</td>
 				</tr>
 			<%}%>

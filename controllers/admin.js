@@ -66,8 +66,8 @@ exports.add_director = function* (){
 	this.response.redirect('/admin');
 };
 
-exports.delete_director = function* (){
-	var result = yield director.delete(this.request.body);
+exports.delete_director = function* delete_director(){
+	var result = yield director.delete(this.request.querystring);
 	if (result == false){
 		console.log('delete failed');
 	} else {

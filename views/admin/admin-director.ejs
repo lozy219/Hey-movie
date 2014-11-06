@@ -11,8 +11,8 @@
 		<form class="pure-form-single" action="/admin/manage_director">
 			<div id='cssmenu'>
 				<ul>
-					<li class='active'><a href='#tab1' rel="tab1"><span>Add Director</span></a></li>
-					<li style='float:right'class='last'><a href='#tab2' rel="tab2"><span>View Director</span></a></li>
+					<li class='active'><a href='#tab1' rel="tab1"><span>View Director</span></a></li>
+					<li style='float:right'class='last'><a href='#tab2' rel="tab2"><span>Add Director</span></a></li>
 				</ul>
 			</div>
 		</form>
@@ -41,10 +41,10 @@
 					return false;
 				});
 				$("#simulate").click(function(){
-					$('a[rel="tab2"]').trigger("click");
+					$('a[rel="tab1"]').trigger("click");
 				});
 			});
 		</script>
+    <%= include admin-director-view.ejs %>
 		<%= include admin-director-add.ejs %>
-		<%= include admin-director-view.ejs %>
 	</div>
