@@ -388,8 +388,8 @@ a.pure-button-primary {
 #cssmenu ul,
 #cssmenu ul li,
 #cssmenu ul li a {
-  margin: 0 0 0 16%;
-  padding: 0 8% 0 1%;
+  margin: 0 0 0 4%;
+  padding: 0 2.5% 0 2.5%;
   border: 0;
   list-style: none;
   line-height: 1;
@@ -400,6 +400,7 @@ a.pure-button-primary {
 }
 
 #cssmenu ul{
+    margin-left: 16%;
     border-bottom: 1px solid;
     border-color: #ccc;
     text-align: center;
@@ -409,7 +410,7 @@ a.pure-button-primary {
   width: 60%;
   height: 59px;
   padding-bottom: 4px;
-  margin-left: 20%;
+  margin-left: 18%;
   text-align: center;
 
 }
@@ -467,13 +468,13 @@ a.pure-button-primary {
 }
 #cssmenu ul li {
   float: left;
-  margin-right: 4px;
+  margin-right: 0;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   z-index: 5;
 }
 #cssmenu ul li a {
-  padding: 24px 0px 0px 20px;
+  padding: 24px 20px 0px 20px;
   margin-bottom: 10%;
   margin-top: -10%;
   border-top-left-radius: 3px;

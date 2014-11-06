@@ -55,14 +55,13 @@ exports.show_director = function* (){
 
 
 exports.add_director = function* (){
-	console.log("00000");
 	var result = yield director.insert(this.request.body);
-	console.log("result"+result);
 	if (result == false){
 		console.log('add failed');
 	} else {
 		console.log('add successfully');
 	}
+	this.response.redirect('/admin');
 };
 
 exports.show_actor = function* (){
