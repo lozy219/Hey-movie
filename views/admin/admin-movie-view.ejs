@@ -1,0 +1,52 @@
+<div id="tab1" class="mtab_content" style="margin-left: 10%; margin-bottom: 5%">
+	<br />
+	<table class="pure-table" style="margin-top: 5%;">
+		<thead>
+			<tr style="text-align:center">
+				<th>Title</th>
+				<th>Language</th>
+				<th>Length</th>
+				<th>Genre</th>
+				<th>Year</th>
+				<th>Status</th>
+				<th>Operations</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+		<%for (i = 0; i < all_movie.length; i ++) {
+			if (i % 2 === 0) { %>
+				<tr class="pure-table-odd">
+					<td><%= all_movie[i].title  %></td>
+					<td><%= all_movie[i].language %></td>
+					<td><%= all_movie[i].length %></td>
+					<td><%= all_movie[i].genre %></td>
+					<td><%= all_movie[i].year %></td>
+					<td><%= all_movie[i].status %></td>
+					<td>
+						<a class="pure-button" href="/admin/movie/add_show?<%=all_movie[i].movie_id%>">Add Show</a>
+						<a class="pure-button" href="#">Update</a>
+						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_movie[i].movie_id%>">Delete</a>
+					</td>
+				</tr>
+			<% } else { %>
+				<tr>
+					<td><%= all_movie[i].title  %></td>
+					<td><%= all_movie[i].language %></td>
+					<td><%= all_movie[i].length %></td>
+					<td><%= all_movie[i].genre %></td>
+					<td><%= all_movie[i].year %></td>
+					<td><%= all_movie[i].status %></td>
+					<td>
+						<a class="pure-button" href="/admin/movie/add_show?<%=all_movie[i].movie_id%>">Add Show</a>
+						<a class="pure-button" href="#">Update</a>
+						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_movie[i].movie_id%>">Delete</a>
+					</td>
+				</tr>
+			<%}%>
+		<% } %>
+		</tbody>
+	</table>
+</div>
+

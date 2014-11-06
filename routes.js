@@ -28,6 +28,8 @@ module.exports = function routes(app) {
 	// admin
 	app.get('/admin', admin.show);
 	app.get('/admin/movie', admin.show_movie);
+	app.post('/admin/movie/add_movie', admin.add_movie);
+	app.get('/admin/movie/delete_movie', admin.delete_movie);
 
 	app.get('/admin/director', admin.show_director);
 	app.post('/admin/director/add_director', admin.add_director);

@@ -42,7 +42,7 @@ HTML, CSS, SQL, Node.js | MySQL, Git, koa |
 
 
 ####3. Entity-Relationship Diagram
-![Alt text](http://oi59.tinypic.com/167p954.jpg "ER diagram")
+![Alt text](http://oi62.tinypic.com/6sxsv6.jpg "ER diagram")
 
 
 

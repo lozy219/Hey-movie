@@ -8,44 +8,46 @@ CREATE TABLE movie (
 	genre VARCHAR(100),
 	year CHAR(4),
 	title VARCHAR(100) NOT NULL,
+	-- director_id INT,
 	showing_status VARCHAR(20), # only can be "on show", "trailer" or "off show" or null
 	poster_link VARCHAR(200), 
 
-	PRIMARY KEY (movie_id)
+	PRIMARY KEY (movie_id),
+	-- FOREIGN KEY (director_id) REFERENCES director(director_id) ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS director;
-CREATE TABLE director (
-	director_id INT AUTO_INCREMENT,
-	name VARCHAR(30) NOT NULL,
-	nationality VARCHAR(30),
-	gender CHAR(1),
-	profile_pic VARCHAR(200),
+-- DROP TABLE IF EXISTS director;
+-- CREATE TABLE director (
+-- 	director_id INT AUTO_INCREMENT,
+-- 	name VARCHAR(30) NOT NULL,
+-- 	nationality VARCHAR(30),
+-- 	gender CHAR(1),
+-- 	profile_pic VARCHAR(200),
 
-	PRIMARY KEY (director_id)
-);
+-- 	PRIMARY KEY (director_id)
+-- );
 
-DROP TABLE IF EXISTS actor;
-CREATE TABLE actor (
-	actor_id INT AUTO_INCREMENT,
-	name VARCHAR(30) NOT NULL,
-	nationality VARCHAR(30),
-	gender CHAR(1),
-	profile_pic VARCHAR(200),
+-- DROP TABLE IF EXISTS actor;
+-- CREATE TABLE actor (
+-- 	actor_id INT AUTO_INCREMENT,
+-- 	name VARCHAR(30) NOT NULL,
+-- 	nationality VARCHAR(30),
+-- 	gender CHAR(1),
+-- 	profile_pic VARCHAR(200),
 
-	PRIMARY KEY (actor_id)
-);
+-- 	PRIMARY KEY (actor_id)
+-- );
 
-DROP TABLE IF EXISTS act;
-CREATE TABLE act (
-	movie_id INT,
-	actor_id INT,
-	role VARCHAR(30) NOT NULL,
+-- DROP TABLE IF EXISTS act;
+-- CREATE TABLE act (
+-- 	movie_id INT,
+-- 	actor_id INT,
+-- 	role VARCHAR(30) NOT NULL,
 
-	PRIMARY KEY(movie_id, actor_id),
-	FOREIGN KEY (movie_id) REFERENCES movie(movie_id) ON DELETE CASCADE,
-	FOREIGN KEY (actor_id) REFERENCES actor(actor_id) ON DELETE CASCADE
-);
+-- 	PRIMARY KEY(movie_id, actor_id),
+-- 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id) ON DELETE CASCADE,
+-- 	FOREIGN KEY (actor_id) REFERENCES actor(actor_id) ON DELETE CASCADE
+-- );
 
 DROP TABLE IF EXISTS customer;
 CREATE TABLE customer (

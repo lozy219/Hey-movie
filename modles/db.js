@@ -32,14 +32,15 @@ exports.get_customer_by_email = function* (email) {
 // movie
 
 exports.add_movie = function* (movie) {
-	var query = 'INSERT INTO movie (IMDB_link, IMDB_rating, language, length, genre, year, title) VALUES ("' +
+	var query = 'INSERT INTO movie (IMDB_link, IMDB_rating, language, length, genre, year, title, poster_link) VALUES ("' +
 				movie.IMDB_link + '","' + 
 				movie.IMDB_rating + '","' + 
 				movie.language + '","' +
 				movie.length + '","' +
 				movie.genre + '","' +
 				movie.year + '","' +
-				movie.title + '");';
+				movie.title + '","' +
+				movie.poster_link + '");';
 	return yield pool.query(query);
 };
 
@@ -68,6 +69,12 @@ exports.get_movie_by_showing_status = function* (){
 	var query = 'SELECT * FROM movie WHERE showing_status = "on show" ';
 	console.log((yield pool.query(query))[0]);
 	return (yield pool.query(query))[0];
+};
+
+exports.delete_movie_by_id = function* (id) {
+	var query = 'DELETE FROM movie WHERE movie_id=' + id;
+	console.log(query);
+	return yield pool.query(query);
 };
 
 // director
