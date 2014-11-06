@@ -1,0 +1,11 @@
+<div id="tab2" class="mtab_content" style="display: none; margin-left: 43%; margin-bottom: 5%">
+	<% for(i=0;i<all_director.length;i++){ %>
+	<h3 class="content-subhead">
+		<i class="fa fa-rocket"></i>
+		<h style="color: black; "><%= i+1 %>.</h>
+		<%= all_director[i].name  %>
+	</h3>
+	<li>Gender: <%=all_director[i].gender%></li>
+	<li>Nationality: <%var nat = all_director[i].nationality; var capted_nat = nat.charAt(0).toUpperCase() + nat.slice(1);%> <%= capted_nat %></li>      
+	<% } %>
+</div>
