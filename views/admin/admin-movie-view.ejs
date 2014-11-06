@@ -25,7 +25,8 @@
 					<td><%= all_movie[i].year %></td>
 					<td><%= all_movie[i].status %></td>
 					<td>
-						<a class="pure-button" href="/admin/movie/add_show?<%=all_movie[i].movie_id%>">Add Show</a>
+						<span id="add-show">
+						<a class="pure-button" id="<%= all_movie[i].movie_id %>" href="">Add Show</a></span>
 						<a class="pure-button" href="#">Update</a>
 						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_movie[i].movie_id%>">Delete</a>
 					</td>
@@ -39,7 +40,8 @@
 					<td><%= all_movie[i].year %></td>
 					<td><%= all_movie[i].status %></td>
 					<td>
-						<a class="pure-button" href="/admin/movie/add_show?<%=all_movie[i].movie_id%>">Add Show</a>
+						<span id="add-show">
+						<a class="pure-button" id="<%= all_movie[i].movie_id %>" href="">Add Show</a></span>
 						<a class="pure-button" href="#">Update</a>
 						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_movie[i].movie_id%>">Delete</a>
 					</td>
