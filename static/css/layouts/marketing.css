@@ -388,19 +388,30 @@ a.pure-button-primary {
 #cssmenu ul,
 #cssmenu ul li,
 #cssmenu ul li a {
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0 16%;
+  padding: 0 8% 0 1%;
   border: 0;
   list-style: none;
   line-height: 1;
   display: block;
   position: relative;
+  text-align: center;
   font-family: Capriola, Helvetica, sans-serif;
 }
+
+#cssmenu ul{
+    border-bottom: 1px solid;
+    border-color: #ccc;
+    text-align: center;
+}
+
 #cssmenu {
-  width: auto;
+  width: 60%;
   height: 59px;
   padding-bottom: 4px;
+  margin-left: 20%;
+  text-align: center;
+
 }
 #cssmenu.align-right {
   float: right;
@@ -414,7 +425,7 @@ a.pure-button-primary {
 #cssmenu.align-right ul li:first-child > a {
   border-bottom-right-radius: 3px;
 }
-#cssmenu #bg-one,
+/*#cssmenu #bg-one,
 #cssmenu #bg-two,
 #cssmenu #bg-three,
 #cssmenu #bg-four {
@@ -450,7 +461,7 @@ a.pure-button-primary {
   height: 55px;
   z-index: 4;
   background: url('images/bg.png');
-}
+}*/
 #cssmenu ul {
   height: 59px;
 }
@@ -462,12 +473,14 @@ a.pure-button-primary {
   z-index: 5;
 }
 #cssmenu ul li a {
-  padding: 24px 30px 20px 30px;
-  margin-bottom: 4px;
+  padding: 24px 0px 0px 20px;
+  margin-bottom: 10%;
+  margin-top: -10%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  color: #eeeeee;
+  color: #000;
   font-size: 15px;
+  text-align: center;
   text-decoration: none;
 }
 #cssmenu ul li:first-child,
@@ -482,11 +495,12 @@ a.pure-button-primary {
   background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
   background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
   background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #cccccc 100%);
 }
 #cssmenu ul li a:hover,
 #cssmenu ul li.active > a {
   background: url('img/management_bg.png');
-  color: #ffffff;
+  color: #000000;
+  font-weight: 500;
 }
 
