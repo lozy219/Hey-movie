@@ -26,7 +26,6 @@ exports.show = function* (){
 
 		case "show_director":
 			this.session.admin_mode = undefined;
-			console.log("1111");
 			this.body = yield render('admin/admin', {user : this.session.customer, all_director : this.session.admin_all_director, render_html : 'admin-director.ejs'});
 			break;
 
@@ -47,6 +46,8 @@ exports.show_movie = function* (){
 	this.response.redirect('/admin');
 };
 
+//Director
+
 exports.show_director = function* (){
 	var all_director = yield director.get_all_director();
 	this.session.admin_all_director = all_director;
@@ -64,6 +65,18 @@ exports.add_director = function* (){
 	}
 	this.response.redirect('/admin');
 };
+
+exports.delete_director = function* (){
+	var result = yield director.delete(this.request.body);
+	if (result == false){
+		console.log('delete failed');
+	} else {
+		console.log('delete successfully');
+	}
+	this.response.redirect('/admin');
+};
+
+//Actor
 
 exports.show_actor = function* (){
 	var all_actor = yield actor.get_all_actor();

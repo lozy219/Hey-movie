@@ -91,6 +91,12 @@ exports.add_director = function* (director) {
 	return yield pool.query(query);
 };
 
+exports.delete_director = function* (name) {
+	var query = 'DELETE FROM director WHERE name="' + name + '"';
+		console.log("db delete: "+(yield pool.query(query))[0].name);
+	return yield pool.query(query);
+};
+
 // actor
 
 exports.get_all_actor = function* () {

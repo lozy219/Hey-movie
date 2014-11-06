@@ -34,6 +34,7 @@ module.exports = function routes(app) {
 
 	app.post('/movie/homepage_movie_search',movie.homepage_movie_search);
 	app.post('/admin/add_director', admin.add_director);
+	app.post('/admin/delete_director', admin.delete_director);
 	
 	app.post('/ajax/check_username', user.check_username);
 };
