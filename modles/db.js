@@ -74,6 +74,7 @@ exports.get_movie_by_showing_status = function* (){
 
 exports.get_all_director = function* () {
 	var query = 'SELECT * FROM director';
+	console.log((yield pool.query(query))[0]);
 	return (yield pool.query(query))[0];
 }
 

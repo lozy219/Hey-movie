@@ -8,8 +8,34 @@ $(function () {
 <div class="content-wrapper">
     <div class="content">
         <h2 class="content-head is-center">Director Management</h2>
-        <% console.log(all_director); %>
-        <%= all_director %>
+        <form action="/admin/manage_director">
+        	<div id='cssmenu'>
+				<ul>
+  					 <li class='active'><a href='#'><span>Add Director</span></a></li>
+  					 <li class='last'><a href='#'><span>Delete Director</span></a></li>
+				</ul>
+			</div>
+   		</form>
+   		<script>
+   		( function( $ ) {
+			$( document ).ready(function() {
+			$('#cssmenu').prepend('<div id="bg-one"></div><div id="bg-two"></div><div id="bg-three"></div><div id="bg-four"></div>');
+			}			);
+		} )( jQuery );
+   		</script>
+   		<form class="pure-form pure-form-single" style="margin-top: 5%;">
+   			<fieldset>
+                    <!-- <legend>A compact inline form</legend> -->
+
+                    <input name="name" type="text" placeholder="Director Name">
+                    <input type="email" name="text" placeholder="Gender">
+                    <input type="password" name="text" placeholder="Nationality">
+
+                    <button type="submit" class="pure-button pure-button-primary">Add</button>
+            </fieldset>
+        </form>
+     <!--   <% console.log(all_director); %> -->
+     <!--    <%= all_director %> -->
       <!-- TODO: update table for director -->
     </div>
 </div>
