@@ -30,10 +30,10 @@ exports.get_all_movie = function* (){
 	return movie;
 }
 
-exports.insert = function* (director) {
-	return yield db.add_director(director);
+exports.insert = function* (movie) {
+	return yield db.add_movie(movie);
 };
 
 exports.delete = function* (id) {
-	var result = yield db.delete_director_by_id(id);
+	var result = yield db.delete_movie_by_id(id);
 };

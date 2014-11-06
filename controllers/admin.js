@@ -57,7 +57,7 @@ exports.add_movie = function* (){
 };
 
 exports.delete_movie = function* (){
-	var result = yield director.delete(this.request.querystring);
+	var result = yield movie.delete(this.request.querystring);
 	if (result == false){
 		console.log('delete failed');
 	} else {

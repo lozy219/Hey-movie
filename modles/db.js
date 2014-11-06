@@ -32,14 +32,15 @@ exports.get_customer_by_email = function* (email) {
 // movie
 
 exports.add_movie = function* (movie) {
-	var query = 'INSERT INTO movie (IMDB_link, IMDB_rating, language, length, genre, year, title) VALUES ("' +
+	var query = 'INSERT INTO movie (IMDB_link, IMDB_rating, language, length, genre, year, title, poster_link) VALUES ("' +
 				movie.IMDB_link + '","' + 
 				movie.IMDB_rating + '","' + 
 				movie.language + '","' +
 				movie.length + '","' +
 				movie.genre + '","' +
 				movie.year + '","' +
-				movie.title + '");';
+				movie.title + '","' +
+				movie.poster_link + '");';
 	return yield pool.query(query);
 };
 
