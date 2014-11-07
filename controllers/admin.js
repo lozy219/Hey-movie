@@ -39,6 +39,15 @@ exports.show = function* (){
 	}
 };
 
+exports.store_selected_movie = function* (){
+	this.session.stored_movie = this.request.body.movie_id;
+	this.body = this.session.stored_movie;
+};
+
+exports.get_selected_movie = function* (){
+	this.body = this.session.stored_movie;
+};
+
 exports.show_movie = function* (){
 	var all_movie                = yield movie.get_all_movie();
 	this.session.admin_all_movie = all_movie;
@@ -63,6 +72,10 @@ exports.delete_movie = function* (){
 	} else {
 		console.log('delete successfully');
 	}
+	this.response.redirect('/admin');
+};
+
+exports.add_show = function* (){
 	this.response.redirect('/admin');
 };
 

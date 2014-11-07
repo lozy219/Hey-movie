@@ -30,6 +30,7 @@ module.exports = function routes(app) {
 	app.get('/admin/movie', admin.show_movie);
 	app.post('/admin/movie/add_movie', admin.add_movie);
 	app.get('/admin/movie/delete_movie', admin.delete_movie);
+	app.get('/admin/movie/add_show', admin.add_show);
 
 	app.get('/admin/director', admin.show_director);
 	app.post('/admin/director/add_director', admin.add_director);
@@ -42,4 +43,7 @@ module.exports = function routes(app) {
 	app.post('/admin/delete_director', admin.delete_director);
 	
 	app.post('/ajax/check_username', user.check_username);
+	app.post('/ajax/store_selected_movie', admin.store_selected_movie);
+	app.post('/ajax/get_selected_movie', admin.get_selected_movie);
+	
 };
