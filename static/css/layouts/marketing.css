@@ -490,7 +490,7 @@ a.pure-button-primary {
   z-index: 5;
 }
 #cssmenu ul li a {
-  padding: 24px 20px 0px 20px;
+  padding: 24px 12px 0px 12px;
   margin-bottom: 10%;
   margin-top: -10%;
   border-top-left-radius: 3px;
@@ -525,4 +525,22 @@ a.pure-button-primary {
 
 .button-error {
     background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.admin-long-table {
+  margin-top: 5%; 
+  width:90%; 
+  max-width:90%; 
+  margin-left:5%;
+  margin-right:5%; 
+  text-align:center 
+}
+
+.admin-short-table {
+  margin-top: 5%; 
+  width:50%; 
+  max-width:50%; 
+  margin-left:25%;
+  margin-right:25%; 
+  text-align:center 
 }

@@ -1,0 +1,18 @@
+<div id="tab2" style="display: none;" class="mtab_content">
+    <form action="/admin/theatre/add_theatre" method="post" class="pure-form pure-form-single" style="margin-top: 5%; margin-left: 0.5%;">
+    <input name="name" type="text" placeholder="Theatre Name">
+    <input name="location" type="text" placeholder="Location">
+    <input name="postal_code" type="text" placeholder="Postal Code">
+    <input name="contact" type="text" placeholder="Contact">
+    <select name="operator_id" style="height: 36px; width: 100%; margin-bottom: 1em;">
+      <option value="">Select operator</option>
+      <% console.log(all_operator); for (var i = 0; i < all_operator.length; i ++) {
+      %><option value=<%= all_operator[i].operator_id %>><%= all_operator[i].operator_name%></option>
+      <% } %>
+    </select>
+    <br /><br /><br />
+    <button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Add Operator</button>
+
+  </form>
+  <br /><br /><br />
+</div>

@@ -7,13 +7,13 @@ $(function () {
 </script>
 
 <div class="content-wrapper">
-	<div class="content movie-management">
-		<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Movie Management</h2>
+	<div class="content theatre-management">
+		<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Theatre Management</h2>
 		<form class="pure-form-single" action="/admin/manage_director">
 			<div id='cssmenu'>
 				<ul>
-					<li class='active'><a href='#tab1' rel="tab1"><span>View Movies</span></a></li>
-					<li style='float:right'class='last'><a href='#tab2' rel="tab2"><span>Add Movies</span></a></li>
+					<li class='active'><a href='#tab1' rel="tab1"><span>View Theatres</span></a></li>
+					<li style='float:right'class='last'><a href='#tab2' rel="tab2"><span>Add Theatre</span></a></li>
 				</ul>
 			</div>
 		</form>
@@ -42,9 +42,9 @@ $(function () {
 					return false;
 				});
 
-				$("#add-show a").click(function() {
-					//	Hide the movie management page
-					$(".movie-management").hide();
+				/*$("#add-show a").click(function() {
+					//	Hide the theatre management page
+					$(".theatre-management").hide();
 
 					$.post('/ajax/store_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
 							$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
@@ -59,15 +59,14 @@ $(function () {
 					event.preventDefault();
 					//	At the end, we add return false so that the click on the link is not executed
 					return false;
-				});
+				});*/
 
 				$("#simulate").click(function(){
 					$('a[rel="tab1"]').trigger("click");
 				});
 			});
 		</script>
-    <%= include admin-movie-view.ejs %>
-	<%= include admin-movie-add.ejs %>
+    <%= include admin-theatre-view.ejs %>
+	<%= include admin-theatre-add.ejs %>
 	</div>
-	<%= include admin-movie-add-show.ejs %>
 </div>
