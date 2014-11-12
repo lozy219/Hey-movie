@@ -32,3 +32,7 @@ exports.get_customer_id_by_email = function* (email) {
 		return null;
 	}
 };
+
+exports.edit_profile = function* (info, email) {
+	return yield db.update_profile(info, email);
+};

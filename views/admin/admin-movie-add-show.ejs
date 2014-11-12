@@ -1,6 +1,13 @@
+<script>
+	$(document).ready(function(){
+		$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+					
+		});
+	});
+</script>
 <div class="content show-management" style="display : none">
-	<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Movie Management</h2>
-	<form action="/admin/movie/add_movie" method="post" class="pure-form pure-form-single" style="margin-top: 5%; margin-left: 0.5%;">
+	<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Add Show</h2>
+	<form action="/admin/show/add_show" method="post" class="pure-form pure-form-single" style="margin-top: 5%;">
 		<input name="title" type="text" placeholder="Movie Title">
 		<input name="length" type="text" placeholder="Movie Length (Minutes)">
 		<select name="language" style="height: 36px;width: 100%; margin-bottom: 1em;">

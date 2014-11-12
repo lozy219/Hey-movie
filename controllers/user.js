@@ -40,7 +40,7 @@ exports.signup = function* (){
 	if (result == false){
 		console.log('signup failed');
 	} else {
-		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
+		this.session.customer = (yield db.get_customer_by_email(this.request.body.email))[0];
 		if (config.admin_id.indexOf(this.session.customer.customer_id) !== -1) {
 			this.session.customer.is_admin = true;
 		} else {
@@ -78,11 +78,16 @@ exports.login = function* (){
 };
 
 exports.profile = function* (){
-	this.response.redirect('/');
+	this.response.redirect('/profile/edit');
 };
 
-exports.profile_edit = function* (){
-	this.response.redirect('/');
+exports.profile_edit = function* (email){
+	var result = yield customer.edit_profile(this.request.body, email);
+	if (result == false){
+		console.log('update profile failed');
+	} else {
+		this.response.redirect('/profile');
+	}
 }
 
 exports.logout = function* (){

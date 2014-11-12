@@ -7,7 +7,7 @@
 				<th>Location</th>
 				<th>Postal Code</th>
 				<th>Contact</th>
-				<th>theatre</th>
+				<th>Operator</th>
 				<th>Operations</th>
 			</tr>
 		</thead>
@@ -20,7 +20,7 @@
 			<td colspan="6" style="text-align:center">No record found</td>
 		<%}
 
-		console.log(all_theatre);
+
 		for (i = 0; i < all_theatre.length; i ++) {
 			if (i % 2 === 0) { %>
 				<tr class="pure-table-odd">
@@ -28,7 +28,7 @@
 					<td><%= all_theatre[i].location %></td>
 					<td><%= all_theatre[i].postal_code %></td>
 					<td><%= all_theatre[i].contact %></td>
-					<td><%= all_theatre[i].operator %></td>
+					<td><%= all_theatre[i].operator.operator_name %></td>
 					<td>
 						<span id="add-show">
 						<a class="pure-button" href="#">Update</a>
@@ -41,7 +41,7 @@
 					<td><%= all_theatre[i].location %></td>
 					<td><%= all_theatre[i].postal_code %></td>
 					<td><%= all_theatre[i].contact %></td>
-					<td><%= all_theatre[i].operator %></td>
+					<td><%= all_theatre[i].operator.operator_name %></td>
 					<td>
 						<span id="add-show">
 						<a class="pure-button" href="#">Update</a>

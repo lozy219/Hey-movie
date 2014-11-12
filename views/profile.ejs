@@ -2,16 +2,11 @@
 <div class="content-wrapper-form">
     <div class="content">
         <p class="profile-form-header">Hey <%= user.name + '!!!' %></p>
-        <form action="/user/login" method="POST" class="pure-form pure-form-single">
+        <form action="/user/profile" method="POST" class="pure-form pure-form-single">
             <fieldset>
 
             <div class='profile-display'>
-            	<% 
-               	if (user.profile_pic === null) { 
-            		%><img src="img/profile_pic/default.png" width=30% height=30%><%
-        		} else {
-           			%><%
-        		} %><br></br>
+            	<br></br>
 
             	<li><h>User Name: </h><% 
                	if (user.name === null) { 

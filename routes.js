@@ -23,7 +23,7 @@ module.exports = function routes(app) {
 	app.post('/user/signup', user.signup);
 	app.post('/user/login', user.login);
 	app.post('/user/profile', user.profile);
-	app.post('/user/profile/edit', user.profile_edit)
+	app.post('/profile/edit', user.profile_edit)
 
 	// admin
 	app.get('/admin', admin.show);
