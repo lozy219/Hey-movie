@@ -29,6 +29,41 @@ exports.get_customer_by_email = function* (email) {
 	return (yield pool.query(query))[0];
 };
 
+exports.update_profile = function* (info, email) {
+	if (info.contact != null){
+		var query1 = 'UPDATE customer SET contact="' + info.contact + '" WHERE email="' + email + '"';
+	} else {
+		console.log("query1 false");
+		return false;
+	}
+	if (info.year != null && info.month != null && info.day != null) {
+		var query2 = 'UPDATE customer SET DOB=' + info.year + '-' + info.month + '-' + info.day + ' WHERE email="' + email + '"';
+	} else {
+		console.log("query2 false");
+		return false;
+	}
+	var result1 = yield pool.query(query1);
+	console.log(query1);
+	var result2 = yield pool.query(query2);
+	console.log(query2);
+	return result1 && result2;
+}
+
+exports.get_DOB_year = function* (customer) {
+	var query = 'SELECT EXTRACT (YEAR FROM DOB) FROM customer WHERE email="' + email + '"';
+	return (yield pool.query(query))[0];
+}
+
+exports.get_DOB_month = function* (customer) {
+	var query = 'SELECT EXTRACT (MONTH FROM DOB) FROM customer WHERE email="' + email + '"';
+	return (yield pool.query(query))[0];
+}
+
+exports.get_DOB_day = function* (customer) {
+	var query = 'SELECT EXTRACT (DAY FROM DOB) FROM customer WHERE email="' + email + '"';
+	return (yield pool.query(query))[0];
+}
+
 // movie
 
 exports.add_movie = function* (movie) {
