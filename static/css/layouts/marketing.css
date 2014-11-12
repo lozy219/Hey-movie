@@ -375,6 +375,11 @@ a.pure-button-primary {
     margin-left: 30%;
 }
 
+.profile-edit-display li{
+    text-align: left;
+    margin-left: 30%;
+}
+
 .profile-edit {
   text-align: center;
   font-size: 20px;
