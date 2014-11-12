@@ -29,23 +29,25 @@ exports.get_customer_by_email = function* (email) {
 	return (yield pool.query(query))[0];
 };
 
-exports.update_profile = function* (info, email) {
+exports.update_profile = function* (info) {
+	console.log(info);
 	if (info.contact != null){
-		var query1 = 'UPDATE customer SET contact="' + info.contact + '" WHERE email="' + email + '"';
+		var query1 = 'UPDATE customer SET contact="' + info.contact + '" WHERE email="' + info.email + '"';
 	} else {
 		console.log("query1 false");
 		return false;
 	}
-	if (info.year != null && info.month != null && info.day != null) {
-		var query2 = 'UPDATE customer SET DOB=' + info.year + '-' + info.month + '-' + info.day + ' WHERE email="' + email + '"';
+	if (info.dob != null) {
+		var query2 = 'UPDATE customer SET DOB=' + info.dob + ' WHERE email="' + info.email + '"';
 	} else {
 		console.log("query2 false");
 		return false;
 	}
-	var result1 = yield pool.query(query1);
 	console.log(query1);
-	var result2 = yield pool.query(query2);
+	var result1 = yield pool.query(query1);
 	console.log(query2);
+	var result2 = yield pool.query(query2);
+	
 	return result1 && result2;
 }
 

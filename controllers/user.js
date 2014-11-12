@@ -81,8 +81,8 @@ exports.profile = function* (){
 	this.response.redirect('/profile/edit');
 };
 
-exports.profile_edit = function* (email){
-	var result = yield customer.edit_profile(this.request.body, email);
+exports.profile_edit = function* (){
+	var result = yield customer.edit_profile(this.request.body);
 	if (result == false){
 		console.log('update profile failed');
 	} else {
