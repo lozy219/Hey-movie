@@ -42,12 +42,9 @@ exports.update_profile = function* (info) {
 		console.log("query2 false");
 		return false;
 	}
-	console.log(query1);
 	var result1 = yield pool.query(query1);
-	console.log(query2);
 	var result2 = yield pool.query(query2);
-	
-		return result1 && result2;
+	return result1 && result2;
 	
 }
 
