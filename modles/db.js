@@ -144,8 +144,9 @@ exports.add_show = function* (show) {
 };
 
 exports.get_all_ongoing_shows = function* () {
-	return [];
-	// var query = 'SELECT * FROM shows WHERE '
+	var query = 'SELECT * FROM shows WHERE start_time > NOW()';
+	var result = yield pool.query(query);
+	return result[0];
 };
 
 // theatre

@@ -1,9 +1,6 @@
 <script>
 	$(document).ready(function(){
 		$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
-			var movie = JSON.parse(data);
-			$("#movie_id").val(movie.movie_id);
-			$("#movie").val(movie.title);
 		});
 	}); 
 </script>

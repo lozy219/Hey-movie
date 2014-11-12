@@ -1,10 +1,6 @@
 <script>
 	$(document).ready(function(){
-		$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
-			var movie = JSON.parse(data);
-			$("#movie_id").val(movie.movie_id);
-			$("#movie").val(movie.title);
-		});
+
 
 
 		var $cart = $('#selected-seats'),
@@ -70,14 +66,11 @@
 <div class="content book-movie" style="display : none">
 	<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Add Show</h2>
 	<form action="/admin/movie/add_show" method="post" class="pure-form pure-form-single" style="margin-top: 5%;">
-		<input id="movie" disabled="disabled" name="movie" type="text" placeholder="Movie Title" />
-		<input id="movie_id" type="hidden" name="movie_id" />
+		<input id="bmovie" disabled="disabled" name="movie" type="text" placeholder="Movie Title" />
+		<input id="bmovie_id" type="hidden" name="movie_id" />
 		<input id="seat" name="seat" type="text" placeholder="Seat" />
-		<select name="theatre_id" style="height: 36px; width: 100%; margin-bottom: 1em;">
-			<option value="">Select Show</option>
-			<% for (var i = 0; i < all_shows.length; i ++) {
-			%><option value=<%= all_shows[i].theatre_id %>><%= all_shows[i].name%></option>
-			<% } %>
+		<select name="show" style="height: 36px; width: 100%; margin-bottom: 1em;">
+			<div id="shows-option"></div>
 		</select>
 		<br /><br /><br />
 		<button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Add Show</button>
