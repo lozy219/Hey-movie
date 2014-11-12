@@ -407,10 +407,10 @@ a.pure-button-primary {
     margin-left:6%;
     margin-bottom: 5%;
 } 
-/*
+
 .div-inline li{
-  font-size: 18px;
-}*/
+  font-size: 14px;
+}
 
 /*
  * -- ADMIN MANAGEMENT MENU STYLES --
@@ -554,4 +554,15 @@ a.pure-button-primary {
   margin-left:25%;
   margin-right:25%; 
   text-align:center 
+}
+
+li.stars, li.stars>* {
+    display: inline-block;
+    background: url(http://i.imgur.com/hyUAYsr.png) 0 -16px repeat-x;
+    width: 160px;
+    height: 17px;
+}
+li.stars>*{
+    max-width:80px;
+    background-position: 0 0;
 }
