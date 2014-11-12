@@ -12,7 +12,7 @@ CREATE TABLE movie (
 	showing_status VARCHAR(20), # only can be "on show", "trailer" or "off show" or null
 	poster_link VARCHAR(200), 
 
-	PRIMARY KEY (movie_id),
+	PRIMARY KEY (movie_id)
 	-- FOREIGN KEY (director_id) REFERENCES director(director_id) ON DELETE CASCADE
 );
 
@@ -79,20 +79,21 @@ DROP TABLE IF EXISTS cinema_operator;
 CREATE TABLE cinema_operator(
 	operator_id VARCHAR(50),
 	country CHAR(30),
+	operator_name VARCHAR(100),
 	
 	PRIMARY KEY (operator_id)
 );
 
-DROP TABLE IF EXISTS theater;
-CREATE TABLE theater (
-	theater_id INT AUTO_INCREMENT,
+DROP TABLE IF EXISTS theatre;
+CREATE TABLE theatre (
+	theatre_id INT AUTO_INCREMENT,
 	name VARCHAR(50),
 	location VARCHAR(200),
 	postal_code CHAR(6),
 	contact CHAR(8),
 	operator_id VARCHAR(50),
 
-	PRIMARY KEY (theater_id),
+	PRIMARY KEY (theatre_id),
 	FOREIGN KEY (operator_id) REFERENCES cinema_operator(operator_id) ON DELETE CASCADE
 );
 
@@ -100,14 +101,14 @@ DROP TABLE IF EXISTS shows;
 CREATE TABLE shows (
 	show_id INT AUTO_INCREMENT,
 	movie_id INT,
-	thearter_id INT,
+	theatre_id INT,
 	start_time TIMESTAMP,
 	end_time TIMESTAMP,
 	subtitle CHAR(30),
 
 	PRIMARY KEY(show_id),
 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id) ON DELETE CASCADE,
-	FOREIGN KEY (theater_id) REFERENCES theater(theater_id) ON DELETE CASCADE
+	FOREIGN KEY (theatre_id) REFERENCES theatre(theatre_id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS ticket;
