@@ -42,12 +42,9 @@ exports.update_profile = function* (info) {
 		console.log("query2 false");
 		return false;
 	}
-	console.log(query1);
 	var result1 = yield pool.query(query1);
-	console.log(query2);
 	var result2 = yield pool.query(query2);
-	
-		return result1 && result2;
+	return result1 && result2;
 	
 }
 
@@ -112,17 +109,17 @@ exports.get_ranking_movie = function* (){
 	return (yield pool.query(query))[0];
 };
 
-exports.get_movie_by_ranking = function* (ranking_option){
+exports.get_movie_by_advanced_search = function* (search_option){
 
-	if(ranking_option.genre == "" && ranking_option.year != ""){
-		var query = 'SELECT * FROM movie WHERE year="' + ranking_option.year + '" ORDER BY IMDB_rating DESC ';
+	if(search_option.genre == "" && search_option.year != ""){
+		var query = 'SELECT * FROM movie WHERE year="' + search_option.year + '" ORDER BY IMDB_rating DESC ';
 		console.log("aaaaa:"+query);
 	}
-	else if(ranking_option.genre != "" && ranking_option.year == ""){
-		var query = 'SELECT * FROM movie WHERE genre="' + ranking_option.genre + '"ORDER BY IMDB_rating DESC';
+	else if(search_option.genre != "" && search_option.year == ""){
+		var query = 'SELECT * FROM movie WHERE genre="' + search_option.genre + '"ORDER BY IMDB_rating DESC';
 	}
-	else if(ranking_option.genre != "" && ranking_option.year != ""){
-		var query = 'SELECT * FROM movie WHERE genre="' + ranking_option.genre + '" AND year="' + ranking_option.year+ '"ORDER BY IMDB_rating DESC ';
+	else if(search_option.genre != "" && search_option.year != ""){
+		var query = 'SELECT * FROM movie WHERE genre="' + search_option.genre + '" AND year="' + search_option.year+ '"ORDER BY IMDB_rating DESC ';
 	}
 
 	return (yield pool.query(query))[0];

@@ -12,14 +12,14 @@
                	if (user.name === null) { 
             		%><% 
         		} else {
-           			%><h style="text-align:right"><%=user.name%></h><%
+           			%><h style="float:right"><%=user.name%></h><%
         		} %></li>
 
         		<li><h>Contact: </h><% 
                	if (user.contact === null) { 
             		%><% 
         		} else {
-           			%><%= user.contact %><%
+           			%><h style="float:right"><%=user.contact%></h><%
         		} %></li>
 
         		<li><h>Date of Birth: </h><% 
@@ -29,7 +29,7 @@
            			var t = user.DOB.split(/[- :]/);
                 var k = t[2].split(/[T]/);
                 var d = t[0] + "-" + t[1] + "-" + k[0];
-                %> <%=d%> <%
+                %><h style="float:right"> <%=d%></h> <%
         		} %></li>
         	</div><br></br>
 

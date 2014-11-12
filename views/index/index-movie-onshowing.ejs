@@ -1,0 +1,55 @@
+<div id="tab2" style="display: none;" class="mtab_content"> 
+<!-- <div class="content-wrapper"> -->
+	<!-- <div class="content"> -->
+	
+		<h2 class="content-head is-center">On Showing</h2>
+
+			<% for (j = 0; j < onshow_movie.length; j+=5) { %>
+				<div class="pure-g">
+					<div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+						<% for (i = j; i < j+5 && i<onshow_movie.length; i++) { %>
+							<div class="div-inline" style="width:170px">
+								<img src="<%= onshow_movie[i].poster_link %>" height=167 style="margin-left: 7%">
+								<h3 class="content-subhead" style="font-size:16px; text-aligh: center">
+									<h style="color: black; margin-left: 5%;"><%= i+1 %>.</h>
+									<h style="text-align: center"><%= onshow_movie[i].title  %></h>
+								</h3>
+						
+								<li class="stars" fen="<%= onshow_movie[i].IMDB_rating %>" style="margin-left: -5%">
+								</li>
+
+								&nbsp
+
+								<h style="color: red; font-size:17px ">
+									<%=onshow_movie[i].IMDB_rating %>
+								</h>
+
+								<script>
+									$.fn.stars = function() {
+    									return $(this).each(function() {
+        								// Get the value
+        								var val = parseFloat($(this).attr('fen'));
+        								// Make sure that the value is in 0 - 5 range, multiply to get width
+       									var size = Math.max(0, (Math.min(10, val))) * 14;
+        								// Create stars holder
+        								var $li = $('<li />').width(size);
+        								// Replace the numerical value with stars
+        								$(this).html($li);
+    									});
+									}
+
+
+									$('.stars').stars();
+								</script>
+
+							<li>Genre: <%=onshow_movie[i].genre%></li>
+							<li>Year: <%=onshow_movie[i].year%></li>
+							<li>Language: <%=onshow_movie[i].language%></li>
+							<li>Length: <%=onshow_movie[i].length%>mins</li>
+							<li>IMDB_link: <a href="<%=onshow_movie[i].IMDB_link%>"><img src="img/icon/IMDB_icon.png" width = 40 height = 40 style="margin-bottom: -6%"></a></li>
+							<button type="submit" class="pure-button pure-button-primary" style="width: 100; margin: 3% 0 0 8%; text-align:center; font-size: 10px">Book Now!</button>
+						</div>
+					<% } %> 	
+				</div></div> 
+			<% } %>
+		</div>

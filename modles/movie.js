@@ -33,11 +33,11 @@ exports.get_ranking_movie = function* (){
 	}
 }
 
-exports.get_movie_by_ranking = function* (ranking_option){
-	var ranking_movie = yield db.get_movie_by_ranking(ranking_option);
+exports.get_movie_by_advanced_search = function* (search_option){
+	var advanced_search_movie = yield db.get_movie_by_advanced_search(search_option);
 
-	if (ranking_movie.length != 0) {
-		return ranking_movie;
+	if (advanced_search_movie.length != 0) {
+		return advanced_search_movie;
 	} else {
 		return "No Result";
 	}

@@ -137,7 +137,6 @@
 								return fn.settings.style = newStyle;
 							})(arguments[0]) : fn.settings.style;
 					};
-					alert("asd");
 					//either set or retrieve
 					fn.status = function() {
 	

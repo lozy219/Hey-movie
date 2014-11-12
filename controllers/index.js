@@ -30,8 +30,13 @@ module.exports = function* home(next) {
 
 		case "show_movie":
 			this.session.index_mode = undefined;
-			this.body = yield render('index/index', {user : this.session.customer, all_theatre : this.session.admin_all_theatre, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
+			this.body = yield render('index/index', {user : this.session.customer, all_theatre : this.session.admin_all_theatre, advanced_search_movie: this.session.advanced_search_movie, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
 			break;
+
+		case "show_advanced_search_result":
+		this.session.index_mode = undefined;
+		this.body = yield render('index/index', {user : this.session.customer, advanced_search_movie: this.session.advanced_search_movie, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
+		break;
 
 		case "show_login":
 			this.session.index_mode = undefined;
@@ -45,7 +50,7 @@ module.exports = function* home(next) {
 
 		case "show_ranking":
 			this.session.index_mode = undefined;
-			this.body = yield render('index/index', {user : this.session.customer, ranking_movie: this.session.ranking_movie, render_html : 'index-ranking.ejs'});
+			this.body = yield render('index/index', {user : this.session.customer, ranking_movie: this.session.ranking_movie, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
 			break;
 
 		default:

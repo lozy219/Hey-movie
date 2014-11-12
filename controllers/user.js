@@ -28,7 +28,6 @@ exports.show_signup = function* (){
 };
 
 exports.show_profile = function* (){
-	console.log(this.session.customer);
 	this.body = yield render('index/profile', {user : this.session.customer});
 };
 
@@ -96,9 +95,12 @@ exports.profile_edit = function* (){
 		console.log('update profile failed');
 	} else {
 		var current_customer = yield db.get_customer_by_email(this.request.body.email);
-		console.log(current_customer);
-		this.session.customer = current_customer;
-		console.log(this.session.customer);
+		this.session.customer = current_customer[0];
+		if (config.admin_id.indexOf(this.session.customer.customer_id) !== -1) {
+			this.session.customer.is_admin = true;
+		} else {
+			this.session.customer.is_admin = false;
+		}
 		this.response.redirect('/profile');
 	}
 }
@@ -112,9 +114,9 @@ exports.movie_search = function* (){
 	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body);
 };
 
-exports.rank_movie = function* (){
-	var movie_ranking_result = yield movie.get_movie_by_ranking(this.request.body);
-	this.session.ranking_movie = movie_ranking_result;
-	this.session.index_mode = "show_ranking";
+exports.advanced_search_movie = function* (){
+	var movie_search_result = yield movie.get_movie_by_advanced_search(this.request.body);
+	this.session.advanced_search_movie = movie_search_result;
+	this.session.index_mode = "show_advanced_search_result";
 	this.response.redirect('/');
 }

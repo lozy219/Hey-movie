@@ -1,20 +1,51 @@
-<% if(onshow_movie.length < 2){ %>
-<script>
-//Automatically scroll to bottom
-$(function () {
-   $("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
-   return false; 
-});
-</script> <% } else{ %>   
 <script>
 //Automatically scroll to bottom
 $(function () {
    $("html, body").animate({ scrollTop:  $(document).height()-800 }, 1800);
    return false; 
 });
-</script> <% } %>
+</script>
 <script>
 	$(document).ready(function(){
+		//	When user clicks on tab, this code will be executed
+		$("#cssmenu li").click(function() {
+			//	First remove class "active" from currently active tab
+			$("#cssmenu li").removeClass('active');
+
+			//	Now add class "active" to the selected/clicked tab
+			$(this).addClass("active");
+
+			//	Hide all tab content
+			$(".mtab_content").hide();
+
+			//	Here we get the href value of the selected tab
+			var selected_tab = $(this).find("a").attr("href");
+
+			//	Show the selected tab content
+			$(selected_tab).fadeIn();
+
+			//	At the end, we add return false so that the click on the link is not executed
+			return false;
+		});
+
+		$("#add-show a").click(function() {
+			//	Hide the movie management page
+			$(".movie-management").hide();
+
+			$.post('/ajax/store_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+					$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+					});
+			});
+
+			
+
+			$(".show-management").fadeIn();
+
+			event.preventDefault();
+			//	At the end, we add return false so that the click on the link is not executed
+			return false;
+		});
+
 		$(".book-ticket").click(function() {
 			//	Hide the movie management page
 			$(".onshow-movie").hide();
@@ -30,6 +61,10 @@ $(function () {
 			//	At the end, we add return false so that the click on the link is not executed
 			return false;
 		});
+
+		$("#simulate").click(function(){
+			$('a[rel="tab1"]').trigger("click");
+		});
 	});
 </script>
 
@@ -38,4 +73,9 @@ $(function () {
 		<%= include index-movie-list.ejs %>
 		<%= include index-movie-book.ejs %>
 	</div>
+
+
+
+		
 </div>
+
