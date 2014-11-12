@@ -28,7 +28,6 @@ exports.show = function* (){
 
 		case "show_theatre":
 			this.session.admin_mode = undefined;
-			console.log(this.session);
 			this.body = yield render('admin/admin', {user : this.session.customer, all_theatre : this.session.admin_all_theatre, all_operator : this.session.admin_all_operator, render_html : 'admin-theatre.ejs'});
 			break;
 
