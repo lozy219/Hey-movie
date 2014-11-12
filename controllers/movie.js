@@ -14,8 +14,12 @@ var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 exports.show_movie = function* (){
+	var search_result   = yield movie.get_ranking_movie();
+	this.session.advanced_search_movie = search_result;
+
 	var onshow_search_result   = yield movie.get_all_onshow_movie();
 	this.session.movie_on_show = onshow_search_result;
+
 	this.session.index_mode    = "show_movie";
 	this.response.redirect('/');
 };

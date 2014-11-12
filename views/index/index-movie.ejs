@@ -14,8 +14,8 @@ $(function () {
 		<form class="pure-form-single">
 			<div id='cssmenu'>
 				<ul>
-					<li class='active'><a href='#tab1' rel="tab1"><span> On Showing</span></a></li>
-					<li style='float:right'class='last'><a href='#tab2' rel="tab2"><span>Search Movies</span></a></li>
+					<li class='active'><a href='#tab1' rel="tab1"><span> Search Movies</span></a></li>
+					<li style='float:right'class='last'><a href='#tab2' rel="tab2"><span>On Showing</span></a></li>
 				</ul>
 			</div>
 		</form>
@@ -67,8 +67,9 @@ $(function () {
 				});
 			});
 		</script>
-    <%= include index-movie-onshowing.ejs %>
 	<%= include index-movie-search.ejs %>
+    <%= include index-movie-onshowing.ejs %>
+	
 	</div>
 
 </div>

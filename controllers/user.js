@@ -112,9 +112,9 @@ exports.movie_search = function* (){
 	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body);
 };
 
-exports.rank_movie = function* (){
-	var movie_ranking_result = yield movie.get_movie_by_ranking(this.request.body);
-	this.session.ranking_movie = movie_ranking_result;
-	this.session.index_mode = "show_ranking";
+exports.advanced_search_movie = function* (){
+	var movie_search_result = yield movie.get_movie_by_advanced_search(this.request.body);
+	this.session.advanced_search_movie = movie_search_result;
+	this.session.index_mode = "show_advanced_search_result";
 	this.response.redirect('/');
 }
