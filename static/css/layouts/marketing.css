@@ -412,10 +412,10 @@ a.pure-button-primary {
     margin-left:6%;
     margin-bottom: 5%;
 } 
-/*
+
 .div-inline li{
-  font-size: 18px;
-}*/
+  font-size: 14px;
+}
 
 /*
  * -- ADMIN MANAGEMENT MENU STYLES --
@@ -559,4 +559,15 @@ a.pure-button-primary {
   margin-left:25%;
   margin-right:25%; 
   text-align:center 
+}
+
+li.stars, li.stars>* {
+    display: inline-block;
+    background: url(http://i.imgur.com/fiVel61.png) 0 -14px repeat-x;
+    width: 140px;
+    height: 16px;
+}
+li.stars>*{
+    max-width:140px;
+    background-position: 0 0;
 }
