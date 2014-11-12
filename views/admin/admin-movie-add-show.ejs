@@ -1,23 +1,6 @@
 <script>
 	$(document).ready(function(){
-        $("#datetimepicker").datetimepicker({
-	  						format:'yy-mm-dd H:i:s',
-	  						lang:'en',
-	  						allowTimes:[
-	  							'8:00', '9:00',
-							  	'10:00','11:00', '12:00', '13:00', '14:00', 
-							  	'15:00', '16:00', '17:00', '19:00', '20:00'
-							]
-					 });
-        $("#datetimepicker2").datetimepicker({
-	  						format:'yy-mm-dd H:i:s',
-	  						lang:'en',
-	  						allowTimes:[
-	  							'8:00', '9:00',
-							  	'10:00','11:00', '12:00', '13:00', '14:00', 
-							  	'15:00', '16:00', '17:00', '19:00', '20:00'
-							]
-					 });
+		$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 		$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
 			var movie = JSON.parse(data);
 			$("#movie_id").val(movie.movie_id);
@@ -52,8 +35,8 @@
 			<option value="Russian">Russian</option>
 			<option value="Thai">Thai</option>
 		</select>
-		<input name="start_time" type="text" id="datetimepicker" placeholder="Start Time">
-		<input name="end_time" type="text" id="datetimepicker2" placeholder="End Time">
+		<input name="start_time" type="text" id="d" class="form_datetime" placeholder="Start Time">
+		<input name="end_time" type="text" class="form_datetime" placeholder="End Time">
 		<br /><br /><br />
 		<button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Add Movie</button>
 

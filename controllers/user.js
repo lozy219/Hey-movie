@@ -28,11 +28,11 @@ exports.show_signup = function* (){
 };
 
 exports.show_profile = function* (){
-	this.body = yield render('profile', {user : this.session.customer});
+	this.body = yield render('user/profile', {user : this.session.customer});
 };
 
 exports.show_profile_edit = function* (){
-	this.body = yield render('profile_edit', {user : this.session.customer});
+	this.body = yield render('user/profile_edit', {user : this.session.customer});
 };
 
 exports.signup = function* (){
