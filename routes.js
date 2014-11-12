@@ -32,6 +32,10 @@ module.exports = function routes(app) {
 	app.get('/admin/movie/delete_movie', admin.delete_movie);
 	app.get('/admin/movie/add_show', admin.add_show);
 
+	app.get('/admin/theatre', admin.show_theatre);
+	app.post('/admin/movie/add_theatre', admin.add_theatre);
+	app.get('/admin/movie/delete_theatre', admin.delete_theatre);
+
 	app.get('/admin/director', admin.show_director);
 	app.post('/admin/director/add_director', admin.add_director);
 	app.get('/admin/director/delete_director', admin.delete_director);

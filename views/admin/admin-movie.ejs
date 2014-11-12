@@ -1,7 +1,7 @@
 <script>
 //Automatically scroll to bottom
 $(function () {
-         $("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
+         $("html, body").animate({ scrollTop:  $(window).height() }, 1400);
          return false; 
 });
 </script>
@@ -46,11 +46,13 @@ $(function () {
 					//	Hide the movie management page
 					$(".movie-management").hide();
 
-					$.post('/ajax/store_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {});
-
-					$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
-						alert(data);
+					$.post('/ajax/store_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+							$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+							alert(data);
+						});
 					});
+
+					
 
 					$(".show-management").fadeIn();
 
