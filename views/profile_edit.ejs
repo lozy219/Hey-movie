@@ -20,10 +20,12 @@
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <script>
   $(function() {
+    
     $("#datepicker").datepicker({
             changeMonth: true,
             changeYear: true,
             showButtonPanel: true,
+            dateFormat: 'yy-mm-dd',
             dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             yearRange: "-100:+0"});
   });
