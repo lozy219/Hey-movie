@@ -52,16 +52,17 @@ $(function () {
 			$(".onshow-movie").hide();
 
 			$.post('/ajax/store_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
-					$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+					$.post('/ajax/get_selected_movie', {}, function(data) {
 						var movie = JSON.parse(data);
 						$("#bmovie_id").val(movie.movie_id);
 						$("#bmovie").val(movie.title);
 					});
-
-					// $.post('/ajax/get_shows_option', {'movie_id':$(this).attr('id')}, function(data) {
-					// 	alert('a');
-					// 	// $("#shows-option").html(data);
-					// };
+					$.post('/ajax/get_shows_option', {}, function(data) {
+						alert(data);
+						var d = JSON.parse(data);
+						// $("#shows-option").html(d.body);
+						$("#shows-option").html(d.body);
+					});
 			});			
 
 			$(".book-movie").fadeIn();

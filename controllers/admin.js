@@ -54,7 +54,7 @@ exports.show = function* (){
 
 exports.store_selected_movie = function* (){
 	this.session.stored_movie = this.request.body.movie_id;
-	this.body = this.session.stored_movie;
+	this.body = this.request.body.movie_id;
 };
 
 exports.get_selected_movie = function* (){
@@ -121,16 +121,20 @@ exports.add_show = function* (){
 };
 
 exports.get_shows_option = function* (){
-	var id = this.request.body.movie_id;
+	var id = this.session.stored_movie;
 	var shows = yield db.get_all_ongoing_shows();
-	console.log(shows);
-	shows = shows[0];
-	// this.body = '<option value="">Select Show</option>';
-	// for (var i = 0; i < shows.length; i ++) {
-	// 	var theatre_name = yield db.get_theatre_by_id(show.theatre_id);
-	// 	theatre_name = (theatre_name[0]).name;
-	// 	this.body += '<option value="' + shows.show_id + '">' + theatre_name + '</option>';
-	// }
+	var body = '<select name="show" style="height: 36px; width: 100%; margin-bottom: 1em;"><option value="">Select Show</option>';
+	for (var i = 0; i < shows.length; i ++) {
+		var s = shows[i];
+		if (id == s.movie_id) {
+			var theatre_name = yield db.get_theatre_by_id(s.theatre_id);
+			theatre_name = (theatre_name[0]).name;
+			body += '<option value="' + s.show_id + '">' + theatre_name + ' - ' + s.start_time + '~' + s.end_time + '</option>';
+		}
+	}
+	body += '</select>'
+	var bbody = {body : body};
+	this.body = JSON.stringify(bbody);
 }
 
 //Theatre

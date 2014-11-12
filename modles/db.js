@@ -170,6 +170,11 @@ exports.delete_theatre_by_id = function* (id) {
 	return yield pool.query(query);
 };
 
+exports.get_theatre_by_id = function* (id) {
+	var query = 'SELECT * FROM theatre WHERE theatre_id = ' + id ;
+	return (yield pool.query(query))[0];
+}
+
 // operator
 exports.add_operator = function* (operator) {
 	var query = 'INSERT INTO cinema_operator (country, operator_name) VALUES ("' +
