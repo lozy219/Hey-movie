@@ -108,6 +108,11 @@ exports.get_movie_by_showing_status = function* (){
 	return (yield pool.query(query))[0];
 };
 
+exports.get_movie_by_id = function* (id) {
+	var query = 'SELECT * FROM movie WHERE movie_id="' + id + '"';
+	return (yield pool.query(query))[0];
+};
+
 exports.delete_movie_by_id = function* (id) {
 	var query = 'DELETE FROM movie WHERE movie_id=' + id;
 	console.log(query);
