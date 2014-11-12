@@ -9,7 +9,7 @@
 </script>
 <div class="content show-management" style="display : none">
 	<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Add Show</h2>
-	<form action="/admin/show/add_show" method="post" class="pure-form pure-form-single" style="margin-top: 5%;">
+	<form action="/admin/movie/add_show" method="post" class="pure-form pure-form-single" style="margin-top: 5%;">
 		<input id="movie" disabled="disabled" name="movie" type="text" placeholder="Movie Title" />
 		<input id="movie_id" type="hidden" name="movie_id" />
 		<select name="subtitle" style="height: 36px;width: 100%; margin-bottom: 1em;">
@@ -36,7 +36,7 @@
 		<input name="start_time" type="text" id="form_datetime_from" placeholder="Start Time">
 		<input name="end_time" type="text" id="form_datetime_to" placeholder="End Time">
 		<br /><br /><br />
-		<button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Add Movie</button>
+		<button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Add Show</button>
 		<script>
 		$(function() {
             $('#form_datetime_from').datetimepicker({format: 'Y-m-d H:i:s',});

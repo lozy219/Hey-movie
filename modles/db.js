@@ -30,7 +30,6 @@ exports.get_customer_by_email = function* (email) {
 };
 
 exports.update_profile = function* (info) {
-	console.log(info);
 	if (info.contact != null){
 		var query1 = 'UPDATE customer SET contact="' + info.contact + '" WHERE email="' + info.email + '"';
 	} else {
@@ -104,13 +103,11 @@ exports.get_movie_by_title_keyword = function* (title_keyword) {
 
 exports.get_all_onshow_movie = function* (){
 	var query = 'SELECT * FROM movie WHERE showing_status = "on show" ';
-	console.log((yield pool.query(query))[0]);
 	return (yield pool.query(query))[0];
 };
 
 exports.get_ranking_movie = function* (){
 	var query = 'SELECT * FROM movie ORDER BY IMDB_rating DESC';
-	console.log((yield pool.query(query))[0]);
 	return (yield pool.query(query))[0];
 };
 
@@ -133,7 +130,6 @@ exports.add_theatre = function* (theatre) {
 				theatre.postal_code + '",' +
 				theatre.contact + ',' +
 				theatre.operator_id + ');';
-	console.log(query);
 	return yield pool.query(query);
 };
 
@@ -144,7 +140,6 @@ exports.get_all_theatre = function* () {
 
 exports.delete_theatre_by_id = function* (id) {
 	var query = 'DELETE FROM theatre WHERE theatre_id=' + id;
-	console.log(query);
 	return yield pool.query(query);
 };
 

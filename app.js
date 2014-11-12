@@ -14,7 +14,7 @@ var session     = require('koa-session');
 var app = koa();
 
 // use session
-app.keys = ['test sess'];
+app.keys = ['secret'];
 app.use(session());
 
 // retrieve info from form request
