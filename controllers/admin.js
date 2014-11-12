@@ -126,6 +126,19 @@ exports.add_show = function* (){
 	this.response.redirect('/admin');
 };
 
+exports.get_shows_option = function* (){
+	var id = this.request.body.movie_id;
+	var shows = yield db.get_all_ongoing_shows();
+	console.log(shows);
+	shows = shows[0];
+	// this.body = '<option value="">Select Show</option>';
+	// for (var i = 0; i < shows.length; i ++) {
+	// 	var theatre_name = yield db.get_theatre_by_id(show.theatre_id);
+	// 	theatre_name = (theatre_name[0]).name;
+	// 	this.body += '<option value="' + shows.show_id + '">' + theatre_name + '</option>';
+	// }
+}
+
 //Theatre
 exports.show_theatre = function* (){
 	var all_theatre = yield theatre.get_all_theatre();

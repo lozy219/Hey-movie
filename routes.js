@@ -60,5 +60,6 @@ module.exports = function routes(app) {
 	app.post('/ajax/check_username', user.check_username);
 	app.post('/ajax/store_selected_movie', admin.store_selected_movie);
 	app.post('/ajax/get_selected_movie', admin.get_selected_movie);
+	app.post('/ajax/get_shows_option', admin.get_shows_option);
 	
 };
