@@ -1,4 +1,4 @@
-<%= include header.ejs %>
+<%= include user-header.ejs %>
 <div class="content-wrapper-form">
     <div class="content">
         <p class="profile-form-header">Hey <%= user.name + '!!!' %></p>
@@ -22,13 +22,6 @@
            			%><%= user.contact %><%
         		} %></li>
 
-        		<li><h>Register_date: </h><% 
-               	if (user.register_date === null) { 
-            		%><% 
-        		} else {
-           			%><%= user.register_date %><%
-        		} %></li>
-
         		<li><h>Date of Birth: </h><% 
                	if (user.DOB === null) { 
             		%><% 
@@ -44,4 +37,4 @@
 
     </div>
 </div>
-<%= include footer.ejs %>
+<%= include user-footer.ejs %>

@@ -102,8 +102,8 @@ CREATE TABLE shows (
 	show_id INT AUTO_INCREMENT,
 	movie_id INT,
 	theatre_id INT,
-	start_time DATE,
-	end_time DATE,
+	start_time DATETIME,
+	end_time DATETIME,
 	subtitle CHAR(30),
 
 	PRIMARY KEY(show_id),
