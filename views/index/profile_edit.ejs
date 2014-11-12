@@ -12,31 +12,22 @@
         } else {
           %><input class="profile-edit-input" name="contact" type="text" placeholder=<%=user.contact%> value=<%=user.contact%>><%
         }%>
+         <script>
+            $(function() {          
+              $("#datepicker").datetimepicker({timepicker: false, format: 'Y-m-d', yearRange: "-100:+0"});
+            });
+          </script>
         <% 
         if (user.DOB === null) { 
           %>
-          <script>
-            $(function() {
-              
-              $("#datepicker").datetimepicker({timepicker: false, format: 'Y-m-d'});
-            });
-          </script>
           <input name="dob" type="text" id="datepicker" placeholder="User Birthday">
           <%
-        } else { %>
-          <script>
-            $(function() {
-              
-              $("#datepicker").datepicker({
-                changeMonth: true,
-                changeYear: true,
-                showButtonPanel: true,
-                dateFormat: 'yy-mm-dd',
-                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                yearRange: "-100:+0"});
-            });
-          </script>
-          <input name="dob" type="text" id="datepicker" placeholder=<%=user.DOB%>><%
+        } else { 
+          var t = user.DOB.split(/[- :]/);
+                var k = t[2].split(/[T]/);
+                var d = t[0] + "-" + t[1] + "-" + k[0];
+                %> 
+          <input name="dob" type="text" id="datepicker" placeholder=<%=d%>><%
         } %>
         <input name="email" type="hidden" value=<%=user.email%>>
       </div><br></br>
