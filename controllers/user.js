@@ -35,6 +35,11 @@ exports.show_profile_edit = function* (){
 	this.body = yield render('profile_edit', {user : this.session.customer});
 };
 
+exports.show_ranking = function* (){
+	this.session.index_mode = "show_ranking";
+	this.response.redirect('/');
+};
+
 exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
