@@ -24,7 +24,7 @@ exports.show = function* (){
 	switch (this.session.admin_mode) {
 		case "show_movie":
 			this.session.admin_mode = undefined;
-			this.body = yield render('admin/admin', {user : this.session.customer, all_movie : this.session.admin_all_movie, all_theatre : this.session.admin_all_theatre, render_html : 'admin-movie.ejs'});
+			this.body = yield render('admin/admin', {user : this.session.customer, all_movie : this.session.admin_all_movie, render_html : 'admin-movie.ejs'});
 			break;
 
 		case "show_theatre":
@@ -67,8 +67,6 @@ exports.get_selected_movie = function* (){
 
 exports.show_movie = function* (){
 	var all_movie                  = yield movie.get_all_movie();
-	var all_theatre                = yield theatre.get_all_theatre();
-	this.session.admin_all_theatre = all_theatre;
 	this.session.admin_all_movie   = all_movie;
 	this.session.admin_mode        = "show_movie";
 	this.response.redirect('/admin');

@@ -30,7 +30,7 @@ module.exports = function* home(next) {
 
 		case "show_movie":
 			this.session.index_mode = undefined;
-			this.body = yield render('index/index', {user : this.session.customer, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
+			this.body = yield render('index/index', {user : this.session.customer, all_theatre : this.session.admin_all_theatre, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
 			break;
 
 		case "show_login":
