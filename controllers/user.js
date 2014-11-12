@@ -28,6 +28,7 @@ exports.show_signup = function* (){
 };
 
 exports.show_profile = function* (){
+	console.log(this.session.customer);
 	this.body = yield render('index/profile', {user : this.session.customer});
 };
 
@@ -93,7 +94,10 @@ exports.profile_edit = function* (){
 	if (result == false){
 		console.log('update profile failed');
 	} else {
-		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
+		var current_customer = yield db.get_customer_by_email(this.request.body.email);
+		console.log(current_customer);
+		this.session.customer = current_customer;
+		console.log(this.session.customer);
 		this.response.redirect('/profile');
 	}
 }

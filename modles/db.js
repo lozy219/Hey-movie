@@ -26,7 +26,6 @@ exports.get_customer_by_username = function* (username) {
 
 exports.get_customer_by_email = function* (email) {
 	var query = 'SELECT * FROM customer WHERE email="' + email + '"';
-	console.log(query);
 	return (yield pool.query(query))[0];
 };
 
@@ -48,10 +47,8 @@ exports.update_profile = function* (info) {
 	console.log(query2);
 	var result2 = yield pool.query(query2);
 	
-	if(result1 && result2){
-		this.session.customer = this.get_customer_by_email(info.email);
-	}
-	return result1 && result2;
+		return result1 && result2;
+	
 }
 
 exports.get_DOB_year = function* (customer) {
