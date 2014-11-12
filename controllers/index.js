@@ -45,7 +45,7 @@ module.exports = function* home(next) {
 
 		case "show_ranking":
 			this.session.index_mode = undefined;
-			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-ranking.ejs'});
+			this.body = yield render('index/index', {user : this.session.customer, ranking_movie: this.session.ranking_movie, render_html : 'index-ranking.ejs'});
 			break;
 
 		default:

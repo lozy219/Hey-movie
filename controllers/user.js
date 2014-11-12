@@ -36,6 +36,8 @@ exports.show_profile_edit = function* (){
 };
 
 exports.show_ranking = function* (){
+	var ranking_search_result   = yield movie.get_ranking_movie();
+	this.session.ranking_movie = ranking_search_result;
 	this.session.index_mode = "show_ranking";
 	this.response.redirect('/');
 };
