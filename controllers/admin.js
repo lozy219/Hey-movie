@@ -62,6 +62,14 @@ exports.get_selected_movie = function* (){
 	body.movie_id = this.session.stored_movie;
 	var movie = yield db.get_movie_by_id(body.movie_id);
 	body.title = movie[0].title;
+	body.length = movie[0].length;
+	body.language = movie[0].language;
+	body.genre = movie[0].genre;
+	body.year = movie[0].year;
+	body.status = movie[0].showing_status;
+	body.IMDB_rating = movie[0].IMDB_rating;
+	body.IMDB_link = movie[0].IMDB_link;
+	body.poster_link = movie[0].poster_link;
 	this.body = JSON.stringify(body);
 };
 
@@ -88,6 +96,16 @@ exports.delete_movie = function* (){
 		console.log('delete failed');
 	} else {
 		console.log('delete successfully');
+	}
+	this.response.redirect('/admin');
+};
+
+exports.update_movie = function* (){
+	var result = yield movie.update(this.request.body);
+	if (result == false){
+		console.log('update failed');
+	} else {
+		console.log('update successfully');
 	}
 	this.response.redirect('/admin');
 };
