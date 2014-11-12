@@ -47,7 +47,7 @@ exports.add_movie = function* (movie) {
 exports.get_all_movie = function* () {
 	var query = 'SELECT * FROM movie';
 	return (yield pool.query(query))[0];
-}
+};
 
 exports.get_movie_by_title = function* (title) {
 	var query = 'SELECT * FROM movie WHERE title="' + title + '"';
@@ -73,6 +73,51 @@ exports.get_movie_by_showing_status = function* (){
 
 exports.delete_movie_by_id = function* (id) {
 	var query = 'DELETE FROM movie WHERE movie_id=' + id;
+	console.log(query);
+	return yield pool.query(query);
+};
+
+// theatre
+exports.add_theatre = function* (theatre) {
+	var query = 'INSERT INTO theatre (name, location, postal_code, operator_id) VALUES ("' +
+				theatre.name + '","' + 
+				theatre.location + '","' + 
+				theatre.postal_code + '",' +
+				theatre.operator_id + '");';
+	return yield pool.query(query);
+};
+
+exports.get_all_theatre = function* () {
+	var query = 'SELECT * FROM theatre';
+	return (yield pool.query(query))[0];
+};
+
+exports.delete_theatre_by_id = function* (id) {
+	var query = 'DELETE FROM theatre WHERE theatre_id=' + id;
+	console.log(query);
+	return yield pool.query(query);
+};
+
+// operator
+exports.add_operator = function* (operator) {
+	var query = 'INSERT INTO cinema_operator (country, operator_name) VALUES ("' +
+				operator.country + '","' + 
+				operator.name + '");';
+	return yield pool.query(query);
+};
+
+exports.get_all_operator = function* () {
+	var query = 'SELECT * FROM cinema_operator';
+	return (yield pool.query(query))[0];
+};
+
+exports.get_operator_by_id = function* (id) {
+	var query = 'SELECT * FROM cinema_operator WHERE operator_id =' + id;
+	return (yield pool.query(query))[0];	
+}
+
+exports.delete_operator_by_id = function* (id) {
+	var query = 'DELETE FROM cinema_operator WHERE operator_id=' + id;
 	console.log(query);
 	return yield pool.query(query);
 };
