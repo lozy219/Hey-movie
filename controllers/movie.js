@@ -8,7 +8,7 @@ var views   = require('co-views');
 var mysql   = require('co-mysql');
 var movie   = require('../modles/movie.js');
 var theatre = require('../modles/theatre.js');
-var shows   = require('../modles/shows.js');
+var shows   = require('../modles/show.js');
 var db      = require('../modles/db.js');
 var config  = require('../config.js');
 
