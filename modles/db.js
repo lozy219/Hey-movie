@@ -49,7 +49,7 @@ exports.update_profile = function* (info) {
 	var result2 = yield pool.query(query2);
 	
 	if(result1 && result2){
-		this.session.customer = yield this.get_customer_by_email(info.email);
+		this.session.customer = this.get_customer_by_email(info.email);
 	}
 	return result1 && result2;
 }
