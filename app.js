@@ -7,18 +7,24 @@ var http        = require('http');
 var koa         = require('koa');
 var serve       = require('koa-static');
 var bodyParser  = require('koa-body-parser');
-var session     = require('koa-session');
+// var session     = require('koa-session');
+var session = require('koa-generic-session');
+var redisStore = require('koa-redis');
 
 
 
 var app = koa();
 
-// use session
-app.keys = ['secret'];
-app.use(session());
-
 // retrieve info from form request
 app.use(bodyParser());
+
+// use session
+// app.keys = ['secret'];
+// app.use(session());
+app.keys = ['keys', 'keykeys'];
+app.use(session({
+	store: redisStore()
+}));
 
 // ignore favicon
 app.use(middlewares.favicon());

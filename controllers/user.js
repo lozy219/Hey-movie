@@ -63,6 +63,7 @@ exports.check_username = function* (){
 };
 
 exports.login = function* (){
+	console.log(this.request);
 	var password = yield customer.get_password_by_email(this.request.body.email);
 	if (password == null) {
 		console.log('No such user'); 
