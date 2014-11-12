@@ -73,12 +73,12 @@
 		<input id="movie" disabled="disabled" name="movie" type="text" placeholder="Movie Title" />
 		<input id="movie_id" type="hidden" name="movie_id" />
 		<input id="seat" name="seat" type="text" placeholder="Seat" />
-		<!-- <select name="theatre_id" style="height: 36px; width: 100%; margin-bottom: 1em;">
-			<option value="">Select Theatre</option>
-			<% for (var i = 0; i < all_theatre.length; i ++) {
-			%><option value=<%= all_theatre[i].theatre_id %>><%= all_theatre[i].name%></option>
+		<select name="theatre_id" style="height: 36px; width: 100%; margin-bottom: 1em;">
+			<option value="">Select Show</option>
+			<% for (var i = 0; i < all_shows.length; i ++) {
+			%><option value=<%= all_shows[i].theatre_id %>><%= all_shows[i].name%></option>
 			<% } %>
-		</select> -->
+		</select>
 		<br /><br /><br />
 		<button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Add Show</button>
 	</form>

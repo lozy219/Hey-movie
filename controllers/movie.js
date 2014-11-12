@@ -15,16 +15,15 @@ var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 exports.show_movie = function* (){
-	var onshow_search_result       = yield movie.get_all_onshow_movie();
-	var all_theatre                = yield theatre.get_all_theatre();
-	this.session.admin_all_theatre = all_theatre;
-
-	var search_result   = yield movie.get_ranking_movie();
+	var onshow_search_result           = yield movie.get_all_onshow_movie();
+	var all_theatre                    = yield theatre.get_all_theatre();
+	this.session.admin_all_theatre     = all_theatre;
+	var all_shows                      = yield shows.get_all_ongoing_shows();
+	this.session.all_shows             = all_shows;
+	var search_result                  = yield movie.get_ranking_movie();
 	this.session.advanced_search_movie = search_result;
-
-	this.session.movie_on_show = onshow_search_result;
-
-	this.session.index_mode    = "show_movie";
+	this.session.movie_on_show         = onshow_search_result;
+	this.session.index_mode            = "show_movie";
 	this.response.redirect('/');
 };
 
