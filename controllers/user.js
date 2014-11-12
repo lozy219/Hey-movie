@@ -78,11 +78,16 @@ exports.login = function* (){
 };
 
 exports.profile = function* (){
-	this.response.redirect('/');
+	this.response.redirect('/profile/edit');
 };
 
-exports.profile_edit = function* (){
-	this.response.redirect('/');
+exports.profile_edit = function* (email){
+	var result = yield customer.edit_profile(this.request.body, email);
+	if (result == false){
+		console.log('update profile failed');
+	} else {
+		this.response.redirect('/profile');
+	}
 }
 
 exports.logout = function* (){

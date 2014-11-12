@@ -12,7 +12,7 @@ CREATE TABLE movie (
 	showing_status VARCHAR(20), # only can be "on show", "trailer" or "off show" or null
 	poster_link VARCHAR(200), 
 
-	PRIMARY KEY (movie_id),
+	PRIMARY KEY (movie_id)
 	-- FOREIGN KEY (director_id) REFERENCES director(director_id) ON DELETE CASCADE
 );
 

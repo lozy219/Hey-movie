@@ -1,30 +1,30 @@
 <%= include header.ejs %>
 <div class="content-wrapper-form">
     <div class="content">
-        <form action="/user/login" method="POST" class="pure-form pure-form-single">
+        <form action="/profile/edit" method="POST" class="pure-form pure-form-single" id="profile-edit">
             <fieldset>
-            <div class='profile-display'>
+            <div>
             	<% 
                	if (user.profile_pic === null) { 
-            		%><img src="img/profile_pic/default.png" width=30% height=30%><%
+            		%><img src="img/profile_pic/default.png" width=30% height=30% text-align="center"><%
         		} else {
            			%><img src= <% user.profile_pic %> width=30% height=30%><%
-        		} %><br></br>
-
-            	<li><h>User Name: </h><% 
-               	if (user.name === null) { 
-            		%><% 
-        		} else {
-           			%><%
-        		} %></li>
-
-        		<li><h>Contact: </h><% 
-               	if (user.contact === null) { 
-            		%><% 
-        		} else {
-           			%><%
-        		} %></li>
-
+        		} %><br></br>            
+                <li>               
+            	    <h>User Name: </h> <%
+                  if (user.name === null) { 
+                    %><% 
+                  } else {
+                    %><%= user.name %><%
+                  } %>                
+                </li>
+                <li><h>Contact: </h><% 
+                    if (user.contact === null) { 
+                      %><input class="profile-edit-input" name="contact" type="text" ><% 
+                    } else {
+                      %><input class="profile-edit-input" name="contact" type="text" placeholder=<%= user.contact %>><%
+                    }%>
+                </li>
         		<li><h>Register_date: </h><% 
                	if (user.register_date === null) { 
             		%><% 
@@ -32,15 +32,19 @@
            			%><%= user.register_date %><%
         		} %></li>
 
-        		<li><h>Date of Birth: </h><% 
+        		<li><h>Date of Birth: </h><p><% 
                	if (user.DOB === null) { 
-            		%><% 
+            		%><input class="profile-edit-input" name="day" type="text" placeholder="Day">
+                <input class="profile-edit-input" name="month" type="text" placeholder="Month">
+                <input class="profile-edit-input" name="year" type="text" placeholder="Year"><%
         		} else {
-           			%><%= user.DOB %><%
-        		} %></li>
+           			%><input class="profile-edit-input" name="day" type="text"  placeholder=<%= db.get_DOB_day %>>
+                <input class="profile-edit-input" name="month" type="text" placeholder=<%= db.get_DOB_day %>>
+                <input class="profile-edit-input" name="year" type="text" placeholder=<%= db.get_DOB_day %>><%
+        		} %></p></li>
         	</div><br></br>
 
-        	<button type="submit" class="pure-button pure-button-primary"><a href="/profile/edit" style="text-decoration : none; color : #000000;">Edit Profile</a></button>
+        	<button type="submit" class="pure-button pure-button-primary" style="text-decoration : none; color : #000000;">Edit Profile</a></button>
                 
             </fieldset>
         </form>
