@@ -41,28 +41,7 @@ $(function () {
 					//	At the end, we add return false so that the click on the link is not executed
 					return false;
 				});
-
-/*
-				$("#add-show a").click(function() {
-					//	Hide the operator management page
-					$(".operator-management").hide();
-
-					$.post('/ajax/store_selected_operator', {'operator_id':$(this).attr('id')}, function(data) {
-							$.post('/ajax/get_selected_operator', {'operator_id':$(this).attr('id')}, function(data) {
-							alert(data);
-						});
-					});
-
-					
-
-					$(".show-management").fadeIn();
-
-					event.preventDefault();
-					//	At the end, we add return false so that the click on the link is not executed
-					return false;
-				});
-*/
-
+				
 				$("#simulate").click(function(){
 					$('a[rel="tab1"]').trigger("click");
 				});

@@ -182,7 +182,6 @@ exports.delete_operator = function* (){
 	this.response.redirect('/admin');
 };
 
-
 //Director-unused
 
 exports.show_director = function* (){

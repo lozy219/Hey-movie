@@ -21,3 +21,7 @@ exports.insert = function* (operator) {
 exports.delete = function* (id) {
 	var result = yield db.delete_operator_by_id(id);
 };
+
+exports.update = function* (operator) {
+	return yield db.update_operator(operator);
+};
