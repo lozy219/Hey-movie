@@ -78,6 +78,20 @@ exports.add_movie = function* (movie) {
 	return yield pool.query(query);
 };
 
+exports.update_movie = function* (info) {
+	var query = 'UPDATE movie SET length="' + info.length + 
+	'", language="' + info.language +
+	'", genre="' + info.genre + 
+	'", year="' + info.year + 
+	'", showing_status="' + info.status + 
+	'", IMDB_rating="' + info.IMDB_rating + 
+	'", IMDB_link="' + info.IMDB_link + 
+	'", poster_link="' + info.poster_link + 
+	'" WHERE movie_id="' + info.id + '"';
+	console.log(query);
+	return yield pool.query(query);
+};
+
 exports.get_all_movie = function* () {
 	var query = 'SELECT * FROM movie';
 	return (yield pool.query(query))[0];

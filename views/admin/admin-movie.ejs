@@ -50,9 +50,23 @@ $(function () {
 							});
 					});
 
-					
-
 					$(".show-management").fadeIn();
+
+					event.preventDefault();
+					//	At the end, we add return false so that the click on the link is not executed
+					return false;
+				});
+
+				$("#update-movie a").click(function() {
+					//	Hide the movie management page
+					$(".movie-management").hide();
+
+					$.post('/ajax/store_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+							$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
+							});
+					});
+
+					$(".update-movie").fadeIn();
 
 					event.preventDefault();
 					//	At the end, we add return false so that the click on the link is not executed
@@ -68,4 +82,5 @@ $(function () {
 	<%= include admin-movie-add.ejs %>
 	</div>
 	<%= include admin-movie-add-show.ejs %>
+	<%= include admin-movie-update-movie.ejs %>
 </div>
