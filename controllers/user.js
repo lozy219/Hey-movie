@@ -64,6 +64,7 @@ exports.check_username = function* (){
 };
 
 exports.login = function* (){
+	console.log(this.request);
 	var password = yield customer.get_password_by_email(this.request.body.email);
 	if (password == null) {
 		console.log('No such user'); 
@@ -110,3 +111,10 @@ exports.logout = function* (){
 exports.movie_search = function* (){
 	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body);
 };
+
+exports.rank_movie = function* (){
+	var movie_ranking_result = yield movie.get_movie_by_ranking(this.request.body);
+	this.session.ranking_movie = movie_ranking_result;
+	this.session.index_mode = "show_ranking";
+	this.response.redirect('/');
+}

@@ -7,13 +7,14 @@ var co       = require('co');
 var views    = require('co-views');
 var mysql    = require('co-mysql');
 var customer = require('../modles/customer.js');
-var movie 	 = require('../modles/movie.js');
+var movie    = require('../modles/movie.js');
 var theatre  = require('../modles/theatre.js');
-var operator  = require('../modles/operator.js');
+var operator = require('../modles/operator.js');
 var director = require('../modles/director.js');
-var actor 	 = require('../modles/actor.js');
+var actor    = require('../modles/actor.js');
 var db       = require('../modles/db.js');
 var config   = require('../config.js');
+var show     = require('../modles/show.js')
 
 var result;
 var render = views(__dirname + '/../views', {ext: 'ejs' });
@@ -23,7 +24,7 @@ exports.show = function* (){
 	switch (this.session.admin_mode) {
 		case "show_movie":
 			this.session.admin_mode = undefined;
-			this.body = yield render('admin/admin', {user : this.session.customer, all_movie : this.session.admin_all_movie, render_html : 'admin-movie.ejs'});
+			this.body = yield render('admin/admin', {user : this.session.customer, all_movie : this.session.admin_all_movie, all_theatre : this.session.admin_all_theatre, render_html : 'admin-movie.ejs'});
 			break;
 
 		case "show_theatre":
@@ -65,9 +66,11 @@ exports.get_selected_movie = function* (){
 };
 
 exports.show_movie = function* (){
-	var all_movie                = yield movie.get_all_movie();
-	this.session.admin_all_movie = all_movie;
-	this.session.admin_mode      = "show_movie";
+	var all_movie                  = yield movie.get_all_movie();
+	var all_theatre                = yield theatre.get_all_theatre();
+	this.session.admin_all_theatre = all_theatre;
+	this.session.admin_all_movie   = all_movie;
+	this.session.admin_mode        = "show_movie";
 	this.response.redirect('/admin');
 };
 
@@ -92,6 +95,12 @@ exports.delete_movie = function* (){
 };
 
 exports.add_show = function* (){
+	var result = yield show.insert(this.request.body);
+	if (result == false){
+		console.log('add failed');
+	} else {
+		console.log('add successfully');
+	}
 	this.response.redirect('/admin');
 };
 

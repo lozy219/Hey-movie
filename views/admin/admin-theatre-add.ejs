@@ -6,7 +6,7 @@
     <input name="contact" type="text" placeholder="Contact">
     <select name="operator_id" style="height: 36px; width: 100%; margin-bottom: 1em;">
       <option value="">Select operator</option>
-      <% console.log(all_operator); for (var i = 0; i < all_operator.length; i ++) {
+      <% for (var i = 0; i < all_operator.length; i ++) {
       %><option value=<%= all_operator[i].operator_id %>><%= all_operator[i].operator_name%></option>
       <% } %>
     </select>

@@ -24,14 +24,15 @@ module.exports = function routes(app) {
 	app.post('/user/signup', user.signup);
 	app.post('/user/login', user.login);
 	app.post('/user/profile', user.profile);
-	app.post('/profile/edit', user.profile_edit)
+	app.post('/profile/edit', user.profile_edit);
+	app.post('/user/rank_movie', user.rank_movie);
 
 	// admin
 	app.get('/admin', admin.show);
 	app.get('/admin/movie', admin.show_movie);
 	app.post('/admin/movie/add_movie', admin.add_movie);
 	app.get('/admin/movie/delete_movie', admin.delete_movie);
-	app.get('/admin/movie/add_show', admin.add_show);
+	app.post('/admin/movie/add_show', admin.add_show);
 
 	app.get('/admin/operator', admin.show_operator);
 	app.post('/admin/operator/add_operator', admin.add_operator);
