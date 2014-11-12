@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
   <script src="/js/jquery-2.1.1.min.js"></script>
+  <script src="/js/jquery.datetimepicker.js"></script>
+
   <% if ((user === undefined) || (!user.is_admin)) { %>
   <meta http-equiv="refresh" content="3; url=/" />
   <% } %>
   <meta charset="utf-8">
   <title>Hey-Movie</title>
+  <link rel="stylesheet" href="/css/jquery.datetimepicker.css" />
   <link rel="stylesheet" href="/css/pure/pure.css" />
   <link rel="stylesheet" href="/css/layouts/marketing.css" />
 </head>
