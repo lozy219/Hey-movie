@@ -93,7 +93,12 @@ exports.add_show = function* (){
 
 //Theatre
 exports.show_theatre = function* (){
-	var all_theatre                = yield movie.get_all_theatre();
+	var all_theatre = yield theatre.get_all_theatre();
+	
+	for (var i = 0; i < all_theatre.length; i ++) {
+		all_theatre[i].operator = (yield operator.get_operator_by_id(all_theatre.theatre_id))[0];
+	}
+
 	this.session.admin_all_theatre = all_theatre;
 	this.session.admin_mode        = "show_theatre";
 	this.response.redirect('/admin');

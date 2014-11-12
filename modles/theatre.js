@@ -3,7 +3,7 @@
 var db = require('./db.js');
 
 exports.get_all_theatre = function* (){
-	var theatre = yield db.theatree();
+	var theatre = yield db.get_all_theatre();
 
 	return theatre;
 }

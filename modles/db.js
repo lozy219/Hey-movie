@@ -111,6 +111,11 @@ exports.get_all_operator = function* () {
 	return (yield pool.query(query))[0];
 };
 
+exports.get_operator_by_id = function* (id) {
+	var query = 'SELECT * FROM cinema_operator WHERE operator_id =' + id;
+	return (yield pool.query(query))[0];	
+}
+
 exports.delete_operator_by_id = function* (id) {
 	var query = 'DELETE FROM cinema_operator WHERE operator_id=' + id;
 	console.log(query);

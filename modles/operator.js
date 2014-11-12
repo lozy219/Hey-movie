@@ -6,6 +6,12 @@ exports.get_all_operator = function* (){
 	var operator = yield db.get_all_operator();
 
 	return operator;
+};
+
+exports.get_operator_by_id = function* (id){
+	var operator = yield db.get_operator_by_id(id);
+
+	return operator;
 }
 
 exports.insert = function* (operator) {

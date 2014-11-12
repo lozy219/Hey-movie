@@ -91,7 +91,7 @@ CREATE TABLE theatre (
 	location VARCHAR(200),
 	postal_code CHAR(6),
 	contact CHAR(8),
-	operator_id VARCHAR(50),
+	operator_id INT,
 
 	PRIMARY KEY (theatre_id),
 	FOREIGN KEY (operator_id) REFERENCES cinema_operator(operator_id) ON DELETE CASCADE
