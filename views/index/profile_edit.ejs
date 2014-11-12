@@ -1,4 +1,4 @@
-<%= include user-header.ejs %>
+<%= include index-header.ejs %>
 <div class="content-wrapper-form">
   <div class="content">
     <form action="/profile/edit" method="POST" class="pure-form pure-form-single" id="profile-edit">
@@ -19,13 +19,7 @@
           <script>
             $(function() {
               
-              $("#datepicker").datepicker({
-                changeMonth: true,
-                changeYear: true,
-                showButtonPanel: true,
-                dateFormat: 'yy-mm-dd',
-                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                yearRange: "-100:+0"});
+              $("#datepicker").datetimepicker({timepicker: false, format: 'Y-m-d'});
             });
           </script>
 
@@ -45,4 +39,4 @@
 
 </div>
 </div>
-<%= include user-footer.ejs %>
+<%= include index-footer.ejs %>
