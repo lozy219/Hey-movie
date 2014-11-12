@@ -115,6 +115,22 @@ exports.get_ranking_movie = function* (){
 	return (yield pool.query(query))[0];
 };
 
+exports.get_movie_by_ranking = function* (ranking_option){
+
+	if(ranking_option.genre == "" && ranking_option.year != ""){
+		var query = 'SELECT * FROM movie WHERE year="' + ranking_option.year + '" ORDER BY IMDB_rating DESC ';
+		console.log("aaaaa:"+query);
+	}
+	else if(ranking_option.genre != "" && ranking_option.year == ""){
+		var query = 'SELECT * FROM movie WHERE genre="' + ranking_option.genre + '"ORDER BY IMDB_rating DESC';
+	}
+	else if(ranking_option.genre != "" && ranking_option.year != ""){
+		var query = 'SELECT * FROM movie WHERE genre="' + ranking_option.genre + '" AND year="' + ranking_option.year+ '"ORDER BY IMDB_rating DESC ';
+	}
+
+	return (yield pool.query(query))[0];
+};
+
 exports.get_movie_by_id = function* (id) {
 	var query = 'SELECT * FROM movie WHERE movie_id="' + id + '"';
 	return (yield pool.query(query))[0];

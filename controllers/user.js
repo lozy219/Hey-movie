@@ -109,5 +109,8 @@ exports.movie_search = function* (){
 };
 
 exports.rank_movie = function* (){
-	
+	var movie_ranking_result = yield movie.get_movie_by_ranking(this.request.body);
+	this.session.ranking_movie = movie_ranking_result;
+	this.session.index_mode = "show_ranking";
+	this.response.redirect('/');
 }
