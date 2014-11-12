@@ -152,6 +152,9 @@
 <!-- 	<div class="content-wrapper"> -->
   <!-- <div class="content"> -->
     <h2 class="content-head is-center">Search Result</h2>
+      <% if(advanced_search_movie.length < 1){ %>
+          <h2 class="content-head is-center" style="color:red">Sorry! No Result!!!</h2>
+      <%  } else{ %>
 
       <% for (j = 0; j < advanced_search_movie.length; j+=5) { %>
         <div class="pure-g">
@@ -196,8 +199,11 @@
               <li>Language: <%=advanced_search_movie[i].language%></li>
               <li>Length: <%=advanced_search_movie[i].length%>mins</li>
               <li>IMDB_link: <a href="<%=advanced_search_movie[i].IMDB_link%>"><img src="img/icon/IMDB_icon.png" width = 40 height = 40 style="margin-bottom: -6%"></a></li>
+              <% if(advanced_search_movie[i].showing_status == "on show"){ %>
+              <button class="pure-button pure-button-primary book-ticket" id="<%=advanced_search_movie[i].movie_id%>" style="width: 100; margin: 3% 0 0 8%; text-align:center; font-size: 10px">Book Now!</button>
+              <% }%>
             </div>
           <% } %>   
         </div></div> 
-      <% } %>
+      <% } %><%  }%>
     </div>
