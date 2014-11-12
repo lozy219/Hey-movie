@@ -199,6 +199,14 @@ exports.delete_operator_by_id = function* (id) {
 	return yield pool.query(query);
 };
 
+//Ticket
+exports.get_all_ticket = function* () {
+	var query = 'SELECT m.title AS movie_title, th.name AS theatre_name, s.start_time, s.end_time, c.name, t.seat_no, t.booking_time FROM ticket t, customer c, shows s, movie m, theatre th WHERE t.show_id = s.show_id AND s.movie_id = m.movie_id AND s.theatre_id = th.theatre_id AND t.customer_id = c.customer_id';
+
+	console.log(yield pool.query(query));
+	return (yield pool.query(query))[0];
+};
+
 // // director
 
 // exports.get_all_director = function* () {

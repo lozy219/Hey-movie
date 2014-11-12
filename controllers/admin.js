@@ -12,6 +12,7 @@ var theatre  = require('../modles/theatre.js');
 var operator = require('../modles/operator.js');
 var director = require('../modles/director.js');
 var actor    = require('../modles/actor.js');
+var ticket    = require('../modles/ticket.js');
 var db       = require('../modles/db.js');
 var config   = require('../config.js');
 var show     = require('../modles/show.js')
@@ -35,6 +36,11 @@ exports.show = function* (){
 		case "show_operator":
 			this.session.admin_mode = undefined;
 			this.body = yield render('admin/admin', {user : this.session.customer, all_operator : this.session.admin_all_operator, render_html : 'admin-operator.ejs'});
+			break;
+
+		case "show_ticket":
+			this.session.admin_mode = undefined;
+			this.body = yield render('admin/admin', {user : this.session.customer, all_ticket : this.session.admin_all_ticket, render_html : 'admin-ticket.ejs'});
 			break;
 
 		case "show_director":
@@ -196,6 +202,14 @@ exports.delete_operator = function* (){
 	} else {
 		console.log('delete successfully');
 	}
+	this.response.redirect('/admin');
+};
+
+//Ticket
+exports.show_ticket = function* (){
+	var all_ticket                = yield ticket.get_all_ticket();
+	this.session.admin_all_ticket = all_ticket;
+	this.session.admin_mode         = "show_ticket";
 	this.response.redirect('/admin');
 };
 

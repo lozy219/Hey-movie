@@ -47,6 +47,10 @@ module.exports = function routes(app) {
 	app.post('/admin/director/add_director', admin.add_director);
 	app.get('/admin/director/delete_director', admin.delete_director);
 
+	app.get('/admin/ticket', admin.show_ticket);
+	app.post('/admin/director/add_director', admin.add_director);
+	app.get('/admin/director/delete_director', admin.delete_director);
+
 	app.get('/admin/actor', admin.show_actor);
 
 	app.post('/movie/homepage_movie_search',movie.homepage_movie_search);

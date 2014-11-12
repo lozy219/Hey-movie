@@ -1,0 +1,66 @@
+<script>
+//Automatically scroll to bottom
+$(function () {
+         $("html, body").animate({ scrollTop:  $(window).height() }, 1400);
+         return false; 
+});
+</script>
+<div class="content-wrapper">
+	<div class="content movie-management">
+		<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 0%">Ticket Management</h2>
+		
+
+<div id="tab1" class="mtab_content" style="margin-bottom: 5%;">
+	<br />
+	<table class="pure-table admin-long-table">
+		<thead>
+			<tr style="text-align:center; font-size: 13px">
+				<th>Movie Title</th>
+				<th>Theater</th>
+				<th>Start Time</th>
+				<th>End Time</th>
+				<th>Customer Name</th>
+				<th>Seat Number</th>
+				<th>Booking Time</th>
+				<th>Operation</th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+		<%for (i = 0; i < all_ticket.length; i ++) {
+			if (i % 2 === 0) { %>
+				<tr class="pure-table-odd" style="font-size: 12px">
+				<td><%= all_ticket[i].movie_title  %></td>
+					<td><%= all_ticket[i].theatre_name %></td>
+					<td><%= all_ticket[i].start_time %></td>
+					<td><%= all_ticket[i].end_time %></td>
+					<td><%= all_ticket[i].name %></td>
+					<td><%= all_ticket[i].seat_no %></td>
+					<td><%= all_ticket[i].booking_time %></td>
+					<td>
+
+						<span id="update-movie"><a class="pure-button" id="<%= all_ticket[i].movie_id %>" href="">Update</a></span>						
+						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_ticket[i].movie_id%>">Delete</a>
+					</td>
+				</tr>
+			<% } else { %>
+				<tr style="font-size: 12px">
+					<td><%= all_ticket[i].movie_title  %></td>
+					<td><%= all_ticket[i].theatre_name %></td>
+					<td><%= all_ticket[i].start_time %></td>
+					<td><%= all_ticket[i].end_time %></td>
+					<td><%= all_ticket[i].name %></td>
+					<td><%= all_ticket[i].seat_no %></td>
+					<td><%= all_ticket[i].booking_time %></td>
+					<td>
+
+						<span id="update-movie"><a class="pure-button" id="<%= all_ticket[i].movie_id %>" href="">Update</a></span>	
+						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_ticket[i].movie_id%>">Delete</a>
+					</td>
+				</tr>
+			<%}%>
+		<% } %>
+		</tbody>
+	</table>
+</div>
