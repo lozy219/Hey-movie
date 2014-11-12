@@ -40,7 +40,7 @@ exports.signup = function* (){
 	if (result == false){
 		console.log('signup failed');
 	} else {
-		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
+		this.session.customer = (yield db.get_customer_by_email(this.request.body.email))[0];
 		if (config.admin_id.indexOf(this.session.customer.customer_id) !== -1) {
 			this.session.customer.is_admin = true;
 		} else {

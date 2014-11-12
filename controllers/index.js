@@ -17,6 +17,7 @@ module.exports = function* home(next) {
 	// 	count : result[0][0].count
 	// };
 
+
 	switch (this.session.index_mode) {
 		case "search_movie":
 			this.session.index_mode = undefined;
