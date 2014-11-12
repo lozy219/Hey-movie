@@ -96,11 +96,10 @@ exports.add_show = function* (){
 exports.show_theatre = function* (){
 	var all_theatre = yield theatre.get_all_theatre();
 	for (var i = 0; i < all_theatre.length; i ++) {
-		all_theatre[i].operator = (yield operator.get_operator_by_id(all_theatre.theatre_id))[0];
+		all_theatre[i].operator = (yield operator.get_operator_by_id(all_theatre[i].theatre_id))[0];
 	}
 
 	var all_operator = yield operator.get_all_operator();
-
 	this.session.admin_all_theatre  = all_theatre;
 	this.session.admin_all_operator = all_operator;
 	this.session.admin_mode         = "show_theatre";

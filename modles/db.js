@@ -79,11 +79,13 @@ exports.delete_movie_by_id = function* (id) {
 
 // theatre
 exports.add_theatre = function* (theatre) {
-	var query = 'INSERT INTO theatre (name, location, postal_code, operator_id) VALUES ("' +
+	var query = 'INSERT INTO theatre (name, location, postal_code, contact, operator_id) VALUES ("' +
 				theatre.name + '","' + 
 				theatre.location + '","' + 
 				theatre.postal_code + '",' +
-				theatre.operator_id + '");';
+				theatre.contact + ',' +
+				theatre.operator_id + ');';
+	console.log(query);
 	return yield pool.query(query);
 };
 
