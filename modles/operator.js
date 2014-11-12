@@ -9,12 +9,7 @@ exports.get_all_operator = function* (){
 }
 
 exports.insert = function* (operator) {
-	var name = yield db.get_operator_by_name(operator.operator_name);
-	if (name.length == 0){
-		return yield db.add_operator(operator);
-	} else {
-		return false;
-	}
+	return yield db.add_operator(operator);
 };
 
 exports.delete = function* (id) {

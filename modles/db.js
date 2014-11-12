@@ -100,19 +100,19 @@ exports.delete_theatre_by_id = function* (id) {
 
 // operator
 exports.add_operator = function* (operator) {
-	var query = 'INSERT INTO operator (country, operator_name) VALUES ("' +
+	var query = 'INSERT INTO cinema_operator (country, operator_name) VALUES ("' +
 				operator.country + '","' + 
-				operator.operator_name + '");';
+				operator.name + '");';
 	return yield pool.query(query);
 };
 
 exports.get_all_operator = function* () {
-	var query = 'SELECT * FROM operator';
+	var query = 'SELECT * FROM cinema_operator';
 	return (yield pool.query(query))[0];
 };
 
 exports.delete_operator_by_id = function* (id) {
-	var query = 'DELETE FROM operator WHERE operator_id=' + id;
+	var query = 'DELETE FROM cinema_operator WHERE operator_id=' + id;
 	console.log(query);
 	return yield pool.query(query);
 };

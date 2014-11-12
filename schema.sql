@@ -65,7 +65,7 @@ CREATE TABLE customer (
 
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
-	customer_id INT,
+	customer_id INT AUTO_INCREMENT,
 	movie_id INT,
 	comment_date DATE,
 	content VARCHAR(300),
@@ -77,7 +77,7 @@ CREATE TABLE comment (
 
 DROP TABLE IF EXISTS cinema_operator;
 CREATE TABLE cinema_operator(
-	operator_id VARCHAR(50),
+	operator_id INT AUTO_INCREMENT,
 	country CHAR(30),
 	operator_name VARCHAR(100),
 	

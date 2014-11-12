@@ -121,7 +121,7 @@ exports.delete_theatre = function* (){
 
 //Operator
 exports.show_operator = function* (){
-	var all_operator                = yield movie.get_all_operator();
+	var all_operator                = yield operator.get_all_operator();
 	this.session.admin_all_operator = all_operator;
 	this.session.admin_mode         = "show_operator";
 	this.response.redirect('/admin');
