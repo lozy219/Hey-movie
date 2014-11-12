@@ -48,8 +48,7 @@ $(function () {
 
 					$.post('/ajax/store_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
 							$.post('/ajax/get_selected_movie', {'movie_id':$(this).attr('id')}, function(data) {
-							alert(data);
-						});
+							});
 					});
 
 					
