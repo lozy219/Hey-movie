@@ -107,3 +107,7 @@ exports.logout = function* (){
 exports.movie_search = function* (){
 	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body);
 };
+
+exports.rank_movie = function* (){
+	
+}
