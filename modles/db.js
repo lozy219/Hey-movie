@@ -142,6 +142,17 @@ exports.delete_movie_by_id = function* (id) {
 	return yield pool.query(query);
 };
 
+// show
+exports.add_show = function* (show) {
+	var query = 'INSERT INTO shows (movie_id, subtitle, start_time, end_time, theatre_id) VALUES ("' +
+				show.movie_id + '","' + 
+				show.subtitle + '","' + 
+				show.start_time + '","' +
+				show.end_time + '",' +
+				show.theatre_id + ');';
+	return yield pool.query(query);
+};
+
 // theatre
 exports.add_theatre = function* (theatre) {
 	var query = 'INSERT INTO theatre (name, location, postal_code, contact, operator_id) VALUES ("' +
@@ -187,38 +198,38 @@ exports.delete_operator_by_id = function* (id) {
 	return yield pool.query(query);
 };
 
-// director
+// // director
 
-exports.get_all_director = function* () {
-	var query = 'SELECT * FROM director';
-	return (yield pool.query(query))[0];
-}
+// exports.get_all_director = function* () {
+// 	var query = 'SELECT * FROM director';
+// 	return (yield pool.query(query))[0];
+// }
 
-exports.get_director_by_name = function* (name) {
-	var query = 'SELECT * FROM director WHERE name="' + name + '"';
-	return (yield pool.query(query))[0];
-};
+// exports.get_director_by_name = function* (name) {
+// 	var query = 'SELECT * FROM director WHERE name="' + name + '"';
+// 	return (yield pool.query(query))[0];
+// };
 
-exports.add_director = function* (director) {
-	var query = 'INSERT INTO director (name, nationality, gender, profile_pic) VALUES ("' +
-				director.director_name + '","' + 
-				director.director_nationality + '","' + 
-				director.director_gender + '","' +
-				null + '");';
-	return yield pool.query(query);
-};
+// exports.add_director = function* (director) {
+// 	var query = 'INSERT INTO director (name, nationality, gender, profile_pic) VALUES ("' +
+// 				director.director_name + '","' + 
+// 				director.director_nationality + '","' + 
+// 				director.director_gender + '","' +
+// 				null + '");';
+// 	return yield pool.query(query);
+// };
 
-exports.delete_director_by_id = function* (id) {
-	var query = 'DELETE FROM director WHERE director_id=' + id;
-	console.log(query);
-	return yield pool.query(query);
-};
+// exports.delete_director_by_id = function* (id) {
+// 	var query = 'DELETE FROM director WHERE director_id=' + id;
+// 	console.log(query);
+// 	return yield pool.query(query);
+// };
 
-// actor
+// // actor
 
-exports.get_all_actor = function* () {
-	var query = 'SELECT * FROM actor';
-	return (yield pool.query(query))[0];
-}
+// exports.get_all_actor = function* () {
+// 	var query = 'SELECT * FROM actor';
+// 	return (yield pool.query(query))[0];
+// }
 
 

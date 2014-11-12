@@ -32,7 +32,7 @@ module.exports = function routes(app) {
 	app.get('/admin/movie', admin.show_movie);
 	app.post('/admin/movie/add_movie', admin.add_movie);
 	app.get('/admin/movie/delete_movie', admin.delete_movie);
-	app.get('/admin/movie/add_show', admin.add_show);
+	app.post('/admin/movie/add_show', admin.add_show);
 
 	app.get('/admin/operator', admin.show_operator);
 	app.post('/admin/operator/add_operator', admin.add_operator);
