@@ -9,6 +9,7 @@ var mysql    = require('co-mysql');
 var customer = require('../modles/customer.js');
 var movie 	 = require('../modles/movie.js');
 var theatre  = require('../modles/theatre.js');
+var operator  = require('../modles/operator.js');
 var director = require('../modles/director.js');
 var actor 	 = require('../modles/actor.js');
 var db       = require('../modles/db.js');
@@ -28,6 +29,11 @@ exports.show = function* (){
 		case "show_theatre":
 			this.session.admin_mode = undefined;
 			this.body = yield render('admin/admin', {user : this.session.customer, all_theatre : this.session.admin_all_theatre, render_html : 'admin-theatre.ejs'});
+			break;
+
+		case "show_operator":
+			this.session.admin_mode = undefined;
+			this.body = yield render('admin/admin', {user : this.session.customer, all_operator : this.session.admin_all_operator, render_html : 'admin-operator.ejs'});
 			break;
 
 		case "show_director":
@@ -87,15 +93,15 @@ exports.add_show = function* (){
 
 //Theatre
 exports.show_theatre = function* (){
-	var all_theatre              = yield movie.get_all_theatre();
-	this.session.admin_all_movie = all_theatre;
-	this.session.admin_mode      = "show_theatre";
+	var all_theatre                = yield movie.get_all_theatre();
+	this.session.admin_all_theatre = all_theatre;
+	this.session.admin_mode        = "show_theatre";
 	this.response.redirect('/admin');
 };
 
 exports.add_theatre = function* (){
 	var result = yield theatre.insert(this.request.body);
-	if (result == false){
+	if (result == false) {
 		console.log('add failed');
 	} else {
 		console.log('add successfully');
@@ -105,6 +111,34 @@ exports.add_theatre = function* (){
 
 exports.delete_theatre = function* (){
 	var result = yield theatre.delete(this.request.querystring);
+	if (result == false) {
+		console.log('delete failed');
+	} else {
+		console.log('delete successfully');
+	}
+	this.response.redirect('/admin');
+};
+
+//Operator
+exports.show_operator = function* (){
+	var all_operator                = yield movie.get_all_operator();
+	this.session.admin_all_operator = all_operator;
+	this.session.admin_mode         = "show_operator";
+	this.response.redirect('/admin');
+};
+
+exports.add_operator = function* (){
+	var result = yield operator.insert(this.request.body);
+	if (result == false) {
+		console.log('add failed');
+	} else {
+		console.log('add successfully');
+	}
+	this.response.redirect('/admin');
+};
+
+exports.delete_operator = function* (){
+	var result = yield operator.delete(this.request.querystring);
 	if (result == false){
 		console.log('delete failed');
 	} else {

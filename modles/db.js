@@ -98,6 +98,25 @@ exports.delete_theatre_by_id = function* (id) {
 	return yield pool.query(query);
 };
 
+// operator
+exports.add_operator = function* (operator) {
+	var query = 'INSERT INTO operator (country, operator_name) VALUES ("' +
+				operator.country + '","' + 
+				operator.operator_name + '");';
+	return yield pool.query(query);
+};
+
+exports.get_all_operator = function* () {
+	var query = 'SELECT * FROM operator';
+	return (yield pool.query(query))[0];
+};
+
+exports.delete_operator_by_id = function* (id) {
+	var query = 'DELETE FROM operator WHERE operator_id=' + id;
+	console.log(query);
+	return yield pool.query(query);
+};
+
 // director
 
 exports.get_all_director = function* () {
