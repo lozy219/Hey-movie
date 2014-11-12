@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
   <script src="/js/jquery-2.1.1.min.js"></script>
-  <script src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-  <script src="/js/bootstrap.js"></script>
-  
+  <script src="/js/jquery.datetimepicker.js"></script>
+
   <% if ((user === undefined) || (!user.is_admin)) { %>
   <meta http-equiv="refresh" content="3; url=/" />
   <% } %>
   <meta charset="utf-8">
   <title>Hey-Movie</title>
+  <link rel="stylesheet" href="/css/jquery.datetimepicker.css" />
   <link rel="stylesheet" href="/css/pure/pure.css" />
   <link rel="stylesheet" href="/css/layouts/marketing.css" />
-  <link rel="stylesheet" href="/css/bootstrap-datetimepicker.css" />
-  <link rel="stylesheet" href="/css/datetimepicker.css" />
 </head>
 <body class="admin-body">
   <div class="header">
