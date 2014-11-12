@@ -4,12 +4,7 @@
         <form action="/profile/edit" method="POST" class="pure-form pure-form-single" id="profile-edit">
             <fieldset>
             <div>
-            	<% 
-               	if (user.profile_pic === null) { 
-            		%><img src="img/profile_pic/default.png" width=30% height=30% text-align="center"><%
-        		} else {
-           			%><img src= <% user.profile_pic %> width=30% height=30%><%
-        		} %><br></br>            
+            	<br></br>            
                 <li>               
             	    <h>User Name: </h> <%
                   if (user.name === null) { 
@@ -42,6 +37,7 @@
                 <input class="profile-edit-input" name="month" type="text" placeholder=<%= db.get_DOB_day %>>
                 <input class="profile-edit-input" name="year" type="text" placeholder=<%= db.get_DOB_day %>><%
         		} %></p></li>
+            
         	</div><br></br>
 
         	<button type="submit" class="pure-button pure-button-primary" style="text-decoration : none; color : #000000;">Edit Profile</a></button>
