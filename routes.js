@@ -17,6 +17,7 @@ module.exports = function routes(app) {
 	app.get('/signup', user.show_signup);
 	app.get('/logout', user.logout);
 	app.get('/profile', user.show_profile);
+	app.get('/ranking', user.show_ranking);
 	app.get('/profile/edit', user.show_profile_edit);
 	app.get('/movie', movie.show_movie);
 

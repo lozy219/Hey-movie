@@ -28,11 +28,18 @@ exports.show_signup = function* (){
 };
 
 exports.show_profile = function* (){
-	this.body = yield render('user/profile', {user : this.session.customer});
+	this.body = yield render('index/profile', {user : this.session.customer});
 };
 
 exports.show_profile_edit = function* (){
-	this.body = yield render('user/profile_edit', {user : this.session.customer});
+	this.body = yield render('index/profile_edit', {user : this.session.customer});
+};
+
+exports.show_ranking = function* (){
+	var ranking_search_result   = yield movie.get_ranking_movie();
+	this.session.ranking_movie = ranking_search_result;
+	this.session.index_mode = "show_ranking";
+	this.response.redirect('/');
 };
 
 exports.signup = function* (){

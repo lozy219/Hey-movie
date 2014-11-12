@@ -14,8 +14,8 @@ exports.get_movie_by_title_keyword = function* (title_keyword) {
 	}
 };
 
-exports.get_movie_by_showing_status = function* (){
-	var movie = yield db.get_movie_by_showing_status();
+exports.get_all_onshow_movie = function* (){
+	var movie = yield db.get_all_onshow_movie();
 
 	if (movie.length != 0) {
 		return movie;
@@ -23,6 +23,16 @@ exports.get_movie_by_showing_status = function* (){
 		return "No Result";
 	}
 };
+
+exports.get_ranking_movie = function* (){
+	var movie = yield db.get_ranking_movie();
+
+	if (movie.length != 0) {
+		return movie;
+	} else {
+		return "No Result";
+	}
+}
 
 exports.get_all_movie = function* (){
 	var movie = yield db.get_all_movie();

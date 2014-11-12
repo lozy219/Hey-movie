@@ -106,8 +106,14 @@ exports.get_movie_by_title_keyword = function* (title_keyword) {
 	return (yield pool.query(query))[0];
 };
 
-exports.get_movie_by_showing_status = function* (){
+exports.get_all_onshow_movie = function* (){
 	var query = 'SELECT * FROM movie WHERE showing_status = "on show" ';
+	console.log((yield pool.query(query))[0]);
+	return (yield pool.query(query))[0];
+};
+
+exports.get_ranking_movie = function* (){
+	var query = 'SELECT * FROM movie ORDER BY IMDB_rating DESC';
 	console.log((yield pool.query(query))[0]);
 	return (yield pool.query(query))[0];
 };
