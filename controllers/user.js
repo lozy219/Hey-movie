@@ -93,6 +93,7 @@ exports.profile_edit = function* (){
 	if (result == false){
 		console.log('update profile failed');
 	} else {
+		this.session.customer = yield db.get_customer_by_email(this.request.body.email);
 		this.response.redirect('/profile');
 	}
 }
