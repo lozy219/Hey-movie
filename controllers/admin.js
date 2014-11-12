@@ -24,7 +24,7 @@ exports.show = function* (){
 	switch (this.session.admin_mode) {
 		case "show_movie":
 			this.session.admin_mode = undefined;
-			this.body = yield render('admin/admin', {user : this.session.customer, all_movie : this.session.admin_all_movie, render_html : 'admin-movie.ejs'});
+			this.body = yield render('admin/admin', {user : this.session.customer, all_theatre : this.session.admin_all_theatre, all_movie : this.session.admin_all_movie, render_html : 'admin-movie.ejs'});
 			break;
 
 		case "show_theatre":
