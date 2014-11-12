@@ -409,8 +409,13 @@ a.pure-button-primary {
 
 .div-inline{
     float:left; 
-    margin-left:7.5%;
+    margin-left:6%;
+    margin-bottom: 5%;
 } 
+/*
+.div-inline li{
+  font-size: 18px;
+}*/
 
 /*
  * -- ADMIN MANAGEMENT MENU STYLES --

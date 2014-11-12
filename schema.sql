@@ -102,8 +102,8 @@ CREATE TABLE shows (
 	show_id INT AUTO_INCREMENT,
 	movie_id INT,
 	theatre_id INT,
-	start_time TIMESTAMP,
-	end_time TIMESTAMP,
+	start_time DATE,
+	end_time DATE,
 	subtitle CHAR(30),
 
 	PRIMARY KEY(show_id),
@@ -160,3 +160,9 @@ INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length,
 VALUES("http://www.imdb.com/title/tt1872194/?ref_=inth_ov_tt", 
 	7.7, "English", 141, "Drama", "2014", "The Judge", "on show", 
 	"http://ww3.sinaimg.cn/large/78afe499gw1ek1f20ak7uj20uq19i16e.jpg");
+
+INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length, 
+	genre, year, title, showing_status, poster_link) 
+VALUES("http://www.imdb.com/title/tt2713180/?ref_=inth_ov_tt", 
+	8.1, "English", 134, "Action", "2014", "Fury", "on show", 
+	"http://www.thehollywoodnews.com/wp-content/uploads/Fury-2-300.jpg");

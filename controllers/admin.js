@@ -58,7 +58,11 @@ exports.store_selected_movie = function* (){
 };
 
 exports.get_selected_movie = function* (){
-	this.body = this.session.stored_movie;
+	var body = {};
+	body.movie_id = this.session.stored_movie;
+	var movie = (yield db.get_movie_by_id(body.movie_id));
+	body.title = movie[0].title;
+	this.body = JSON.stringify(body);
 };
 
 exports.show_movie = function* (){

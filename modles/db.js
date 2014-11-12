@@ -91,6 +91,11 @@ exports.get_movie_by_title = function* (title) {
 	return (yield pool.query(query))[0];
 };
 
+exports.get_movie_by_id = function* (id) {
+	var query = 'SELECT * FROM movie WHERE movie_id="' + id + '"';
+	return (yield pool.query(query))[0];
+};
+
 exports.get_movie_by_IMDB_link = function* (link) {
 	var query = 'SELECT * FROM movie WHERE IMDB_link="' + IMDB_link + '"';
 	return (yield pool.query(query))[0];
