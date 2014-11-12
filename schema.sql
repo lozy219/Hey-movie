@@ -97,19 +97,6 @@ CREATE TABLE theatre (
 	FOREIGN KEY (operator_id) REFERENCES cinema_operator(operator_id) ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS ticket;
-CREATE TABLE ticket (
-	ticket_id INT AUTO_INCREMENT,
-	customer_id INT,
-	booking_time TIMESTAMP,
-	price DOUBLE,
-	seat_no VARCHAR(5),
-	hall_no INT,
-
-	PRIMARY KEY (ticket_id),
-	FOREIGN KEY (customer_id) REFERENCES customer(customer_id) ON DELETE CASCADE
-);
-
 DROP TABLE IF EXISTS shows;
 CREATE TABLE shows (
 	show_id INT AUTO_INCREMENT,
@@ -122,6 +109,19 @@ CREATE TABLE shows (
 	PRIMARY KEY(show_id),
 	FOREIGN KEY (movie_id) REFERENCES movie(movie_id) ON DELETE CASCADE,
 	FOREIGN KEY (theatre_id) REFERENCES theatre(theatre_id) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS ticket;
+CREATE TABLE ticket (
+	ticket_id INT AUTO_INCREMENT,
+	customer_id INT,
+	booking_time TIMESTAMP,
+	seat_no VARCHAR(5),
+	show_id INT,
+
+	PRIMARY KEY (ticket_id),
+	FOREIGN KEY (customer_id) REFERENCES customer(customer_id) ON DELETE CASCADE,
+	FOREIGN KEY (show_id) REFERENCES shows(show_id) ON DELETE CASCADE
 );
 
 
