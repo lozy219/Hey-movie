@@ -3,19 +3,18 @@ div.seatCharts-container {
 }
 div.seatCharts-cell {
 
-	height: 16px;
-	width: 16px;
+	height: 30px;
+	width: 30px;
 	margin: 3px;
 	float: left;
 	text-align: center;
 	outline: none;
-	font-size: 13px;
-	line-height:16px;
-	color: blue;
+	font-size: 15px;
+	line-height:30px;
 
 }
 div.seatCharts-seat {
-	background-color: green;
+	background-color: #1f8dd6;
 	color: white;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -43,15 +42,11 @@ div.seatCharts-row:after {
 }
 
 div.seatCharts-seat.selected {
-	background-color: aqua;
+	background-color: black;
 }
 
 div.seatCharts-seat.focused {
-	background-color: #6db131;
-}
-
-div.seatCharts-seat.available {
-	background-color: green;
+	background-color: rgb(3, 76, 158);
 }
 
 div.seatCharts-seat.unavailable {

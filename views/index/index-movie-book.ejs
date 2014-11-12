@@ -9,49 +9,33 @@
 
 		var $cart = $('#selected-seats'),
 			$counter = $('#counter'),
-			$total = $('#total'),
 			sc = $('#seat-map').seatCharts({
 			map: [
-				'ff_ff',
-				'ff_ff',
-				'ee_ee',
-				'ee_ee',
-				'ee___',
-				'ee_ee',
-				'ee_ee',
-				'ee_ee',
-				'eeeee',
+				'_____ee_eeeeeeeeeeee_ee_____',
+				'____eee_eeeeeeeeeeee_eee____',
+				'___eeee_eeeeeeeeeeee_eeee___',
+				'__eeeee_eeeeeeeeeeee_eeeee__',
+				'_eeeeee_eeeeeeeeeeee_eeeeee_',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+				'eeeeeee_eeeeeeeeeeee_eeeeeee',
+
+				
 			],
-			seats: {
-				f: {
-					price   : 100,
-					classes : 'first-class', //your custom CSS class
-					category: 'First Class'
-				},
-				e: {
-					price   : 40,
-					classes : 'economy-class', //your custom CSS class
-					category: 'Economy Class'
-				}					
-			
-			},
-			
-			legend : {
-				node : $('#legend'),
-			    items : [
-					[ 'f', 'available',   'First Class' ],
-					[ 'e', 'available',   'Economy Class'],
-					[ 'f', 'unavailable', 'Already Booked']
-			    ]					
-			},
 			click: function () {
 				if (this.status() == 'available') {
 					//let's create a new <li> which we'll add to the cart items
-					$('<li>'+this.data().category+' Seat # '+this.settings.label+': <b>$'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+					$('<li>'+' Seat # '+ this.settings.id + '</li>')
 						.attr('id', 'cart-item-'+this.settings.id)
 						.data('seatId', this.settings.id)
 						.appendTo($cart);
 					
+					$('#seat').val($('#seat').val() + this.settings.id + ',');
 					/*
 					 * Lets update the counter and total
 					 *
@@ -59,14 +43,10 @@
 					 * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
 					 */
 					$counter.text(sc.find('selected').length+1);
-					$total.text(recalculateTotal(sc)+this.data().price);
-					
 					return 'selected';
 				} else if (this.status() == 'selected') {
 					//update the counter
 					$counter.text(sc.find('selected').length-1);
-					//and total
-					$total.text(recalculateTotal(sc)-this.data().price);
 				
 					//remove the item from our cart
 					$('#cart-item-'+this.settings.id).remove();
@@ -82,47 +62,38 @@
 			}
 		});
 
-		//this will handle "[cancel]" link clicks
-		$('#selected-seats').on('click', '.cancel-cart-item', function () {
-			//let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
-			sc.get($(this).parents('li:first').data('seatId')).click();
-		});
 		//let's pretend some seats have already been booked
-		sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+		// sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
 	}); 
 </script>
 
 <div class="content book-movie" style="display : none">
 	<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Add Show</h2>
-	<div class="wrapper">
-			<div class="container">
-				<div id="seat-map">
-					<div class="front-indicator">Front</div>
-					
-				</div>
-				<div class="booking-details">
-					<h2>Booking Details</h2>
-					
-					<h3> Selected Seats (<span id="counter">0</span>):</h3>
-					<ul id="selected-seats"></ul>
-					
-					Total: <b>$<span id="total">0</span></b>
-					
-					<div id="legend"></div>
-				</div>
-			</div>
-		</div>
 	<form action="/admin/movie/add_show" method="post" class="pure-form pure-form-single" style="margin-top: 5%;">
 		<input id="movie" disabled="disabled" name="movie" type="text" placeholder="Movie Title" />
 		<input id="movie_id" type="hidden" name="movie_id" />
+		<input id="seat" name="seat" type="text" placeholder="Seat" />
 		<!-- <select name="theatre_id" style="height: 36px; width: 100%; margin-bottom: 1em;">
 			<option value="">Select Theatre</option>
 			<% for (var i = 0; i < all_theatre.length; i ++) {
 			%><option value=<%= all_theatre[i].theatre_id %>><%= all_theatre[i].name%></option>
 			<% } %>
 		</select> -->
-		
 		<br /><br /><br />
 		<button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Add Show</button>
 	</form>
+	<div class="wrapper">
+		<div class="container">
+			<div id="seat-map" style="text-align:center; margin-left: 7%;">
+				<div class="front-indicator" style="text-align:center; width:92%">Screen</div>
+				
+			</div>
+			<div class="booking-details">
+				<h2>Booking Details</h2>
+				
+				<h3> Selected Seats (<span id="counter">0</span>):</h3>
+				<ul id="selected-seats"></ul>
+			</div>
+		</div>
+	</div>
 </div>
