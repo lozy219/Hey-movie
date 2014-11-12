@@ -16,7 +16,7 @@ $(function () {
 <div class="content-wrapper">
 	<div class="content">
 		<h2 class="content-head is-center">Search Result</h2>
-
+        
       <% for (j = 0; j < movie_result.length; j+=5) { %>
         <div class="pure-g">
           <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
@@ -60,6 +60,9 @@ $(function () {
               <li>Language: <%=movie_result[i].language%></li>
               <li>Length: <%=movie_result[i].length%>mins</li>
               <li>IMDB_link: <a href="<%=movie_result[i].IMDB_link%>"><img src="img/icon/IMDB_icon.png" width = 40 height = 40 style="margin-bottom: -6%"></a></li>
+              <% if(movie_result[i].showing_status == "on show"){ %>
+              <button class="pure-button pure-button-primary book-ticket" id="<%=movie_result[i].movie_id%>" style="width: 100; margin: 3% 0 0 8%; text-align:center; font-size: 10px">Book Now!</button>
+              <% }%>
             </div>
           <% } %>   
         </div></div> 
