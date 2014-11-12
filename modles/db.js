@@ -144,7 +144,7 @@ exports.add_show = function* (show) {
 };
 
 exports.get_all_ongoing_shows = function* () {
-	return null;
+	return [];
 	// var query = 'SELECT * FROM shows WHERE '
 };
 
