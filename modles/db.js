@@ -143,6 +143,11 @@ exports.add_show = function* (show) {
 	return yield pool.query(query);
 };
 
+exports.get_all_ongoing_shows = function* () {
+	return null;
+	// var query = 'SELECT * FROM shows WHERE '
+};
+
 // theatre
 exports.add_theatre = function* (theatre) {
 	var query = 'INSERT INTO theatre (name, location, postal_code, contact, operator_id) VALUES ("' +
