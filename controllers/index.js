@@ -17,7 +17,6 @@ module.exports = function* home(next) {
 	// 	count : result[0][0].count
 	// };
 
-
 	switch (this.session.index_mode) {
 		case "search_movie":
 			this.session.index_mode = undefined;
@@ -31,7 +30,7 @@ module.exports = function* home(next) {
 
 		case "show_movie":
 			this.session.index_mode = undefined;
-			this.body = yield render('index/index', {onshow_movie: this.session.movie_on_show, user : this.session.customer, render_html : 'index-movie.ejs'});
+			this.body = yield render('index/index', {user : this.session.customer, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
 			break;
 
 		case "show_login":
@@ -42,6 +41,11 @@ module.exports = function* home(next) {
 		case "show_signup":
 			this.session.index_mode = undefined;
 			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-signup.ejs'});
+			break;
+
+		case "show_ranking":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-ranking.ejs'});
 			break;
 
 		default:

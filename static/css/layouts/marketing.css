@@ -563,11 +563,11 @@ a.pure-button-primary {
 
 li.stars, li.stars>* {
     display: inline-block;
-    background: url(http://i.imgur.com/hyUAYsr.png) 0 -16px repeat-x;
-    width: 160px;
-    height: 17px;
+    background: url(http://i.imgur.com/fiVel61.png) 0 -14px repeat-x;
+    width: 140px;
+    height: 16px;
 }
 li.stars>*{
-    max-width:80px;
+    max-width:140px;
     background-position: 0 0;
 }

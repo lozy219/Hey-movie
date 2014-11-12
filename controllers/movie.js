@@ -15,7 +15,6 @@ var render = views(__dirname + '/../views', {ext: 'ejs' });
 
 exports.show_movie = function* (){
 	var onshow_search_result   = yield movie.get_movie_by_showing_status();
-	console.log(this.session.customer);
 	this.session.movie_on_show = onshow_search_result;
 	this.session.index_mode    = "show_movie";
 	this.response.redirect('/');

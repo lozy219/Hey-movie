@@ -35,6 +35,11 @@ exports.show_profile_edit = function* (){
 	this.body = yield render('user/profile_edit', {user : this.session.customer});
 };
 
+exports.show_ranking = function* (){
+	this.session.index_mode = "show_ranking";
+	this.response.redirect('/');
+};
+
 exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
@@ -96,6 +101,5 @@ exports.logout = function* (){
 };
 
 exports.movie_search = function* (){
-	console.log(this.request.body);
 	var movie_result = yield movie.get_movie_by_title_keyword(this.request.body);
 };
