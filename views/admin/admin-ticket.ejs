@@ -14,7 +14,7 @@ $(function () {
 	<br />
 	<table class="pure-table admin-long-table">
 		<thead>
-			<tr style="text-align:center">
+			<tr style="text-align:center; font-size: 13px">
 				<th>Movie Title</th>
 				<th>Theater</th>
 				<th>Start Time</th>
@@ -30,7 +30,7 @@ $(function () {
 
 		<%for (i = 0; i < all_ticket.length; i ++) {
 			if (i % 2 === 0) { %>
-				<tr class="pure-table-odd">
+				<tr class="pure-table-odd" style="font-size: 12px">
 				<td><%= all_ticket[i].movie_title  %></td>
 					<td><%= all_ticket[i].theatre_name %></td>
 					<td><%= all_ticket[i].start_time %></td>
@@ -45,7 +45,7 @@ $(function () {
 					</td>
 				</tr>
 			<% } else { %>
-				<tr>
+				<tr style="font-size: 12px">
 					<td><%= all_ticket[i].movie_title  %></td>
 					<td><%= all_ticket[i].theatre_name %></td>
 					<td><%= all_ticket[i].start_time %></td>
