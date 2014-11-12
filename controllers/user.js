@@ -8,6 +8,7 @@ var views    = require('co-views');
 var mysql    = require('co-mysql');
 var customer = require('../modles/customer.js');
 var movie 	 = require('../modles/movie.js');
+var error 	 = require('../modles/error.js')
 var db       = require('../modles/db.js');
 var config   = require('../config.js');
 
@@ -46,6 +47,8 @@ exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
 		console.log('signup failed');
+		console.log(this.session);
+		this.body = yield render('index/error', {error : "signup failed"});
 	} else {
 		this.session.customer = (yield db.get_customer_by_email(this.request.body.email))[0];
 		if (config.admin_id.indexOf(this.session.customer.customer_id) !== -1) {
