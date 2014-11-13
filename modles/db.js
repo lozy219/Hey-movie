@@ -232,6 +232,12 @@ exports.get_all_ticket = function* () {
 	return (yield pool.query(query))[0];
 };
 
+exports.get_all_ticket_by_id = function* (id) {
+	var query = 'SELECT m.title AS movie_title, th.name AS theatre_name, c.name, t.seat_no FROM ticket t, customer c, shows s, movie m, theatre th WHERE t.show_id = s.show_id AND s.movie_id = m.movie_id AND s.theatre_id = th.theatre_id AND t.customer_id = c.customer_id';
+
+	return (yield pool.query(query))[0];
+};
+
 exports.delete_ticket_by_id = function* (id) {
 	var query = 'DELETE FROM ticket WHERE ticket_id=' + id;
 	// console.log(query);
