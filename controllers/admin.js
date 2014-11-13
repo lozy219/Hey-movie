@@ -79,6 +79,18 @@ exports.get_selected_movie = function* (){
 	this.body = JSON.stringify(body);
 };
 
+exports.get_selected_seat = function* (){
+	var body = [];
+	console.log(this.request.body);
+	var show_id = this.request.body.show_id;
+	var seats = yield db.get_seats_by_show_id(this.request.body.show_id);
+	var seats = seats[0];
+	for (var i = 0; i < seats.length; i ++) {
+		body[i] = seats[i].seat_no;
+	}
+	this.body = JSON.stringify(body);
+};
+
 exports.show_movie = function* (){
 	var all_movie                  = yield movie.get_all_movie();
 	this.session.admin_all_movie   = all_movie;
@@ -129,7 +141,7 @@ exports.add_show = function* (){
 exports.get_shows_option = function* (){
 	var id = this.session.stored_movie;
 	var shows = yield db.get_all_ongoing_shows();
-	var body = '<select name="show" style="height: 36px; width: 100%; margin-bottom: 1em;"><option value="">Select Show</option>';
+	var body = '<select id="show_select" name="show" style="height: 36px; width: 100%; margin-bottom: 1em;"><option value="">Select Show</option>';
 	for (var i = 0; i < shows.length; i ++) {
 		var s = shows[i];
 		if (id == s.movie_id) {
