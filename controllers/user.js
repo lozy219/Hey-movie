@@ -72,7 +72,7 @@ exports.login = function* (){
 	var password = yield customer.get_password_by_email(this.request.body.email);
 	if (password == null) {
 		this.session.index_mode = "show_error";
-		this.session.error = "Loginup failed";
+		this.session.error = "Login failed";
 		this.response.redirect('/');
 	} else if (password === this.request.body.password) {
 		console.log('Login Successfully');
