@@ -170,7 +170,7 @@ VALUES("http://www.imdb.com/title/tt2713180/?ref_=inth_ov_tt",
 INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length, 
 	genre, year, title, showing_status, poster_link) 
 VALUES("http://www.imdb.com/title/tt2387413/", 
-	1.4, "English", 90, "Action", "2013", "Captain Battle: Legacy War", "off show", 
+	1.4, "English", 90, "Action", "2013", "Legacy War", "off show", 
 	"http://iscfc.files.wordpress.com/2013/12/captain-battle-legacy-war-01.jpg");
 
 INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length, 
