@@ -5,7 +5,7 @@
          <br></br>
          <p class="profile-form-header">Hey <%= user.name + '!!!' %></p>
          <% 
-         if (user.contact.length === 0) { 
+         if ((user.contact === undefined) || (user.contact === null) || (user.contact.length === 0)) { 
           %><input class="profile-edit-input" name="contact" type="text" placeholder="User Contact"><% 
         } else {
           %><input class="profile-edit-input" name="contact" type="text" placeholder="<%=user.contact%>" value="<%=user.contact%>"><%
