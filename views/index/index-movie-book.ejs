@@ -58,8 +58,12 @@
 			}
 		});
 
-		//let's pretend some seats have already been booked
-		// sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+ 		$(document).on('change','#show_select',function(){
+            $.post('/ajax/get_selected_seat', {'show_id':$('#show_select').val()}, function(data) {
+				sc.get(JSON.parse(data)).status('unavailable');	
+			});
+        });
+
 	}); 
 </script>
 
@@ -80,7 +84,7 @@
 				<div class="front-indicator" style="text-align:center; width:92%">Screen</div>
 				
 			</div>
-			<div class="booking-details">
+			<div class="booking-details" style="display:none">
 				<h2>Booking Details</h2>
 				
 				<h3> Selected Seats (<span id="counter">0</span>):</h3>
