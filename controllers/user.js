@@ -48,9 +48,9 @@ exports.show_ranking = function* (){
 exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
-		console.log('signup failed');
-		console.log(this.session);
-		this.body = yield render('index/error', {error : "signup failed"});
+		this.session.index_mode = "show_error";
+		this.session.error = "Signup failed";
+		this.response.redirect('/');
 	} else {
 		this.session.customer = (yield db.get_customer_by_email(this.request.body.email))[0];
 		if (config.admin_id.indexOf(this.session.customer.customer_id) !== -1) {
@@ -71,7 +71,9 @@ exports.login = function* (){
 	console.log(this.request);
 	var password = yield customer.get_password_by_email(this.request.body.email);
 	if (password == null) {
-		this.body = yield render('index/error', {error : "login failed"});
+		this.session.index_mode = "show_error";
+		this.session.error = "Loginup failed";
+		this.response.redirect('/');
 	} else if (password === this.request.body.password) {
 		console.log('Login Successfully');
 		var current_customer = yield db.get_customer_by_email(this.request.body.email);
@@ -86,7 +88,9 @@ exports.login = function* (){
 		this.session.customer = current_customer;
 		this.response.redirect('/');
 	} else {
-		console.log('Password is incorrect');
+		this.session.index_mode = "show_error";
+		this.session.error = "Login failed";
+		this.response.redirect('/');
 	}
 };
 
