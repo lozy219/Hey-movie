@@ -7,3 +7,8 @@ exports.get_all_ticket = function* (){
 
 	return ticket;
 };
+
+exports.update = function* (ticket) {
+	var result = yield db.update_ticket(ticket);
+	return result;
+};

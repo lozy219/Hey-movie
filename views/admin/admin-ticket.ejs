@@ -4,11 +4,53 @@ $(function () {
          $("html, body").animate({ scrollTop:  $(window).height() }, 1400);
          return false; 
 });
-</script>
+			$(document).ready(function(){
+				//	When user clicks on tab, this code will be executed
+				$("#cssmenu li").click(function() {
+					//	First remove class "active" from currently active tab
+					$("#cssmenu li").removeClass('active');
+
+					//	Now add class "active" to the selected/clicked tab
+					$(this).addClass("active");
+
+					//	Hide all tab content
+					$(".mtab_content").hide();
+
+					//	Here we get the href value of the selected tab
+					var selected_tab = $(this).find("a").attr("href");
+
+					//	Show the selected tab content
+					$(selected_tab).fadeIn();
+
+					//	At the end, we add return false so that the click on the link is not executed
+					return false;
+				});
+
+				$("#update-ticket a").click(function() {
+					//	Hide the movie management page
+					$(".ticket-management").hide();
+
+					$.post('/ajax/store_selected_ticket', {'ticket_id':$(this).attr('id')}, function(data) {
+							$.post('/ajax/get_selected_ticket', {'ticket_id':$(this).attr('id')}, function(data) {
+							});
+					});
+
+					$(".update-ticket").fadeIn();
+
+					event.preventDefault();
+					//	At the end, we add return false so that the click on the link is not executed
+					return false;
+				});
+
+				$("#simulate").click(function(){
+					$('a[rel="tab1"]').trigger("click");
+				});
+			});
+		</script>
 <div class="content-wrapper">
-	<div class="content movie-management">
+	<div class="content ticket-management">
 		<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 0%">Ticket Management</h2>
-		
+	</div>
 
 <div id="tab1" class="mtab_content" style="margin-bottom: 5%;">
 	<br />
@@ -49,8 +91,8 @@ $(function () {
 					<td><%= booking_time %></td>
 					<td>
 
-						<span id="update-movie"><a class="pure-button" id="<%= all_ticket[i].movie_id %>" href="">Update</a></span>						
-						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_ticket[i].movie_id%>">Delete</a>
+						<span id="update-ticket"><a class="pure-button" id="<%= all_ticket[i].ticket_id %>" href="">Update</a></span>						
+						<a class="pure-button button-error" href="/admin/ticket/delete_ticket?<%=all_ticket[i].ticket_id%>">Delete</a>
 					</td>
 				</tr>
 			<% } else { %>
@@ -73,12 +115,14 @@ $(function () {
 					<td><%= booking_time %></td>
 					<td>
 
-						<span id="update-movie"><a class="pure-button" id="<%= all_ticket[i].movie_id %>" href="">Update</a></span>	
-						<a class="pure-button button-error" href="/admin/movie/delete_movie?<%=all_ticket[i].movie_id%>">Delete</a>
+						<span id="update-ticket"><a class="pure-button" id="<%= all_ticket[i].ticket_id %>" href="">Update</a></span>	
+						<a class="pure-button button-error" href="/admin/ticket/delete_ticket?<%=all_ticket[i].ticket_id%>">Delete</a>
 					</td>
 				</tr>
 			<%}%>
 		<% } %>
 		</tbody>
 	</table>
+	<%= include admin-ticket-update-ticket.ejs %>
+</div>
 </div>
