@@ -58,6 +58,11 @@ module.exports = function* home(next) {
 			this.body = yield render('index/index', {user : this.session.customer, ranking_movie: this.session.ranking_movie, onshow_movie: this.session.movie_on_show, render_html : 'index-ranking.ejs'});
 			break;
 
+		case "user_show_ticket":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, all_ticket : this.session.user_all_ticket, render_html : 'index-ticket.ejs'});
+			break;	
+
 		default:
 			this.body = yield render('index/index', {user : this.session.customer, render_html : '../empty.ejs'});
 	}
