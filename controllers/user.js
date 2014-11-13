@@ -69,7 +69,7 @@ exports.login = function* (){
 	console.log(this.request);
 	var password = yield customer.get_password_by_email(this.request.body.email);
 	if (password == null) {
-		console.log('No such user'); 
+		this.body = yield render('index/error', {error : "login failed"});
 	} else if (password === this.request.body.password) {
 		console.log('Login Successfully');
 		var current_customer = yield db.get_customer_by_email(this.request.body.email);
