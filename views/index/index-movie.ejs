@@ -47,7 +47,6 @@ $(function () {
 		});
 
 		$(".book-ticket").click(function() {
-			alert('a');
 			//	Hide the movie management page
 			$(".onshow-movie").hide();
 
@@ -58,7 +57,6 @@ $(function () {
 						$("#bmovie").val(movie.title);
 					});
 					$.post('/ajax/get_shows_option', {}, function(data) {
-						alert(data);
 						var d = JSON.parse(data);
 						// $("#shows-option").html(d.body);
 						$("#shows-option").html(d.body);
