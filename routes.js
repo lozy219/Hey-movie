@@ -18,6 +18,7 @@ module.exports = function routes(app) {
 	app.get('/logout', user.logout);
 	app.get('/profile', user.show_profile);
 	app.get('/ranking', user.show_ranking);
+	app.get('/ticket', user.show_ticket);
 	app.get('/profile/edit', user.show_profile_edit);
 	app.get('/movie', movie.show_movie);
 	app.post('/movie/book', movie.book);

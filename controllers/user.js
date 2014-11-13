@@ -8,7 +8,8 @@ var views    = require('co-views');
 var mysql    = require('co-mysql');
 var customer = require('../modles/customer.js');
 var movie 	 = require('../modles/movie.js');
-var error 	 = require('../modles/error.js')
+var error 	 = require('../modles/error.js');
+var ticket    = require('../modles/ticket.js');
 var db       = require('../modles/db.js');
 var config   = require('../config.js');
 
@@ -123,3 +124,10 @@ exports.advanced_search_movie = function* (){
 	this.session.index_mode = "show_advanced_search_result";
 	this.response.redirect('/');
 }
+
+exports.show_ticket = function* (){
+	var all_ticket                = yield ticket.get_all_ticket();
+	this.session.user_all_ticket = all_ticket;
+	this.session.index_mode         = "user_show_ticket";
+	this.response.redirect('/');
+};
