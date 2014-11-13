@@ -1,16 +1,14 @@
-<%= include index-header.ejs %>
-<div class="content-wrapper-form">
-  <div class="content">
+  <div class="content edit-profile" style="display : none; margin-top:10%; margin-bottom:20%">
     <form action="/profile/edit" method="POST" class="pure-form pure-form-single" id="profile-edit">
       <fieldset>
         <div class="profile-edit-display">
          <br></br>
          <p class="profile-form-header">Hey <%= user.name + '!!!' %></p>
          <% 
-         if (user.contact === null) { 
+         if (user.contact.length === 0) { 
           %><input class="profile-edit-input" name="contact" type="text" placeholder="User Contact"><% 
         } else {
-          %><input class="profile-edit-input" name="contact" type="text" placeholder=<%=user.contact%> value=<%=user.contact%>><%
+          %><input class="profile-edit-input" name="contact" type="text" placeholder="<%=user.contact%>" value="<%=user.contact%>"><%
         }%>
          <script>
             $(function() {          
@@ -32,11 +30,7 @@
         <input name="email" type="hidden" value=<%=user.email%>>
       </div><br></br>
       
-      <button type="submit" class="pure-button pure-button-primary" style="text-decoration : none; color : #000000;">Edit Profile</a></button>
+      <button type="submit" class="pure-button pure-button-primary">Edit Profile</a></button>
       
     </fieldset>
   </form>
-
-</div>
-</div>
-<%= include index-footer.ejs %>

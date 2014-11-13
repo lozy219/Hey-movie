@@ -30,7 +30,8 @@ exports.show_signup = function* (){
 };
 
 exports.show_profile = function* (){
-	this.body = yield render('index/profile', {user : this.session.customer});
+	this.session.index_mode = "show_profile";
+	this.response.redirect('/');
 };
 
 exports.show_profile_edit = function* (){
