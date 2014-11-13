@@ -239,15 +239,19 @@ exports.delete_operator = function* (){
 };
 
 //Ticket
+exports.store_selected_ticket = function* (){
+	this.session.stored_ticket = this.request.body.ticket_id;
+	this.body = this.request.body.ticket_id;
+};
+
 exports.get_selected_ticket = function* (){
 	var body = {};
 	body.ticket_id = this.session.stored_ticket;
-	console.log(body.ticket_id);
-	var ticket = yield db.get_ticket_by_ticket_id(body.ticket_id);
-	body.title = ticket[0].title;
-	body.theatre = ticket[0].theatre;
-	body.customer_name = ticket[0].customer_name;
-	body.seat = ticket[0].seat;
+	var ticket = yield db.get_all_ticket_by_id(body.ticket_id);
+	body.title = ticket[0].movie_title;
+	body.theatre = ticket[0].theatre_name;
+	body.customer_name = ticket[0].name;
+	body.seat = ticket[0].seat_no;
 	this.body = JSON.stringify(body);
 };
 
@@ -255,6 +259,16 @@ exports.show_ticket = function* (){
 	var all_ticket                = yield ticket.get_all_ticket();
 	this.session.admin_all_ticket = all_ticket;
 	this.session.admin_mode         = "show_ticket";
+	this.response.redirect('/admin');
+};
+
+exports.delete_ticket = function* (){
+	var result = yield ticket.delete(this.request.querystring);
+	if (result == false){
+		console.log('delete failed');
+	} else {
+		console.log('delete successfully');
+	}
 	this.response.redirect('/admin');
 };
 
