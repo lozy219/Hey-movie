@@ -33,11 +33,20 @@ $(function () {
 				<tr class="pure-table-odd" style="font-size: 12px">
 				<td><%= all_ticket[i].movie_title  %></td>
 					<td><%= all_ticket[i].theatre_name %></td>
-					<td><%= all_ticket[i].start_time %></td>
-					<td><%= all_ticket[i].end_time %></td>
+					<%  var t = all_ticket[i].start_time.split(/[- :]/);
+               			 var k = t[2].split(/[T]/);
+               			 var start_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+					<td><%= start_time %></td>
+					<%  var t = all_ticket[i].end_time.split(/[- :]/);
+               			 var k = t[2].split(/[T]/);
+               			 var end_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+					<td><%= end_time %></td>
 					<td><%= all_ticket[i].name %></td>
 					<td><%= all_ticket[i].seat_no %></td>
-					<td><%= all_ticket[i].booking_time %></td>
+					<%  var t = all_ticket[i].booking_time.split(/[- :]/);
+               			 var k = t[2].split(/[T]/);
+               			 var booking_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+					<td><%= booking_time %></td>
 					<td>
 
 						<span id="update-movie"><a class="pure-button" id="<%= all_ticket[i].movie_id %>" href="">Update</a></span>						
@@ -48,11 +57,20 @@ $(function () {
 				<tr style="font-size: 12px">
 					<td><%= all_ticket[i].movie_title  %></td>
 					<td><%= all_ticket[i].theatre_name %></td>
-					<td><%= all_ticket[i].start_time %></td>
-					<td><%= all_ticket[i].end_time %></td>
+					<%  var t = all_ticket[i].start_time.split(/[- :]/);
+               			 var k = t[2].split(/[T]/);
+               			 var start_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+					<td><%= start_time %></td>
+					<%  var t = all_ticket[i].end_time.split(/[- :]/);
+               			 var k = t[2].split(/[T]/);
+               			 var end_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+					<td><%= end_time %></td>
 					<td><%= all_ticket[i].name %></td>
 					<td><%= all_ticket[i].seat_no %></td>
-					<td><%= all_ticket[i].booking_time %></td>
+					<%  var t = all_ticket[i].booking_time.split(/[- :]/);
+               			 var k = t[2].split(/[T]/);
+               			 var booking_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+					<td><%= booking_time %></td>
 					<td>
 
 						<span id="update-movie"><a class="pure-button" id="<%= all_ticket[i].movie_id %>" href="">Update</a></span>	
