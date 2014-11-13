@@ -20,6 +20,7 @@ module.exports = function routes(app) {
 	app.get('/ranking', user.show_ranking);
 	app.get('/profile/edit', user.show_profile_edit);
 	app.get('/movie', movie.show_movie);
+	app.post('/movie/book', movie.book);
 
 	app.post('/user/signup', user.signup);
 	app.post('/user/login', user.login);
