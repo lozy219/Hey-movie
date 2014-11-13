@@ -35,17 +35,20 @@ $(function () {
 					<td><%= all_ticket[i].theatre_name %></td>
 					<%  var t = all_ticket[i].start_time.split(/[- :]/);
                			 var k = t[2].split(/[T]/);
-               			 var start_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+               			 var j = t[4].split(/[.]/);
+               			 var start_time = t[0] + "-" + t[1] + "-" + k[0] + " " + k[1] + ":" + t[3] + ":" + j[0]; %>
 					<td><%= start_time %></td>
 					<%  var t = all_ticket[i].end_time.split(/[- :]/);
                			 var k = t[2].split(/[T]/);
-               			 var end_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+               			 var j = t[4].split(/[.]/);
+               			 var end_time = t[0] + "-" + t[1] + "-" + k[0] + " " + k[1] + ":" + t[3] + ":" + j[0]; %>
 					<td><%= end_time %></td>
 					<td><%= all_ticket[i].name %></td>
 					<td><%= all_ticket[i].seat_no %></td>
 					<%  var t = all_ticket[i].booking_time.split(/[- :]/);
                			 var k = t[2].split(/[T]/);
-               			 var booking_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+               			 var j = t[4].split(/[.]/);
+               			 var booking_time = t[0] + "-" + t[1] + "-" + k[0] + " " + k[1] + ":" + t[3] + ":" + j[0]; %>
 					<td><%= booking_time %></td>
 					<td>
 
@@ -59,17 +62,20 @@ $(function () {
 					<td><%= all_ticket[i].theatre_name %></td>
 					<%  var t = all_ticket[i].start_time.split(/[- :]/);
                			 var k = t[2].split(/[T]/);
-               			 var start_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+               			 var j = t[4].split(/[.]/);
+               			 var start_time = t[0] + "-" + t[1] + "-" + k[0] + " " + k[1] + ":" + t[3] + ":" + j[0]; %>
 					<td><%= start_time %></td>
 					<%  var t = all_ticket[i].end_time.split(/[- :]/);
                			 var k = t[2].split(/[T]/);
-               			 var end_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+               			 var j = t[4].split(/[.]/);
+               			 var end_time = t[0] + "-" + t[1] + "-" + k[0] + " " + k[1] + ":" + t[3] + ":" + j[0]; %>
 					<td><%= end_time %></td>
 					<td><%= all_ticket[i].name %></td>
 					<td><%= all_ticket[i].seat_no %></td>
 					<%  var t = all_ticket[i].booking_time.split(/[- :]/);
                			 var k = t[2].split(/[T]/);
-               			 var booking_time = t[0] + "-" + t[1] + "-" + k[0]; %>
+               			 var j = t[4].split(/[.]/);
+               			 var booking_time = t[0] + "-" + t[1] + "-" + k[0] + " " + k[1] + ":" + t[3] + ":" + j[0]; %>
 					<td><%= booking_time %></td>
 					<td>
 

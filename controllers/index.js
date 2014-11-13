@@ -63,6 +63,11 @@ module.exports = function* home(next) {
 			this.body = yield render('index/index', {user : this.session.customer, all_ticket : this.session.user_all_ticket, render_html : 'index-ticket.ejs'});
 			break;	
 
+		case "show_error":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, error : this.session.error, render_html : 'error.ejs'});
+			break;	
+
 		default:
 			this.body = yield render('index/index', {user : this.session.customer, render_html : '../empty.ejs'});
 	}
