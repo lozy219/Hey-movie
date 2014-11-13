@@ -128,7 +128,7 @@ CREATE TABLE ticket (
 INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length, 
 	genre, year, title, showing_status, poster_link) 
 VALUES("http://www.imdb.com/title/tt0120338/?ref_=nv_sr_1", 
-	7.7, "English", 194, "Drama", "1997", "Titanic", null, 
+	7.7, "English", 194, "Drama", "1997", "Titanic", "off show", 
 	"http://ildisoccupatoillustre.files.wordpress.com/2014/02/titanic-locandina-film.jpg");
 
 INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length, 
@@ -166,3 +166,17 @@ INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length,
 VALUES("http://www.imdb.com/title/tt2713180/?ref_=inth_ov_tt", 
 	8.1, "English", 134, "Action", "2014", "Fury", "on show", 
 	"http://www.thehollywoodnews.com/wp-content/uploads/Fury-2-300.jpg");
+
+INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length, 
+	genre, year, title, showing_status, poster_link) 
+VALUES("http://www.imdb.com/title/tt2387413/", 
+	1.4, "English", 90, "Action", "2013", "Captain Battle: Legacy War", "off show", 
+	"http://iscfc.files.wordpress.com/2013/12/captain-battle-legacy-war-01.jpg");
+
+INSERT INTO MOVIE(IMDB_link, IMDB_rating, language, length, 
+	genre, year, title, showing_status, poster_link) 
+VALUES("http://www.imdb.com/title/tt1745868/", 
+	1.7, "French", 95, "Drama", "2011", "Wages of Sin", "off show", 
+	"http://ia.media-imdb.com/images/M/MV5BMTgwMDAwMTE4Ml5BMl5BanBnXkFtZTcwMzI3Nzk3NQ@@._V1_SX214_AL_.jpg");
+
+

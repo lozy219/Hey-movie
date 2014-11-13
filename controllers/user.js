@@ -101,7 +101,9 @@ exports.profile = function* (){
 exports.profile_edit = function* (){
 	var result = yield customer.edit_profile(this.request.body);
 	if (result == false){
-		console.log('update profile failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Update failed";
+		this.response.redirect('/');
 	} else {
 		var current_customer = yield db.get_customer_by_email(this.request.body.email);
 		this.session.customer = current_customer[0];

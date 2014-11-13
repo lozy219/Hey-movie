@@ -1,0 +1,17 @@
+<script>
+//Automatically scroll to bottom
+$(function () {
+         $("html, body").animate({ scrollTop:  $(document).height()-$(window).height() }, 1800);
+         return false; 
+});
+</script>
+
+<div class="content-wrapper">
+	<div class="content-wrapper-form">
+    	<div class="content">
+
+		<% var error_message = error; %><p class="error-display" style="margin-bottom: 10%"><%=error_message%> </p>
+
+		</div>
+	</div>
+</div>
