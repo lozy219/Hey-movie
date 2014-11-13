@@ -225,6 +225,16 @@ exports.show_ticket = function* (){
 	this.response.redirect('/admin');
 };
 
+exports.delete_ticket = function* (){
+	var result = yield ticket.delete(this.request.querystring);
+	if (result == false){
+		console.log('delete failed');
+	} else {
+		console.log('delete successfully');
+	}
+	this.response.redirect('/admin');
+};
+
 //Director-unused
 
 exports.show_director = function* (){

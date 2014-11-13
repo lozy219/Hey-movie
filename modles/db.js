@@ -222,10 +222,15 @@ exports.delete_operator_by_id = function* (id) {
 
 //Ticket
 exports.get_all_ticket = function* () {
-	var query = 'SELECT m.title AS movie_title, th.name AS theatre_name, s.start_time, s.end_time, c.name, t.seat_no, t.booking_time FROM ticket t, customer c, shows s, movie m, theatre th WHERE t.show_id = s.show_id AND s.movie_id = m.movie_id AND s.theatre_id = th.theatre_id AND t.customer_id = c.customer_id';
+	var query = 'SELECT ticket_id, m.title AS movie_title, th.name AS theatre_name, s.start_time, s.end_time, c.name, t.seat_no, t.booking_time FROM ticket t, customer c, shows s, movie m, theatre th WHERE t.show_id = s.show_id AND s.movie_id = m.movie_id AND s.theatre_id = th.theatre_id AND t.customer_id = c.customer_id';
 
-	console.log(yield pool.query(query));
 	return (yield pool.query(query))[0];
+};
+
+exports.delete_ticket_by_id = function* (id) {
+	var query = 'DELETE FROM ticket WHERE ticket_id=' + id;
+	// console.log(query);
+	return yield pool.query(query);
 };
 
 // // director
