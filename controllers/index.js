@@ -33,10 +33,15 @@ module.exports = function* home(next) {
 			this.body = yield render('index/index', {user : this.session.customer, all_shows : this.session.all_shows, all_theatre : this.session.admin_all_theatre, advanced_search_movie: this.session.advanced_search_movie, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
 			break;
 
+		case "show_profile":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, render_html : 'index-profile.ejs'});
+			break;
+
 		case "show_advanced_search_result":
 			this.session.index_mode = undefined;
 			this.body = yield render('index/index', {user : this.session.customer, all_shows : this.session.all_shows, all_theatre : this.session.admin_all_theatre, advanced_search_movie: this.session.advanced_search_movie, onshow_movie: this.session.movie_on_show, render_html : 'index-movie.ejs'});
-		break;
+			break;
 
 		case "show_login":
 			this.session.index_mode = undefined;
@@ -52,6 +57,16 @@ module.exports = function* home(next) {
 			this.session.index_mode = undefined;
 			this.body = yield render('index/index', {user : this.session.customer, ranking_movie: this.session.ranking_movie, onshow_movie: this.session.movie_on_show, render_html : 'index-ranking.ejs'});
 			break;
+
+		case "user_show_ticket":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, all_ticket : this.session.user_all_ticket, render_html : 'index-ticket.ejs'});
+			break;	
+
+		case "show_error":
+			this.session.index_mode = undefined;
+			this.body = yield render('index/index', {user : this.session.customer, error : this.session.error, render_html : 'error.ejs'});
+			break;	
 
 		default:
 			this.body = yield render('index/index', {user : this.session.customer, render_html : '../empty.ejs'});

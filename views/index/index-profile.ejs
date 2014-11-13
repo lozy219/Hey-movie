@@ -1,0 +1,28 @@
+<script>
+//Automatically scroll to bottom
+$(function () {
+   $("html, body").animate({ scrollTop:  $(document).height() }, 1800);
+   return false; 
+});
+</script>
+<script>
+$(document).ready(function(){
+        $("#edit-profile").click(function() {
+            //  Hide the movie management page
+            $(".view-profile").hide();
+
+            $(".edit-profile").fadeIn();
+
+            event.preventDefault();
+            //  At the end, we add return false so that the click on the link is not executed
+            return false;
+        });
+    });
+</script>
+
+
+<div class="content-wrapper">
+
+    <%= include index-profile-view.ejs %>
+    <%= include index-profile-edit.ejs %>
+</div>

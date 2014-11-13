@@ -8,7 +8,8 @@ var views    = require('co-views');
 var mysql    = require('co-mysql');
 var customer = require('../modles/customer.js');
 var movie 	 = require('../modles/movie.js');
-var error 	 = require('../modles/error.js')
+var error 	 = require('../modles/error.js');
+var ticket    = require('../modles/ticket.js');
 var db       = require('../modles/db.js');
 var config   = require('../config.js');
 
@@ -29,7 +30,8 @@ exports.show_signup = function* (){
 };
 
 exports.show_profile = function* (){
-	this.body = yield render('index/profile', {user : this.session.customer});
+	this.session.index_mode = "show_profile";
+	this.response.redirect('/');
 };
 
 exports.show_profile_edit = function* (){
@@ -46,9 +48,9 @@ exports.show_ranking = function* (){
 exports.signup = function* (){
 	var result = yield customer.insert(this.request.body);
 	if (result == false){
-		console.log('signup failed');
-		console.log(this.session);
-		this.body = yield render('index/error', {error : "signup failed"});
+		this.session.index_mode = "show_error";
+		this.session.error = "Signup failed";
+		this.response.redirect('/');
 	} else {
 		this.session.customer = (yield db.get_customer_by_email(this.request.body.email))[0];
 		if (config.admin_id.indexOf(this.session.customer.customer_id) !== -1) {
@@ -69,7 +71,9 @@ exports.login = function* (){
 	console.log(this.request);
 	var password = yield customer.get_password_by_email(this.request.body.email);
 	if (password == null) {
-		this.body = yield render('index/error', {error : "login failed"});
+		this.session.index_mode = "show_error";
+		this.session.error = "Login failed";
+		this.response.redirect('/');
 	} else if (password === this.request.body.password) {
 		console.log('Login Successfully');
 		var current_customer = yield db.get_customer_by_email(this.request.body.email);
@@ -84,7 +88,9 @@ exports.login = function* (){
 		this.session.customer = current_customer;
 		this.response.redirect('/');
 	} else {
-		console.log('Password is incorrect');
+		this.session.index_mode = "show_error";
+		this.session.error = "Login failed";
+		this.response.redirect('/');
 	}
 };
 
@@ -123,3 +129,10 @@ exports.advanced_search_movie = function* (){
 	this.session.index_mode = "show_advanced_search_result";
 	this.response.redirect('/');
 }
+
+exports.show_ticket = function* (){
+	var all_ticket                = yield ticket.get_all_ticket();
+	this.session.user_all_ticket = all_ticket;
+	this.session.index_mode         = "user_show_ticket";
+	this.response.redirect('/');
+};

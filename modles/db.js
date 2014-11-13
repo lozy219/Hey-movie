@@ -128,9 +128,14 @@ exports.get_movie_by_id = function* (id) {
 
 exports.delete_movie_by_id = function* (id) {
 	var query = 'DELETE FROM movie WHERE movie_id=' + id;
-	console.log(query);
+	// console.log(query);
 	return yield pool.query(query);
 };
+
+exports.get_seats_by_show_id = function* (id) {
+	var query = 'SELECT * FROM ticket WHERE show_id=' + id;
+	return yield pool.query(query);	
+}
 
 // show
 exports.add_show = function* (show) {

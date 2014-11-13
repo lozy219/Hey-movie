@@ -1,8 +1,7 @@
-<%= include index-header.ejs %>
-<div class="content-wrapper-form">
-    <div class="content">
+<div class="content-wrapper-form"> 
+<div class="content view-profile" style="margin-top:10%; margin-bottom:20%">
         <p class="profile-form-header">Hey <%= user.name + '!!!' %></p>
-        <form action="/user/profile" method="POST" class="pure-form pure-form-single">
+        <form class="pure-form pure-form-single">
             <fieldset>
 
             <div class='profile-display'>
@@ -33,11 +32,9 @@
         		} %></li>
         	</div><br></br>
 
-        	<button type="submit" class="pure-button pure-button-primary"><a href="/profile/edit" style="text-decoration : none; color : #000000;">Edit Profile</a></button>
+        	<button type="submit" id="edit-profile" class="pure-button pure-button-primary">Edit Profile</button>
                 
             </fieldset>
         </form>
 
     </div>
-</div>
-<%= include index-footer.ejs %>
