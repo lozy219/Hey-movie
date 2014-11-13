@@ -53,6 +53,7 @@ module.exports = function routes(app) {
 	app.get('/admin/movie/delete_ticket', admin.delete_ticket);
 	app.post('/admin/director/add_director', admin.add_director);
 	app.get('/admin/director/delete_director', admin.delete_director);
+	app.post('/admin/ticket/update_ticket', admin.update_ticket);
 
 	app.get('/admin/actor', admin.show_actor);
 

@@ -1,0 +1,25 @@
+<script>
+	$(document).ready(function(){
+		$.post('/ajax/get_selected_ticket', {'ticket_id':$(this).attr('id')}, function(data) {
+			var ticket = JSON.parse(data);
+			$("#tid").val(ticket.ticket_id);
+      $("#ttitle").val(ticket.title);
+      $("#ttheatre").val(ticket.theatre);
+      $("#tcustomer_name").val(ticket.customer_name);
+      $("#tseat").val(ticket.seat);
+		});
+	}); 
+</script>
+<div class="content update-ticket" style="display : none">
+	<h2 class="content-head is-center" style="margin-top: 5%; margin-bottom: 5%">Update Ticket</h2>
+    <form action="/admin/ticket/update_ticket" method="post" class="pure-form pure-form-single" style="margin-top: 5%; margin-left: 0.5%;">
+    <input name="id" type="hidden" id="tid">
+    <input name="title" type="text" disabled="disabled" id="ttitle" placeholder="Movie Title " >
+    <input name="theatre" type="text" disabled="disabled" id="ttheatre" placeholder="Theatre">
+    <input name="customer_name" type="text" disabled="disabled" id="tcustomer_name" placeholder="Customer Name">
+    <input name="seat" type="text" id="tseat" placeholder="Seat">
+    <br /><br /><br />
+    <button type="submit" class="pure-button pure-button-primary" style="margin-bottom: 10%">Update Ticket</button>
+  </form>
+  <br /><br /><br />
+</div>
