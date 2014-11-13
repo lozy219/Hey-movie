@@ -149,6 +149,22 @@ exports.get_all_ongoing_shows = function* () {
 	return result[0];
 };
 
+exports.add_booking = function* (booking) {
+	console.log(booking);
+	var seat_string = booking.seat;
+	var seat = seat_string.split(',');
+	if (seat.length !== 0) {
+		for (var i = 0; i < seat.length - 1; i ++) {
+			var query = 'INSERT INTO ticket (customer_id, booking_time, seat_no, show_id) VALUES (' +
+						booking.user_id + ', NOW(), "' +
+						seat[i] + '",' +
+						booking.show + ');';
+			console.log(query);
+			yield pool.query(query);
+		}
+	}
+	return true;
+}
 // theatre
 exports.add_theatre = function* (theatre) {
 	var query = 'INSERT INTO theatre (name, location, postal_code, contact, operator_id) VALUES ("' +

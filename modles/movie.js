@@ -55,8 +55,15 @@ exports.insert = function* (movie) {
 
 exports.delete = function* (id) {
 	var result = yield db.delete_movie_by_id(id);
+	return result;
 };
 
 exports.update = function* (movie) {
 	var result = yield db.update_movie(movie);
+	return result;
 };
+
+exports.add_booking = function* (booking) {
+	var result = yield db.add_booking(booking);
+	return result;
+}

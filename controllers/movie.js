@@ -34,3 +34,13 @@ exports.homepage_movie_search = function* (){
 	this.session.index_mode     = "search_movie";
 	this.response.redirect('/');
 };
+
+exports.book = function* (){
+	var result = yield movie.add_booking(this.request.body);
+	if (result) {
+		console.log("Booking successfully");
+	} else {
+		console.log("Booking failed");
+	}
+	this.response.redirect('/');
+}
