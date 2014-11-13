@@ -53,6 +53,11 @@ exports.show = function* (){
 			this.body = yield render('admin/admin', {user : this.session.customer, all_actor : this.session.admin_all_actor, render_html : 'admin-actor.ejs'});
 			break;
 
+		case "admin_show_error":
+			this.session.index_mode = undefined;
+			this.body = yield render('admin/admin', {user : this.session.customer, error : this.session.error, render_html : 'error.ejs'});
+			break;	
+
 		default:
 			this.body = yield render('admin/admin', {user : this.session.customer, render_html : '../empty.ejs'});
 	}
@@ -101,7 +106,9 @@ exports.show_movie = function* (){
 exports.add_movie = function* (){
 	var result = yield movie.insert(this.request.body);
 	if (result == false){
-		console.log('add failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Add movie failed";
+		this.response.redirect('/');
 	} else {
 		console.log('add successfully');
 	}
@@ -110,8 +117,10 @@ exports.add_movie = function* (){
 
 exports.delete_movie = function* (){
 	var result = yield movie.delete(this.request.querystring);
-	if (result == false){
-		console.log('delete failed');
+	if (result == "error"){
+		this.session.admin_mode = "admin_show_error";
+		this.session.error = "delete failed";
+		this.response.redirect('/');
 	} else {
 		console.log('delete successfully');
 	}
@@ -121,7 +130,9 @@ exports.delete_movie = function* (){
 exports.update_movie = function* (){
 	var result = yield movie.update(this.request.body);
 	if (result == false){
-		console.log('update failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Update failed";
+		this.response.redirect('/');
 	} else {
 		console.log('update successfully');
 	}
@@ -131,7 +142,9 @@ exports.update_movie = function* (){
 exports.add_show = function* (){
 	var result = yield show.insert(this.request.body);
 	if (result == false){
-		console.log('add failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Add show failed";
+		this.response.redirect('/');
 	} else {
 		console.log('add successfully');
 	}
@@ -172,7 +185,9 @@ exports.show_theatre = function* (){
 exports.add_theatre = function* (){
 	var result = yield theatre.insert(this.request.body);
 	if (result == false) {
-		console.log('add failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Add theatre failed";
+		this.response.redirect('/');
 	} else {
 		console.log('add successfully');
 	}
@@ -182,7 +197,9 @@ exports.add_theatre = function* (){
 exports.delete_theatre = function* (){
 	var result = yield theatre.delete(this.request.querystring);
 	if (result == false) {
-		console.log('delete failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Delete failed";
+		this.response.redirect('/');
 	} else {
 		console.log('delete successfully');
 	}
@@ -200,7 +217,9 @@ exports.show_operator = function* (){
 exports.add_operator = function* (){
 	var result = yield operator.insert(this.request.body);
 	if (result == false) {
-		console.log('add failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Add operator failed";
+		this.response.redirect('/');
 	} else {
 		console.log('add successfully');
 	}
@@ -210,7 +229,9 @@ exports.add_operator = function* (){
 exports.delete_operator = function* (){
 	var result = yield operator.delete(this.request.querystring);
 	if (result == false){
-		console.log('delete failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Delete failed";
+		this.response.redirect('/');
 	} else {
 		console.log('delete successfully');
 	}
@@ -240,7 +261,9 @@ exports.show_ticket = function* (){
 exports.update_ticket = function* (){
 	var result = yield ticket.update(this.request.body);
 	if (result == false){
-		console.log('update failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Update failed";
+		this.response.redirect('/');
 	} else {
 		console.log('update successfully');
 	}
@@ -259,7 +282,9 @@ exports.show_director = function* (){
 exports.add_director = function* (){
 	var result = yield director.insert(this.request.body);
 	if (result == false){
-		console.log('add failed');
+		this.session.index_mode = "show_error";
+		this.session.error = "Add director failed";
+		this.response.redirect('/');
 	} else {
 		console.log('add successfully');
 	}

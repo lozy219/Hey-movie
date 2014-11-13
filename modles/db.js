@@ -127,9 +127,13 @@ exports.get_movie_by_id = function* (id) {
 };
 
 exports.delete_movie_by_id = function* (id) {
+	var query = 'SELECT * FROM ticket t, shows s WHERE movie_id=' + id + ' AND t.show_id=s.show_id';
+	if((yield pool.query(query))[0].length >= 1) return "error";
+	else{
 	var query = 'DELETE FROM movie WHERE movie_id=' + id;
 	// console.log(query);
 	return yield pool.query(query);
+	}	
 };
 
 exports.get_seats_by_show_id = function* (id) {
