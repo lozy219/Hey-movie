@@ -248,10 +248,15 @@ exports.delete_ticket_by_id = function* (id) {
 	return yield pool.query(query);
 };
 
+exports.get_ticket_by_seat = function* (seat) {
+	var query = 'SELECT * FROM ticket WHERE seat_no="' + seat + '"';
+	// console.log(query);
+	return yield pool.query(query);
+};
+
 exports.update_ticket = function* (info) {
-	var query = 'UPDATE ticket SET seat="' + info.seat + 
-	'" WHERE ricket_id="' + info.id + '"';
-	console.log(query);
+	var query = 'UPDATE ticket SET seat_no="' + info.seat + 
+	'" WHERE ticket_id=' + info.id;
 	return yield pool.query(query);
 };
 // // director

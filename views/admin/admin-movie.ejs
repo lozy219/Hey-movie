@@ -50,6 +50,16 @@ $(function () {
 								var movie = JSON.parse(data);
 								$("#movie_id").val(movie.movie_id);
 								$("#movie").val(movie.title);
+								$("#umovie_id").val(movie.movie_id);
+								$("#utitle").val(movie.title);
+								$("#ulength").val(movie.length);
+								$("#ulanguage").val(movie.language);
+								$("#ugenre").val(movie.genre);
+								$("#uyear").val(movie.year);
+								$("#ustatus").val(movie.status);
+								$("#uIMDB_rating").val(movie.IMDB_rating);
+								$("#uIMDB_link").val(movie.IMDB_link);
+								$("#uposter_link").val(movie.poster_link);
 							});
 					});
 

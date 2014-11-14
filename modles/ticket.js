@@ -12,6 +12,13 @@ exports.delete = function* (id) {
 };
 
 exports.update = function* (ticket) {
-	var result = yield db.update_ticket(ticket);
-	return result;
+	var seat = ticket.seat;
+	var a = yield db.get_ticket_by_seat(seat);
+	console.log(a);
+	if (a[0].length !== 0) {
+		return false;
+	} else {
+		var result = yield db.update_ticket(ticket);
+		return result;
+	}
 };

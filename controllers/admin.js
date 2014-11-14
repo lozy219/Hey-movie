@@ -54,7 +54,7 @@ exports.show = function* (){
 			break;
 
 		case "admin_show_error":
-			this.session.index_mode = undefined;
+			this.session.admin_mode = undefined;
 			this.body = yield render('admin/admin', {user : this.session.customer, error : this.session.error, render_html : 'error.ejs'});
 			break;	
 
@@ -98,6 +98,7 @@ exports.get_selected_seat = function* (){
 
 exports.show_movie = function* (){
 	var all_movie                  = yield movie.get_all_movie();
+	this.session.admin_all_theatre = db.get_all_theatre();
 	this.session.admin_all_movie   = all_movie;
 	this.session.admin_mode        = "show_movie";
 	this.response.redirect('/admin');
@@ -275,9 +276,9 @@ exports.delete_ticket = function* (){
 exports.update_ticket = function* (){
 	var result = yield ticket.update(this.request.body);
 	if (result == false){
-		this.session.index_mode = "show_error";
+		this.session.admin_mode = "admin_show_error";
 		this.session.error = "Update failed";
-		this.response.redirect('/');
+		this.response.redirect('/admin');
 	} else {
 		console.log('update successfully');
 	}
